@@ -1,4 +1,7 @@
+import re
+import time
 import json
+import random
 from enum import Enum
 from datetime import datetime
 
@@ -12,6 +15,8 @@ from scraping.abstract.otodom_scraper import OtodomScraper
 from scraping.otodom.otodom_lot_scraper import OtodomLotScraper
 from scraping.otodom.otodom_house_scraper import OtodomHouseScraper
 from scraping.otodom.otodom_apartment_scraper import OtodomApartmentScraper
+
+from scraping.utils.general import generate_scraper_name
 
 
 class FiltersPath(Enum):
@@ -84,15 +89,40 @@ class OtodomOrchestrator:
 
         return offers_urls
 
+    def scrape_cached_urls(self,
+                           cache_pattern: str,
+                           clear_cache: bool = True,
+                           avg_sleep_time: int = 1):
+        all_keys = list(self.scraper.redis_db.scan_iter())
+        matching_keys = [key
+                         for key in all_keys
+                         if re.match(cache_pattern, key.decode())]
+
+        all_offers = []
+        for key in matching_keys:
+            urls_package = self.scraper.read_cache(key, from_json=True)
+            for url in urls_package[:2]:  # TODO [:2]
+                offer_data_model = self.scraper.scrape_offer_from_url(url)
+
+                sleep_time = random.normalvariate(avg_sleep_time,
+                                                  avg_sleep_time**0.5)
+                time.sleep(sleep_time)
+
+                all_offers.append(offer_data_model)
+
+            if clear_cache:
+                self.scraper.clear_cache(key)
+
+        return all_offers
+
 
 if __name__ == "__main__":
     property_type = "LOTS"
-    scraper_name = datetime.now().strftime("%y%m%d-%H%M") + "_" + property_type
+    scraper_name = generate_scraper_name(property_type)
 
     orchestrator = OtodomOrchestrator(property_type, scraper_name)
-    _ = orchestrator.search_offers_urls()
 
-    data = orchestrator.scraper.read_cache("230625-1701_LOTS",
-                                           from_json=True)
-    print(len(data))
-    print(data)
+    offers = orchestrator.scrape_cached_urls(r"\d*-16.*",
+                                             clear_cache=False,
+                                             avg_sleep_time=5)
+    print(offers)

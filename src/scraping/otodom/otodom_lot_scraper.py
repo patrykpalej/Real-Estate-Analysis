@@ -27,7 +27,7 @@ class OtodomLotScraper(OtodomScraper):
         """
         offer_json = self.get_raw_offer_data_from_offer_soup(offer_soup)
 
-        if offer_json["target"].get(["Country"]) != "Polska":
+        if offer_json["target"].get("Country") != "Polska":
             return None
         if offer_json["target"].get("OfferType") != "sprzedaz":
             return None
