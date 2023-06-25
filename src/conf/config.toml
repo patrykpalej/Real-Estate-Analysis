@@ -1,0 +1,10 @@
+[general]
+name = "Real Estate Analysis"
+version = "1.0"
+
+
+[redis]
+host = "127.0.0.1"
+port = 6379
+db = 2
+
