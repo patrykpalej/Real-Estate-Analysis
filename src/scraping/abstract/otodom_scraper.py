@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 from scraping.abstract.property_scraper import PropertyScraper
 from scraping import Services
-from scraping.otodom import OtodomSearchParams
+from data.models.otodom import OtodomOffer
 
 
 class OtodomScraper(PropertyScraper, ABC):
@@ -21,18 +21,27 @@ class OtodomScraper(PropertyScraper, ABC):
     def parse_offer_soup(self, offer_soup: BeautifulSoup):
         raise NotImplementedError
 
-    def get_offers_urls_from_search_soup(
-            self, search_soup: BeautifulSoup, n_pages=None) -> list[str]:
-        all_scripts = search_soup.find_all("script",
-                                           {"type": "application/json"})
-        offers_script_idx = 0
+    def get_offers_urls_from_single_search_page(
+            self, search_page_soup: BeautifulSoup) -> list[str]:
+        """
+        Scrapes a single page of search results and returns offers urls
+
+        Args:
+            search_page_soup (BeautifulSoup): bs4 soup of a single search page
+
+        Returns:
+            (list[str]): list of urls found on the search page
+        """
+        all_scripts = search_page_soup.find_all("script",
+                                                {"type": "application/json"})
         try:
+            offers_script_idx = 0
             offers_json = json.loads(all_scripts[offers_script_idx].text)
         except json.decoder.JSONDecodeError:
             # TODO: warning - no offers found
             return []
         offers_list = (offers_json["props"]["pageProps"]["data"]
-                       ["searchAds"]["items"])
+                                  ["searchAds"]["items"])
         offers_slugs = [offer["slug"] for offer in offers_list]
         offers_urls = [self.OFFER_BASE_URL + slug for slug in offers_slugs]
 
@@ -40,32 +49,59 @@ class OtodomScraper(PropertyScraper, ABC):
         return offers_urls
 
     @staticmethod
-    def get_offer_data_from_offer_soup(offer_soup: BeautifulSoup) -> dict:
+    def get_raw_offer_data_from_offer_soup(offer_soup: BeautifulSoup) -> dict:
+        """
+        Takes a soup of a single offer page and returns raw offer data (JSON)
+        """
         offer_data = offer_soup.find("script", {"id": "__NEXT_DATA__"}).text
         offer_full_json = json.loads(offer_data)
         offer_json = offer_full_json["props"]["pageProps"]["ad"]
         return offer_json
 
     def list_offers_urls_from_search_params(
-            self, search_params: dict) -> list[str]:
-        random_headers = self.generate_headers()
-        search_url = urljoin(self.BASE_URL, self.SUB_URL)
+            self, search_params: dict, n_pages: int) -> list[str]:
+        """
+        Based on complete dict of search filters (default and custom)
+        and `n_pages` to scrape returns a list of urls from all those pages.
 
-        search_response = self.request_http_get(search_url,
-                                                headers=random_headers,
-                                                params=search_params)
-        search_soup = self.make_soup(search_response)
-        urls_list = self.get_offers_urls_from_search_soup(search_soup)
+        Args:
+            search_params (dict): default and custom filters
+            n_pages (int): number of pages to search
 
-        return urls_list
+        Returns:
+            (list[str]): list of urls to offers from all N pages
+        """
+        all_urls_list = []
 
-    def scrape_offer_from_url(self, url: str) -> str:
-        random_headers = self.generate_headers()
+        for page_number in range(n_pages):
+            page_number += 1
+            random_headers = self.generate_headers()
+            search_url = urljoin(self.BASE_URL, self.SUB_URL)
+            search_params.update({"page": page_number})
+
+            search_response = self.request_http_get(search_url,
+                                                    headers=random_headers,
+                                                    params=search_params)
+            search_soup = self.make_soup(search_response)
+            page_urls_list = self.get_offers_urls_from_single_search_page(
+                search_soup)
+
+            all_urls_list.extend(page_urls_list)
+
+            if not page_urls_list:
+                break
+
+        return all_urls_list
+
+    def scrape_offer_from_url(self, url: str) -> OtodomOffer:
+        """
+        Takes a URL to an offer and returns a data model for that offer
+        """
         response = self.request_http_get(url,
-                                         headers=random_headers)
+                                         headers=self.generate_headers())
         offer_soup = self.make_soup(response)
-        offer_data = self.parse_offer_soup(offer_soup)
-        return offer_data
+        offer_data_model = self.parse_offer_soup(offer_soup)
+        return offer_data_model
 
 
 if __name__ == "__main__":

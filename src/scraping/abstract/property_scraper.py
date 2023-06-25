@@ -22,10 +22,10 @@ class PropertyScraper(ABC):
         self.redis_db = redis.Redis(host=host, port=port, db=db)
 
     def __repr__(self):
-        return self
+        return f"Scraper: {self.name}"
 
     def __str__(self):
-        return self
+        return f"Scraper: {self.name}"
 
     @abstractmethod
     def parse_offer_soup(self, offer_soup: BeautifulSoup):
@@ -33,13 +33,19 @@ class PropertyScraper(ABC):
 
     @staticmethod
     def generate_headers():
+        """
+        Generates random headers which are stored in configuration file
+        """
         return generate_random_headers()
 
     @staticmethod
     def request_http_get(url: str,
                          headers: dict = None,
                          params: dict = None) -> requests.Response:
-
+        """
+        Sends a get request under the given URL with headers (if exist)
+        and params (if exist). Returns the response.
+        """
         response = requests.get(url,
                                 headers=headers,
                                 params=params)
@@ -50,6 +56,10 @@ class PropertyScraper(ABC):
         return BeautifulSoup(http_response.text, 'html.parser')
 
     def cache_data(self, key: str, data: str | list[str]):
+        """
+        Puts data to cache under the given key.
+        If list, dict or tuple, first json.dumps() it
+        """
         if isinstance(data, (str, int, float)):
             self.redis_db.set(key, data)
         elif isinstance(data, (list, dict, tuple)):
@@ -58,9 +68,19 @@ class PropertyScraper(ABC):
             # TODO: warning
             pass
 
-    def uncache_data(self, key: str, from_json: bool = False):
+    def read_cache(self, key: str, from_json: bool = False):
+        """
+        Reads from cache under a given key and returns the value.
+        If `from_json` then it json.loads() first.
+        """
         value = self.redis_db.get(key)
         if from_json:
             return json.loads(value)
         else:
             return value
+
+    def clear_cache(self, key: str) -> int:
+        """
+        Clears cache under a given key and returns if success
+        """
+        return self.redis_db.delete(key)

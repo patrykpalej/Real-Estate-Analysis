@@ -15,12 +15,21 @@ class OtodomLotScraper(OtodomScraper):
 
     def parse_offer_soup(
             self, offer_soup: BeautifulSoup) -> OtodomLotOffer | None:
+        """
+        Creates OtodomLotOffer instance (data model) from an offer soup
 
-        offer_json = self.get_offer_data_from_offer_soup(offer_soup)
+        Args:
+            offer_soup (BeautifulSoup): single offer soup
+
+        Returns:
+            (OtodomLotOffer): single offer data model or None if invalid offer
+
+        """
+        offer_json = self.get_raw_offer_data_from_offer_soup(offer_soup)
 
         if offer_json["target"].get(["Country"]) != "Polska":
             return None
-        if offer_json["target"]["OfferType"] != "sprzedaz":
+        if offer_json["target"].get("OfferType") != "sprzedaz":
             return None
 
         number_id = offer_json["id"]
@@ -75,14 +84,4 @@ class OtodomLotScraper(OtodomScraper):
 
 
 if __name__ == "__main__":
-    # ols = OtodomLotScraper("test")
-    #
-    # search_dict = {"ownerTypeSingleSelect": "ALL",
-    #                "viewType": "listing",
-    #                "limit": "72",
-    #                "page": "1"}
-    #
-    # urls_list = ols.list_offers_urls_from_search(search_dict)
-    # print(urls_list)
-    scraper = OtodomLotScraper("lala")
-    print(scraper.SERVICE_NAME)
+    pass
