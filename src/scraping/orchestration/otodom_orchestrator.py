@@ -1,99 +1,119 @@
 import re
-import time
 import json
-import random
-from enum import Enum
-from datetime import datetime
 
-from scraping.otodom import (OtodomSearchParams,
-                             OtodomLotSearchParams,
-                             OtodomHouseSearchParams,
-                             OtodomApartmentSearchParams)
-
-from scraping.abstract.otodom_scraper import OtodomScraper
-
-from scraping.otodom.otodom_lot_scraper import OtodomLotScraper
-from scraping.otodom.otodom_house_scraper import OtodomHouseScraper
-from scraping.otodom.otodom_apartment_scraper import OtodomApartmentScraper
-
+from scraping.utils.requesting import random_sleep
+from scraping.otodom import OtodomSearchParams
 from scraping.utils.general import generate_scraper_name
+from scraping.orchestration import (OtodomFiltersPath,
+                                    DomiportaFiltersPath,
+                                    OtodomSearchParamsSet,
+                                    DomiportaSearchParamsSet,
+                                    OtodomScrapers,
+                                    DomiportaScrapers)
+
+# from data.storage.otodom import OtodomStorageManager
 
 
-class FiltersPath(Enum):
-    LOTS: str = "scraping/search_filters/otodom/lot_filters.json"
-    HOUSES: str = "scraping/search_filters/otodom/house_filters.json"
-    APARTMENTS: str = "scraping/search_filters/otodom/apartment_filters.json"
+class ScrapingOrchestrator:
+    def __init__(self,
+                 service_name: str,
+                 property_type: str,
+                 scraper_name: str = None,
+                 mode: int = 0):
 
-
-class OtodomOrchestrator:
-    def __init__(self, property_type: str, scraper_name: str = None):
+        self.service_name = service_name
         self.property_type = property_type
+        self.scraper = self._get_scraper_class()(scraper_name, mode)
 
-        custom_filters_path = FiltersPath.__dict__[property_type].value
-        self.search_params, self.n_pages_to_scrape \
-            = self.parse_search_params(custom_filters_path)
+    def _get_scraper_class(self) -> type:
+        """
+        Returns a proper scraper class
+        """
+        match self.service_name:
+            case "OTODOM":
+                return OtodomScrapers.__dict__[self.property_type].value
+            case "DOMIPORTA":
+                return DomiportaScrapers.__dict__[self.property_type].value
+            case _:
+                # TODO: raise exception
+                raise Exception()
 
-        self.scraper = self.get_scraper(scraper_name)
-
-    def get_default_search_params(self) -> OtodomSearchParams:
+    def _get_default_search_params(self) -> OtodomSearchParams:
         """
         Returns a proper class with default search params
         based on property type
         """
-        match self.property_type:
-            case "LOTS":
-                return OtodomLotSearchParams()
-            case "HOUSES":
-                return OtodomHouseSearchParams()
-            case "APARTMENT":
-                return OtodomApartmentSearchParams()
+        match self.service_name:
+            case "OTODOM":
+                return OtodomSearchParamsSet.__dict__[self.property_type].value()
+            case "DOMIPORTA":
+                return DomiportaSearchParamsSet.__dict__[self.property_type].value()
+            case _:
+                raise Exception()
+                # TODO: raise error
 
-    def get_scraper(self, scraper_name: str) -> OtodomScraper:
+    def _get_custom_search_params(self) -> dict:
         """
-        Returns a proper scraper instance based on property type
+        Returns a dict with custom search parameters based on service name
+        and property
         """
-        match self.property_type:
-            case "LOTS":
-                return OtodomLotScraper(scraper_name)
-            case "HOUSES":
-                return OtodomHouseScraper(scraper_name)
-            case "APARTMENT":
-                return OtodomApartmentScraper(scraper_name)
+        match service_name:
+            case "OTODOM":
+                path = OtodomFiltersPath.__dict__[self.property_type].value
+            case "DOMIPORTA":
+                path = DomiportaFiltersPath.__dict__[self.property_type].value
+            case _:
+                path = None
+                # TODO: raise error
 
-    def parse_search_params(self, custom_filters_path: str) -> (dict, int):
+        with open(path, "r") as file:
+            custom_search_params = json.load(file)
+
+        return custom_search_params
+
+    @staticmethod
+    def _combine_search_params(default_search_params: OtodomSearchParams,
+                               custom_search_params: dict) -> (dict, int):
         """
         Combines default and custom search params (filters)
 
         Returns:
-            (dict): dict of search params
-            (int): number of pages to search (or -1 for all existing pages)
+            (dict): dict of search params / filters
+            (int): number of pages to search
         """
-        default_search_params = self.get_default_search_params()
-
-        with open(custom_filters_path, "r") as file:
-            custom_search_params = json.load(file)
-
         search_params_dict = default_search_params.to_dict()
         search_params_dict.update(custom_search_params["filters"])
 
         return search_params_dict, custom_search_params["n_pages"]
 
-    def search_offers_urls(self, cache: bool = True) -> list[str]:
+    def search_offers_urls(self, cache: bool = True,
+                           avg_sleep_time: int = 2) -> list[str]:
         """
         Searches for offers urls based on search params and saves urls to Redis
         """
+        default_search_params = self._get_default_search_params()
+        custom_search_params = self._get_custom_search_params()
+
+        all_search_params, n_pages_to_scrape = self._combine_search_params(
+            default_search_params, custom_search_params)
+
         offers_urls = self.scraper.list_offers_urls_from_search_params(
-            self.search_params, self.n_pages_to_scrape)
+            all_search_params, n_pages_to_scrape, avg_sleep_time)
+
         if cache:
-            self.scraper.cache_data(self.scraper.name, offers_urls)
+            cache_key_name = f"{self.scraper.name}_{len(offers_urls)}"
+            self.scraper.cache_data(cache_key_name, offers_urls)
 
         return offers_urls
 
     def scrape_cached_urls(self,
                            cache_pattern: str,
                            clear_cache: bool = True,
-                           avg_sleep_time: int = 1):
-        all_keys = list(self.scraper.redis_db.scan_iter())
+                           avg_sleep_time: int = 2):
+        """
+        Reads cached URLs based on a given pattern and scrapes them
+        """
+        all_keys = self.scraper.redis_db.scan_iter()
         matching_keys = [key
                          for key in all_keys
                          if re.match(cache_pattern, key.decode())]
@@ -102,27 +122,37 @@ class OtodomOrchestrator:
         for key in matching_keys:
             urls_package = self.scraper.read_cache(key, from_json=True)
             for url in urls_package[:2]:  # TODO [:2]
+                random_sleep(avg_sleep_time)
                 offer_data_model = self.scraper.scrape_offer_from_url(url)
-
-                sleep_time = random.normalvariate(avg_sleep_time,
-                                                  avg_sleep_time**0.5)
-                time.sleep(sleep_time)
-
                 all_offers.append(offer_data_model)
 
             if clear_cache:
                 self.scraper.clear_cache(key)
 
-        return all_offers
+        return matching_keys
+
+    def store_scraped_offers(self):
+        """
+        Stores scraped offers to one or many of databases
+        """
+        pass
 
 
 if __name__ == "__main__":
-    property_type = "LOTS"
-    scraper_name = generate_scraper_name(property_type)
+    # TODO: CLI - args: the following:
+    service_name = "OTODOM"  # OTODOM, DOMIPORTA
+    property_type = "LOTS"  # LOTS, HOUSES, APARTMENTS
+    job_type = "SEARCH"  # SEARCH, SCRAPE
+    mode = 1  # 0, 1, 2
 
-    orchestrator = OtodomOrchestrator(property_type, scraper_name)
+    scraper_name = generate_scraper_name(service_name, property_type)
 
-    offers = orchestrator.scrape_cached_urls(r"\d*-16.*",
-                                             clear_cache=False,
-                                             avg_sleep_time=5)
-    print(offers)
+    orchestrator = ScrapingOrchestrator(service_name, property_type,
+                                        scraper_name, mode)
+
+    orchestrator.search_offers_urls()
+
+    # offers = orchestrator.scrape_cached_urls(r"\d*-1.*",
+    #                                          clear_cache=False,
+    #                                          avg_sleep_time=5)
+

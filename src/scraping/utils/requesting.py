@@ -1,5 +1,7 @@
 import json
 import random
+import time
+import math
 
 
 PATH_TO_HEADERS_CONFIG = "conf/requesting/headers.json"
@@ -15,6 +17,12 @@ def generate_random_headers():
         random_headers[key] = random.choice(headers_config[key])
 
     return random_headers
+
+
+def random_sleep(avg_n_of_seconds):
+    sleep_time = random.normalvariate(avg_n_of_seconds,
+                                      avg_n_of_seconds ** 0.5)
+    time.sleep(math.fabs(sleep_time))
 
 
 if __name__ == "__main__":

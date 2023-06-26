@@ -6,5 +6,7 @@ version = "1.0"
 [redis]
 host = "127.0.0.1"
 port = 6379
-db = 2
+db_test = 2
+db_dev = 3
+db_prod = 4
 

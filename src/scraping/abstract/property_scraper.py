@@ -13,13 +13,21 @@ toml_config = toml.load("conf/config.toml")
 
 
 class PropertyScraper(ABC):
-    def __init__(self, scraper_name, service_name):
-        self.name: str = str(scraper_name)
+    def __init__(self, scraper_name: str, service_name: str, mode: int):
+        """
+        Creates a scraper based on its name and service name.
+
+        Modes:
+        0 - test
+        1 - dev
+        2 - prod
+        """
+        self.name: str = scraper_name
         self.service_name: str = service_name
         self.created_at: datetime = datetime.now()
 
-        host, port, db = toml_config["redis"].values()
-        self.redis_db = redis.Redis(host=host, port=port, db=db)
+        host, port, *databases = toml_config["redis"].values()
+        self.redis_db = redis.Redis(host=host, port=port, db=databases[mode])
 
     def __repr__(self):
         return f"Scraper: {self.name}"

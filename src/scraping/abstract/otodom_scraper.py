@@ -3,6 +3,7 @@ from abc import ABC, abstractmethod
 from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
+from scraping.utils.requesting import random_sleep
 from scraping.abstract.property_scraper import PropertyScraper
 from scraping import Services
 from data.models.otodom import OtodomOffer
@@ -14,8 +15,8 @@ class OtodomScraper(PropertyScraper, ABC):
     OFFER_BASE_URL: str = "https://www.otodom.pl/pl/oferta/"
     SUB_URL: None
 
-    def __init__(self, scraper_name: str):
-        super().__init__(scraper_name, self.SERVICE_NAME)
+    def __init__(self, scraper_name: str, mode: int):
+        super().__init__(scraper_name, self.SERVICE_NAME, mode)
 
     @abstractmethod
     def parse_offer_soup(self, offer_soup: BeautifulSoup):
@@ -59,7 +60,8 @@ class OtodomScraper(PropertyScraper, ABC):
         return offer_json
 
     def list_offers_urls_from_search_params(
-            self, search_params: dict, n_pages: int) -> list[str]:
+            self, search_params: dict, n_pages: int,
+            avg_sleep_time: int = 2) -> list[str]:
         """
         Based on complete dict of search filters (default and custom)
         and `n_pages` to scrape returns a list of urls from all those pages.
@@ -67,6 +69,7 @@ class OtodomScraper(PropertyScraper, ABC):
         Args:
             search_params (dict): default and custom filters
             n_pages (int): number of pages to search
+            avg_sleep_time (int): avg. n. of secs. to sleep between requests
 
         Returns:
             (list[str]): list of urls to offers from all N pages
@@ -75,6 +78,7 @@ class OtodomScraper(PropertyScraper, ABC):
 
         for page_number in range(n_pages):
             page_number += 1
+            random_sleep(avg_sleep_time)
             random_headers = self.generate_headers()
             search_url = urljoin(self.BASE_URL, self.SUB_URL)
             search_params.update({"page": page_number})
