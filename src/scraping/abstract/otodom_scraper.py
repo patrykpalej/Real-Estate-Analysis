@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
-from scraping.utils.requesting import random_sleep
+from utils.general import random_sleep
 from scraping.abstract.property_scraper import PropertyScraper
 from scraping import Services
 from data.models.otodom import OtodomOffer
@@ -15,8 +15,8 @@ class OtodomScraper(PropertyScraper, ABC):
     OFFER_BASE_URL: str = "https://www.otodom.pl/pl/oferta/"
     SUB_URL: None
 
-    def __init__(self, scraper_name: str, mode: int):
-        super().__init__(scraper_name, self.SERVICE_NAME, mode)
+    def __init__(self, scraper_name: str):
+        super().__init__(scraper_name, self.SERVICE_NAME)
 
     @abstractmethod
     def parse_offer_soup(self, offer_soup: BeautifulSoup):

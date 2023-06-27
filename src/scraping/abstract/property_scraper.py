@@ -1,33 +1,23 @@
 import toml
-import json
-import redis
 import requests
 from bs4 import BeautifulSoup
 from abc import ABC, abstractmethod
 from datetime import datetime
 
-from scraping.utils.requesting import generate_random_headers
+from utils.scraping import generate_random_headers
 
 
 toml_config = toml.load("conf/config.toml")
 
 
 class PropertyScraper(ABC):
-    def __init__(self, scraper_name: str, service_name: str, mode: int):
+    def __init__(self, scraper_name: str, service_name: str):
         """
-        Creates a scraper based on its name and service name.
-
-        Modes:
-        0 - test
-        1 - dev
-        2 - prod
+        Creates a scraper based on its name and service name
         """
         self.name: str = scraper_name
         self.service_name: str = service_name
         self.created_at: datetime = datetime.now()
-
-        host, port, *databases = toml_config["redis"].values()
-        self.redis_db = redis.Redis(host=host, port=port, db=databases[mode])
 
     def __repr__(self):
         return f"Scraper: {self.name}"
@@ -62,33 +52,3 @@ class PropertyScraper(ABC):
     @staticmethod
     def make_soup(http_response: requests.Response) -> BeautifulSoup:
         return BeautifulSoup(http_response.text, 'html.parser')
-
-    def cache_data(self, key: str, data: str | list[str]):
-        """
-        Puts data to cache under the given key.
-        If list, dict or tuple, first json.dumps() it
-        """
-        if isinstance(data, (str, int, float)):
-            self.redis_db.set(key, data)
-        elif isinstance(data, (list, dict, tuple)):
-            self.redis_db.set(key, json.dumps(data))
-        else:
-            # TODO: warning
-            pass
-
-    def read_cache(self, key: str, from_json: bool = False):
-        """
-        Reads from cache under a given key and returns the value.
-        If `from_json` then it json.loads() first.
-        """
-        value = self.redis_db.get(key)
-        if from_json:
-            return json.loads(value)
-        else:
-            return value
-
-    def clear_cache(self, key: str) -> int:
-        """
-        Clears cache under a given key and returns if success
-        """
-        return self.redis_db.delete(key)

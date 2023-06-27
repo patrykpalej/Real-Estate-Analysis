@@ -1,12 +1,11 @@
-import json
-
 from dataclasses import dataclass
 from datetime import datetime
 
+from data.models.common import Offer
+
 
 @dataclass
-class OtodomOffer:
-    # TODO: inherit from data/models/common.py Offer(). Put there to_dict()
+class OtodomOffer(Offer):
     number_id: int
     short_id: str
     long_id: str
@@ -24,20 +23,6 @@ class OtodomOffer:
     location: str
     latitude: float
     longitude: float
-
-    def to_dict(self):
-        output_dict = {}
-        for key, value in self.__dict__.items():
-            try:
-                value = json.loads(value)
-            except TypeError:
-                value = value
-            except json.decoder.JSONDecodeError:
-                value = value
-
-            output_dict[key] = value
-
-        return output_dict
 
 
 @dataclass

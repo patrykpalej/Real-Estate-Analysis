@@ -10,3 +10,12 @@ db_test = 2
 db_dev = 3
 db_prod = 4
 
+[postgresql]
+db_test = "realestate_test"
+db_dev = "realestate_dev"
+db_prod = "realestate"
+
+[mongodb]
+db_test = "realestate_test"
+db_dev = "realestate_dev"
+db_prod = "realestate"

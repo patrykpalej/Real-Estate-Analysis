@@ -10,8 +10,8 @@ from data.models.otodom import OtodomLotOffer
 class OtodomLotScraper(OtodomScraper):
     SUB_URL: str = "pl/oferty/sprzedaz/dzialka/cala-polska"
 
-    def __init__(self, scraper_name: str, mode: int = 0):
-        super().__init__(scraper_name, mode)
+    def __init__(self, scraper_name: str):
+        super().__init__(scraper_name)
 
     def parse_offer_soup(
             self, offer_soup: BeautifulSoup) -> OtodomLotOffer | None:
@@ -37,7 +37,7 @@ class OtodomLotScraper(OtodomScraper):
         long_id = offer_json["slug"]
         url = offer_json["url"]
         title = offer_json["title"]
-        price = offer_json["target"]["Price"]
+        price = int(offer_json["target"]["Price"])
         advertiser_type = offer_json["advertiserType"]
         advert_type = offer_json["advertType"]
         utc_created_at = datetime.fromisoformat(

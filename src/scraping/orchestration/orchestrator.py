@@ -1,9 +1,10 @@
 import re
 import json
+from dotenv import load_dotenv
 
-from scraping.utils.requesting import random_sleep
+from utils.general import random_sleep
 from scraping.otodom import OtodomSearchParams
-from scraping.utils.general import generate_scraper_name
+from utils.scraping import generate_scraper_name
 from scraping.orchestration import (OtodomFiltersPath,
                                     DomiportaFiltersPath,
                                     OtodomSearchParamsSet,
@@ -11,7 +12,7 @@ from scraping.orchestration import (OtodomFiltersPath,
                                     OtodomScrapers,
                                     DomiportaScrapers)
 
-# from data.storage.otodom import OtodomStorageManager
+from data.storage.manager import StorageManager
 
 
 class ScrapingOrchestrator:
@@ -23,7 +24,10 @@ class ScrapingOrchestrator:
 
         self.service_name = service_name
         self.property_type = property_type
-        self.scraper = self._get_scraper_class()(scraper_name, mode)
+        self.scraper = self._get_scraper_class()(scraper_name)
+        self.storage_manager = StorageManager(self.service_name,
+                                              self.property_type,
+                                              mode)
 
     def _get_scraper_class(self) -> type:
         """
@@ -102,7 +106,7 @@ class ScrapingOrchestrator:
 
         if cache:
             cache_key_name = f"{self.scraper.name}_{len(offers_urls)}"
-            self.scraper.cache_data(cache_key_name, offers_urls)
+            self.storage_manager.cache_data(cache_key_name, offers_urls)
 
         return offers_urls
 
@@ -113,46 +117,63 @@ class ScrapingOrchestrator:
         """
         Reads cached URLs based on a given pattern and scrapes them
         """
-        all_keys = self.scraper.redis_db.scan_iter()
+        all_keys = self.storage_manager.redis_db.scan_iter()
         matching_keys = [key
                          for key in all_keys
                          if re.match(cache_pattern, key.decode())]
 
         all_offers = []
         for key in matching_keys:
-            urls_package = self.scraper.read_cache(key, from_json=True)
+            urls_package = self.storage_manager.read_cache(key, from_json=True)
             for url in urls_package[:2]:  # TODO [:2]
                 random_sleep(avg_sleep_time)
                 offer_data_model = self.scraper.scrape_offer_from_url(url)
                 all_offers.append(offer_data_model)
 
             if clear_cache:
-                self.scraper.clear_cache(key)
+                self.storage_manager.clear_cache(key)
 
-        return matching_keys
+        return all_offers
 
-    def store_scraped_offers(self):
+    def store_scraped_offers(self, offers: list[str],
+                             postgresql: bool = False,
+                             mongodb: bool = False,
+                             bigquery: bool = False):
         """
-        Stores scraped offers to one or many of databases
+        Dumps scraped offers to one or many of databases
         """
-        pass
+
+        if postgresql:
+            self.storage_manager.store_in_postgresql(offers)
+
+        if mongodb:
+            self.storage_manager.store_in_mongodb(offers)
+
+        if bigquery:
+            self.storage_manager.store_in_bigquery(offers)
 
 
 if __name__ == "__main__":
+    load_dotenv()
     # TODO: CLI - args: the following:
     service_name = "OTODOM"  # OTODOM, DOMIPORTA
     property_type = "LOTS"  # LOTS, HOUSES, APARTMENTS
-    job_type = "SEARCH"  # SEARCH, SCRAPE
-    mode = 1  # 0, 1, 2
+    job_type = "SCRAPE"  # SEARCH, SCRAPE
+    mode = 0  # 0, 1, 2
 
     scraper_name = generate_scraper_name(service_name, property_type)
 
     orchestrator = ScrapingOrchestrator(service_name, property_type,
                                         scraper_name, mode)
 
-    orchestrator.search_offers_urls()
+    # orchestrator.search_offers_urls()
 
-    # offers = orchestrator.scrape_cached_urls(r"\d*-1.*",
-    #                                          clear_cache=False,
-    #                                          avg_sleep_time=5)
+    pattern = r"230627-1232_OTODOM_LOTS_216"
+    offers = orchestrator.scrape_cached_urls(pattern,
+                                             clear_cache=False,
+                                             avg_sleep_time=5)
 
+    orchestrator.store_scraped_offers(offers,
+                                      postgresql=False, mongodb=True)
+
+    orchestrator.storage_manager.redis_db.close()
