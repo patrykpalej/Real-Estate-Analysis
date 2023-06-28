@@ -13,7 +13,7 @@ class OtodomLotScraper(OtodomScraper):
     def __init__(self, scraper_name: str):
         super().__init__(scraper_name)
 
-    def parse_offer_soup(
+    def _parse_offer_soup(
             self, offer_soup: BeautifulSoup) -> OtodomLotOffer | None:
         """
         Creates OtodomLotOffer instance (data model) from an offer soup
@@ -25,7 +25,7 @@ class OtodomLotScraper(OtodomScraper):
             (OtodomLotOffer): single offer data model or None if invalid offer
 
         """
-        offer_json = self.get_raw_offer_data_from_offer_soup(offer_soup)
+        offer_json = self._get_raw_offer_data_from_offer_soup(offer_soup)
 
         if offer_json["target"].get("Country") != "Polska":
             return None

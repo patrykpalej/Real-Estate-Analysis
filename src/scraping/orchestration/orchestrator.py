@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from utils.general import random_sleep
 from scraping.otodom import OtodomSearchParams
 from utils.scraping import generate_scraper_name
+from data.models.otodom import OtodomOffer
 from scraping.orchestration import (OtodomFiltersPath,
                                     DomiportaFiltersPath,
                                     OtodomSearchParamsSet,
@@ -135,7 +136,7 @@ class ScrapingOrchestrator:
 
         return all_offers
 
-    def store_scraped_offers(self, offers: list[str],
+    def store_scraped_offers(self, offers: list[OtodomOffer],
                              postgresql: bool = False,
                              mongodb: bool = False,
                              bigquery: bool = False):
@@ -166,14 +167,14 @@ if __name__ == "__main__":
     orchestrator = ScrapingOrchestrator(service_name, property_type,
                                         scraper_name, mode)
 
-    # orchestrator.search_offers_urls()
+    orchestrator.search_offers_urls()
 
-    pattern = r"230627-1232_OTODOM_LOTS_216"
-    offers = orchestrator.scrape_cached_urls(pattern,
-                                             clear_cache=False,
-                                             avg_sleep_time=5)
-
-    orchestrator.store_scraped_offers(offers,
-                                      postgresql=False, mongodb=True)
+    # pattern = r"230627-1232_OTODOM_LOTS_216"
+    # offers = orchestrator.scrape_cached_urls(pattern,
+    #                                          clear_cache=False,
+    #                                          avg_sleep_time=5)
+    #
+    # orchestrator.store_scraped_offers(offers,
+    #                                   postgresql=False, mongodb=True)
 
     orchestrator.storage_manager.redis_db.close()

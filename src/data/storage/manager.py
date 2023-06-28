@@ -8,7 +8,7 @@ from utils.storage import generate_psql_connection_string
 from data.models.otodom import OtodomOffer
 
 
-toml_config = toml.load("conf/config.toml")
+toml_config = toml.load("../src/conf/config.toml")
 
 
 class StorageManager:

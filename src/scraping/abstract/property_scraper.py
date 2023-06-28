@@ -7,7 +7,7 @@ from datetime import datetime
 from utils.scraping import generate_random_headers
 
 
-toml_config = toml.load("conf/config.toml")
+toml_config = toml.load("../src/conf/config.toml")
 
 
 class PropertyScraper(ABC):
@@ -26,20 +26,20 @@ class PropertyScraper(ABC):
         return f"Scraper: {self.name}"
 
     @abstractmethod
-    def parse_offer_soup(self, offer_soup: BeautifulSoup):
+    def _parse_offer_soup(self, offer_soup: BeautifulSoup):
         raise NotImplementedError
 
     @staticmethod
-    def generate_headers():
+    def _generate_headers():
         """
         Generates random headers which are stored in configuration file
         """
         return generate_random_headers()
 
     @staticmethod
-    def request_http_get(url: str,
-                         headers: dict = None,
-                         params: dict = None) -> requests.Response:
+    def _request_http_get(url: str,
+                          headers: dict = None,
+                          params: dict = None) -> requests.Response:
         """
         Sends a get request under the given URL with headers (if exist)
         and params (if exist). Returns the response.
@@ -50,5 +50,5 @@ class PropertyScraper(ABC):
         return response
 
     @staticmethod
-    def make_soup(http_response: requests.Response) -> BeautifulSoup:
+    def _make_soup(http_response: requests.Response) -> BeautifulSoup:
         return BeautifulSoup(http_response.text, 'html.parser')

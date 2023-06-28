@@ -22,7 +22,7 @@ class GeneralTests(unittest.TestCase):
 
 class HttpRequesting(unittest.TestCase):
     def test_request_http_get(self):
-        response = scraper.request_http_get("https://example.com/")
+        response = scraper._request_http_get("https://example.com/")
         self.assertEqual(response.ok, True)
         self.assertEqual(response.status_code, 200)
 

@@ -3,7 +3,7 @@ import random
 from datetime import datetime
 
 
-PATH_TO_HEADERS_CONFIG = "conf/scraping/headers.json"
+PATH_TO_HEADERS_CONFIG = "../src/conf/scraping/headers.json"
 
 
 def generate_random_headers():
@@ -20,8 +20,8 @@ def generate_random_headers():
 
 def generate_scraper_name(service_name: str, property_type: str) -> str:
     return (datetime.now().strftime("%y%m%d-%H%M")
-            + "_" + service_name
-            + "_" + property_type)
+            + "_" + service_name.upper()
+            + "_" + property_type.upper())
 
 
 if __name__ == "__main__":

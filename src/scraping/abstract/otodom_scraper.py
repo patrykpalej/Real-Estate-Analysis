@@ -19,10 +19,20 @@ class OtodomScraper(PropertyScraper, ABC):
         super().__init__(scraper_name, self.SERVICE_NAME)
 
     @abstractmethod
-    def parse_offer_soup(self, offer_soup: BeautifulSoup):
+    def _parse_offer_soup(self, offer_soup: BeautifulSoup):
         raise NotImplementedError
 
-    def get_offers_urls_from_single_search_page(
+    @staticmethod
+    def _get_raw_offer_data_from_offer_soup(offer_soup: BeautifulSoup) -> dict:
+        """
+        Takes a soup of a single offer page and returns raw offer data (JSON)
+        """
+        offer_data = offer_soup.find("script", {"id": "__NEXT_DATA__"}).text
+        offer_full_json = json.loads(offer_data)
+        offer_json = offer_full_json["props"]["pageProps"]["ad"]
+        return offer_json
+
+    def _get_offers_urls_from_single_search_page(
             self, search_page_soup: BeautifulSoup) -> list[str]:
         """
         Scrapes a single page of search results and returns offers urls
@@ -49,16 +59,6 @@ class OtodomScraper(PropertyScraper, ABC):
         # TODO: scrape urls from all pages (if None) or n_pages
         return offers_urls
 
-    @staticmethod
-    def get_raw_offer_data_from_offer_soup(offer_soup: BeautifulSoup) -> dict:
-        """
-        Takes a soup of a single offer page and returns raw offer data (JSON)
-        """
-        offer_data = offer_soup.find("script", {"id": "__NEXT_DATA__"}).text
-        offer_full_json = json.loads(offer_data)
-        offer_json = offer_full_json["props"]["pageProps"]["ad"]
-        return offer_json
-
     def list_offers_urls_from_search_params(
             self, search_params: dict, n_pages: int,
             avg_sleep_time: int = 2) -> list[str]:
@@ -79,15 +79,15 @@ class OtodomScraper(PropertyScraper, ABC):
         for page_number in range(n_pages):
             page_number += 1
             random_sleep(avg_sleep_time)
-            random_headers = self.generate_headers()
+            random_headers = self._generate_headers()
             search_url = urljoin(self.BASE_URL, self.SUB_URL)
             search_params.update({"page": page_number})
 
-            search_response = self.request_http_get(search_url,
-                                                    headers=random_headers,
-                                                    params=search_params)
-            search_soup = self.make_soup(search_response)
-            page_urls_list = self.get_offers_urls_from_single_search_page(
+            search_response = self._request_http_get(search_url,
+                                                     headers=random_headers,
+                                                     params=search_params)
+            search_soup = self._make_soup(search_response)
+            page_urls_list = self._get_offers_urls_from_single_search_page(
                 search_soup)
 
             all_urls_list.extend(page_urls_list)
@@ -101,10 +101,10 @@ class OtodomScraper(PropertyScraper, ABC):
         """
         Takes a URL to an offer and returns a data model for that offer
         """
-        response = self.request_http_get(url,
-                                         headers=self.generate_headers())
-        offer_soup = self.make_soup(response)
-        offer_data_model = self.parse_offer_soup(offer_soup)
+        response = self._request_http_get(url,
+                                          headers=self._generate_headers())
+        offer_soup = self._make_soup(response)
+        offer_data_model = self._parse_offer_soup(offer_soup)
         return offer_data_model
 
 

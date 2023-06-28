@@ -13,9 +13,9 @@ from scraping.otodom.otodom_apartment_scraper import OtodomApartmentScraper
 
 # Filter paths Enums
 class OtodomFiltersPath(Enum):
-    LOTS: str = "scraping/search_filters/otodom/lot_filters.json"
-    HOUSES: str = "scraping/search_filters/otodom/house_filters.json"
-    APARTMENTS: str = "scraping/search_filters/otodom/apartment_filters.json"
+    LOTS: str = "../src/scraping/search_filters/otodom/lot_filters.json"
+    HOUSES: str = "../src/scraping/search_filters/otodom/house_filters.json"
+    APARTMENTS: str = "../src/scraping/search_filters/otodom/apartment_filters.json"
 
 
 class DomiportaFiltersPath(Enum):
