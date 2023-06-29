@@ -6,58 +6,58 @@ from data.models.common import Offer
 
 @dataclass
 class OtodomOffer(Offer):
-    number_id: int
-    short_id: str
-    long_id: str
-    url: str
-    title: str
-    price: int
-    advertiser_type: str
-    advert_type: str
-    utc_created_at: datetime
-    utc_scraped_at: datetime
-    description: str
-    city: str
-    subregion: str
-    province: str
-    location: str
-    latitude: float
-    longitude: float
+    number_id: int = None
+    short_id: str = None
+    long_id: str = None
+    url: str = None
+    title: str = None
+    price: int = None
+    advertiser_type: str = None
+    advert_type: str = None
+    utc_created_at: datetime = None
+    utc_scraped_at: datetime = None
+    description: str = None
+    city: str = None
+    subregion: str = None
+    province: str = None
+    location: str = None
+    latitude: float = None
+    longitude: float = None
 
 
 @dataclass
 class OtodomLotOffer(OtodomOffer):
-    lot_area: int
-    lot_features: str
-    vicinity: str
+    lot_area: int = None
+    lot_features: str = None
+    vicinity: str = None
 
 
 @dataclass
 class OtodomHouseOffer(OtodomOffer):
-    market: str
-    building_type: str
-    house_features: str
-    lot_area: int
-    house_area: int
-    n_rooms: int
-    floors_info: str
-    heating: str
-    build_year: int
-    media: str
-    vicinity: str
+    market: str = None
+    building_type: str = None
+    house_features: str = None
+    lot_area: int = None
+    house_area: int = None
+    n_rooms: int = None
+    floors_info: str = None
+    heating: str = None
+    build_year: int = None
+    media: str = None
+    vicinity: str = None
 
 
 @dataclass
 class OtodomApartmentOffer(OtodomOffer):
-    market: str
-    status: list[str]
-    apartment_features: str
-    apartment_area: int
-    build_year: int
-    building_floors_num: int
-    building_type: str
-    elevator: bool
-    media: str
-    heating: str
-    rent: int
-    n_rooms: int
+    market: str = None
+    status: list[str] = None
+    apartment_features: str = None
+    apartment_area: int = None
+    build_year: int = None
+    building_floors_num: int = None
+    building_type: str = None
+    elevator: bool = None
+    media: str = None
+    heating: str = None
+    rent: int = None
+    n_rooms: int = None

@@ -5,13 +5,15 @@ from datetime import datetime, timezone
 
 from scraping.abstract.otodom_scraper import OtodomScraper
 from data.models.otodom import OtodomLotOffer
+from scraping import PropertyTypes
 
 
 class OtodomLotScraper(OtodomScraper):
+    PROPERTY_TYPE: str = PropertyTypes.LOTS.value
     SUB_URL: str = "pl/oferty/sprzedaz/dzialka/cala-polska"
 
     def __init__(self, scraper_name: str):
-        super().__init__(scraper_name)
+        super().__init__(scraper_name, self.PROPERTY_TYPE)
 
     def _parse_offer_soup(
             self, offer_soup: BeautifulSoup) -> OtodomLotOffer | None:
@@ -48,7 +50,8 @@ class OtodomLotScraper(OtodomScraper):
         city = offer_json["location"]["address"]["city"]["name"]
         subregion = offer_json["location"]["address"]["county"]["code"]
         province = offer_json["location"]["address"]["province"]["code"]
-        location = "|".join(offer_json["target"].get("Location", []))
+        location = json.dumps(offer_json["target"].get("Location", []),
+                              ensure_ascii=True)
         latitude = offer_json["location"]["coordinates"]["latitude"]
         longitude = offer_json["location"]["coordinates"]["longitude"]
         lot_area = int(float(offer_json["target"]["Area"]))
@@ -80,8 +83,5 @@ class OtodomLotScraper(OtodomScraper):
             vicinity=vicinity
         )
 
+        offer_model.put_none_to_empty_values()
         return offer_model
-
-
-if __name__ == "__main__":
-    pass

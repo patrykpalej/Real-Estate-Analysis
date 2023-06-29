@@ -11,12 +11,13 @@ toml_config = toml.load("../src/conf/config.toml")
 
 
 class PropertyScraper(ABC):
-    def __init__(self, scraper_name: str, service_name: str):
+    def __init__(self, scraper_name: str, service_name: str, property_type: str):
         """
         Creates a scraper based on its name and service name
         """
         self.name: str = scraper_name
-        self.service_name: str = service_name
+        self.service_name: str = service_name.upper()
+        self.property_type: str = property_type.upper()
         self.created_at: datetime = datetime.now()
 
     def __repr__(self):

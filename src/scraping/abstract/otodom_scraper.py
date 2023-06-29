@@ -15,8 +15,8 @@ class OtodomScraper(PropertyScraper, ABC):
     OFFER_BASE_URL: str = "https://www.otodom.pl/pl/oferta/"
     SUB_URL: None
 
-    def __init__(self, scraper_name: str):
-        super().__init__(scraper_name, self.SERVICE_NAME)
+    def __init__(self, scraper_name: str, property_type: str):
+        super().__init__(scraper_name, self.SERVICE_NAME, property_type)
 
     @abstractmethod
     def _parse_offer_soup(self, offer_soup: BeautifulSoup):
@@ -106,7 +106,3 @@ class OtodomScraper(PropertyScraper, ABC):
         offer_soup = self._make_soup(response)
         offer_data_model = self._parse_offer_soup(offer_soup)
         return offer_data_model
-
-
-if __name__ == "__main__":
-    pass

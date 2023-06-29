@@ -8,7 +8,7 @@ class OtodomSearchParams:
     """
     ownerTypeSingleSelect: str = "ALL"
     limit: int = "72"
-    daysSinceCreated: int = 7
+    daysSinceCreated: int = 1
     by: str = "LATEST"
     direction: str = "DESC"
     viewType: str = "listing"

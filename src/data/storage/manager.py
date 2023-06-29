@@ -22,9 +22,9 @@ class StorageManager:
         1 - dev
         2 - prod
         """
-        self.service_name = service_name
-        self.property_type = property_type
-        self.mode = mode
+        self.service_name: str = service_name.upper()
+        self.property_type: str = property_type.upper()
+        self.mode: int = mode
 
         host, port, *databases = toml_config["redis"].values()
         self.redis_db = redis.Redis(host=host, port=port, db=databases[mode])

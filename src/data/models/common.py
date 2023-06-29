@@ -25,3 +25,8 @@ class Offer:
     def to_dataframe(self):
         data_dict = {k: [v] for k, v in self.to_dict().items()}
         return pd.DataFrame(data_dict)
+
+    def put_none_to_empty_values(self):
+        for attr in self.__dict__:
+            if not self.__dict__[attr]:
+                self.__dict__[attr] = None
