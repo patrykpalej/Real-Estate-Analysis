@@ -15,8 +15,8 @@ class OtodomScraper(PropertyScraper, ABC):
     OFFER_BASE_URL: str = "https://www.otodom.pl/pl/oferta/"
     SUB_URL: None
 
-    def __init__(self, scraper_name: str, property_type: str):
-        super().__init__(scraper_name, self.SERVICE_NAME, property_type)
+    def __init__(self, scraper_name: str):
+        super().__init__(scraper_name)
 
     @abstractmethod
     def _parse_offer_soup(self, offer_soup: BeautifulSoup):
@@ -45,12 +45,9 @@ class OtodomScraper(PropertyScraper, ABC):
         """
         all_scripts = search_page_soup.find_all("script",
                                                 {"type": "application/json"})
-        try:
-            offers_script_idx = 0
-            offers_json = json.loads(all_scripts[offers_script_idx].text)
-        except json.decoder.JSONDecodeError:
-            # TODO: warning - no offers found
-            return []
+
+        offers_script_idx = 0
+        offers_json = json.loads(all_scripts[offers_script_idx].text)
         offers_list = (offers_json["props"]["pageProps"]["data"]
                                   ["searchAds"]["items"])
         offers_slugs = [offer["slug"] for offer in offers_list]
@@ -58,6 +55,16 @@ class OtodomScraper(PropertyScraper, ABC):
 
         # TODO: scrape urls from all pages (if None) or n_pages
         return offers_urls
+
+    def scrape_offer_from_url(self, url: str) -> OtodomOffer:
+        """
+        Takes a URL to an offer and returns a data model for that offer
+        """
+        response = self._request_http_get(url,
+                                          headers=self._generate_headers())
+        offer_soup = self._make_soup(response)
+        offer_data_model = self._parse_offer_soup(offer_soup)
+        return offer_data_model
 
     def list_offers_urls_from_search_params(
             self, search_params: dict, n_pages: int,
@@ -96,13 +103,3 @@ class OtodomScraper(PropertyScraper, ABC):
                 break
 
         return all_urls_list
-
-    def scrape_offer_from_url(self, url: str) -> OtodomOffer:
-        """
-        Takes a URL to an offer and returns a data model for that offer
-        """
-        response = self._request_http_get(url,
-                                          headers=self._generate_headers())
-        offer_soup = self._make_soup(response)
-        offer_data_model = self._parse_offer_soup(offer_soup)
-        return offer_data_model

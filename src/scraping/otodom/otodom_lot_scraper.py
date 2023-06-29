@@ -13,7 +13,7 @@ class OtodomLotScraper(OtodomScraper):
     SUB_URL: str = "pl/oferty/sprzedaz/dzialka/cala-polska"
 
     def __init__(self, scraper_name: str):
-        super().__init__(scraper_name, self.PROPERTY_TYPE)
+        super().__init__(scraper_name)
 
     def _parse_offer_soup(
             self, offer_soup: BeautifulSoup) -> OtodomLotOffer | None:

@@ -1,0 +1,896 @@
+{
+    "id": 64117126,
+    "market": "SECONDARY",
+    "services": [],
+    "publicId": "4l1Nc",
+    "slug": "trzy-pokoje-w-kamienicy-kolo-placu-bankowego-ID4l1Nc",
+    "advertiserType": "business",
+    "advertType": "AGENCY",
+    "source": "urn:site:local",
+    "createdAt": "2023-04-07T18:35:40+02:00",
+    "modifiedAt": "2023-06-29T18:28:20+02:00",
+    "description": "<p>Dwustronne, rozk\u0142adowe mieszkanie po\u0142o\u017cone na drugim pi\u0119trze czteropi\u0119trowej kamienicy wzniesionej w 1910 roku bez windy. <br>Przestronny salon, dwie przytulne sypialnie, balkon, kuchnia bez okien i \u0142azienka z wann\u0105. We wszystkich pomieszczeniach du\u017ce, nowoczesne, drewniane okna zapewniaj\u0105ce dobre do\u015bwietlenie.<br>Sypialnie (18 i 18 m2) z ekspozycj\u0105 po\u0142udniow\u0105 i zachodni\u0105 s\u0105 ciche i pe\u0142ne s\u0142o\u0144ca, salon (22 m2) skierowany na p\u00f3\u0142noc z widokiem na zabytkowy Ko\u015bci\u00f3\u0142 Ewangelicko-Reformowany.<br>Na pod\u0142ogach panele i terakota. Na \u015bcianach g\u0142adzie. Wn\u0119trza o wysoko\u015bci 3,5 metra daj\u0105 poczucie przestrzeni dzi\u015b niespotykane. <br>Kuchnia i \u0142azienka wymagaj\u0105 remontu, pokoje od\u015bwie\u017cenia.<br><br>Kamienica jako jedna z nielicznych przetrwa\u0142a obie wojny \u015bwiatowe. Zbudowana w stylu secesji geometrycznej, posiada elementy oryginalnych wyko\u0144cze\u0144 z pocz\u0105tku ubieg\u0142ego stulecia.<br>Obecnie w budynku znajduje si\u0119 \"Teatr Kamienica\" za\u0142o\u017cony w tym miejscu ze wzgl\u0119du na jego atmosfer\u0119 i bogat\u0105 histori\u0119.<br><br>Presti\u017cowa lokalizacja w s\u0105siedztwie Placu Bankowego, Ogrodu Krasi\u0144skich, Ogrodu Saskiego czy Hali Mirowskiej jest atutem oferty.<br>Ca\u0142a centralna cz\u0119\u015b\u0107 miasta w zasi\u0119gu spaceru.<br>Pe\u0142na infrastruktura na miejscu. Dobra komunikacja: Metro Ratusz Arsena\u0142 w odleg\u0142o\u015bci 300 m, tramwaj 300 m, autobus 200 m.<br><br>Niepowtarzalny klimat starej Warszawy w cenie.</p>",
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "exclusiveOffer": false,
+    "externalId": "BN835907",
+    "features": [
+        "telewizja kablowa",
+        "internet",
+        "telefon",
+        "drzwi / okna antyw\u0142amaniowe",
+        "domofon / wideofon",
+        "balkon"
+    ],
+    "featuresByCategory": [
+        {
+            "label": "Media",
+            "values": [
+                "telewizja kablowa",
+                "internet",
+                "telefon"
+            ],
+            "__typename": "FeatureGroup"
+        },
+        {
+            "label": "Zabezpieczenia",
+            "values": [
+                "drzwi / okna antyw\u0142amaniowe",
+                "domofon / wideofon"
+            ],
+            "__typename": "FeatureGroup"
+        },
+        {
+            "label": "Informacje dodatkowe",
+            "values": [
+                "balkon"
+            ],
+            "__typename": "FeatureGroup"
+        }
+    ],
+    "featuresWithoutCategory": [],
+    "openDay": {
+        "date": null,
+        "timeFrom": null,
+        "timeTo": null,
+        "__typename": "AdOpenDay"
+    },
+    "referenceId": "",
+    "target": {
+        "Area": "76.05",
+        "AreaRange": [],
+        "Build_year": "1910",
+        "Building_floors_num": "4",
+        "Building_material": [
+            "brick"
+        ],
+        "Building_ownership": [
+            "full_ownership"
+        ],
+        "Building_type": [
+            "tenement"
+        ],
+        "City": "warszawa",
+        "City_id": "26",
+        "Construction_status": [
+            "to_completion"
+        ],
+        "Country": "Polska",
+        "Extras_types": [
+            "balcony"
+        ],
+        "Floor_no": [
+            "floor_2"
+        ],
+        "Heating": [
+            "urban"
+        ],
+        "Id": "64117126",
+        "MarketType": "secondary",
+        "Media_types": [
+            "cable-television",
+            "internet",
+            "phone"
+        ],
+        "ObidoAdvert": "n",
+        "OfferType": "sprzedaz",
+        "Photo": "aHR0cHM6Ly9pcmVsYW5kLmFwb2xsby5vbHhjZG4uY29tL3YxL2ZpbGVzL2V5Sm1iaUk2SWpCbmFIZzVjVzV4Wkhac1ppMUJVRXdpTENKM0lqcGJleUptYmlJNkltVnVkbVp4Y1dVeFlYazBhekV0UVZCTUlpd2ljeUk2SWpFMElpd2ljQ0k2SWpFd0xDMHhNQ0lzSW1FaU9pSXdJbjFkZlEucnFLSG1DaVFhQjJCSFVOM1hvVVFRd0hKdi1TdWJmVm1ZR0g1dHRRUC1jSS9pbWFnZTtzPTY1NXg0OTE7cT04MA==",
+        "Price": 1250000,
+        "PriceRange": [
+            "1000001-3000000"
+        ],
+        "Price_per_m": 16437,
+        "ProperType": "mieszkanie",
+        "Province": "mazowieckie",
+        "RegularUser": "n",
+        "Rent": 1100,
+        "Rooms_num": [
+            "3"
+        ],
+        "Security_types": [
+            "anti_burglary_door",
+            "entryphone"
+        ],
+        "Subregion": "powiat-warszawa",
+        "Title": "VHJ6eSBwb2tvamUgdyBrYW1pZW5pY3kga2/Fgm8gUGxhY3UgQmFua293ZWdvLg==",
+        "Windows_type": [
+            "wooden"
+        ],
+        "categoryId": "101",
+        "env": "production",
+        "hidePrice": "0",
+        "seller_id": "8325781",
+        "user_type": "agency"
+    },
+    "title": "Trzy pokoje w kamienicy ko\u0142o Placu Bankowego.",
+    "topInformation": [
+        {
+            "label": "area",
+            "values": [
+                "76.05"
+            ],
+            "unit": "m\u00b2",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "building_ownership",
+            "values": [
+                "building_ownership::full_ownership"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "rooms_num",
+            "values": [
+                "3"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "construction_status",
+            "values": [
+                "construction_status::to_completion"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "floor",
+            "values": [
+                "floor_no::floor_2",
+                "/4"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "outdoor",
+            "values": [
+                "extras_types::balcony"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "rent",
+            "values": [
+                "1 100 z\u0142"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "car",
+            "values": [],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "remote_services",
+            "values": [],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "heating",
+            "values": [
+                "heating::urban"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        }
+    ],
+    "additionalInformation": [
+        {
+            "label": "market",
+            "values": [
+                "market::secondary"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "advertiser_type",
+            "values": [
+                "advertiser_type::agency"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "free_from",
+            "values": [],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "build_year",
+            "values": [
+                "1910"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "building_type",
+            "values": [
+                "building_type::tenement"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "windows_type",
+            "values": [
+                "windows_type::wooden"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "lift",
+            "values": [
+                "::n"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "media_types",
+            "values": [
+                "media_types::cable-television",
+                "media_types::internet",
+                "media_types::phone"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "security_types",
+            "values": [
+                "security_types::anti_burglary_door",
+                "security_types::entryphone"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "equipment_types",
+            "values": [],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "extras_types",
+            "values": [],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "building_material",
+            "values": [
+                "building_material-69::brick"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        }
+    ],
+    "url": "https://www.otodom.pl/pl/oferta/trzy-pokoje-w-kamienicy-kolo-placu-bankowego-ID4l1Nc",
+    "status": "active",
+    "adCategory": {
+        "id": "101",
+        "name": "FLAT",
+        "type": "SELL",
+        "__typename": "AdvertCategory"
+    },
+    "category": {
+        "id": 101,
+        "name": [
+            {
+                "locale": "uk",
+                "value": "\u041a\u0432\u0430\u0440\u0442\u0438\u0440\u0430",
+                "__typename": "LocalizedString"
+            },
+            {
+                "locale": "pl",
+                "value": "Mieszkania",
+                "__typename": "LocalizedString"
+            }
+        ],
+        "__typename": "AdCategory"
+    },
+    "characteristics": [
+        {
+            "key": "price",
+            "value": "1250000",
+            "label": "Cena",
+            "localizedValue": "1 250 000 z\u0142",
+            "currency": "PLN",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "m",
+            "value": "76.05",
+            "label": "Powierzchnia",
+            "localizedValue": "76,05 m\u00b2",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "price_per_m",
+            "value": "16437",
+            "label": "cena za metr",
+            "localizedValue": "16 437 z\u0142/m\u00b2",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "rooms_num",
+            "value": "3",
+            "label": "Liczba pokoi",
+            "localizedValue": "3",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "market",
+            "value": "secondary",
+            "label": "Rynek",
+            "localizedValue": "wt\u00f3rny",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "building_type",
+            "value": "tenement",
+            "label": "Rodzaj zabudowy",
+            "localizedValue": "kamienica",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "floor_no",
+            "value": "floor_2",
+            "label": "Pi\u0119tro",
+            "localizedValue": "2",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "building_floors_num",
+            "value": "4",
+            "label": "Liczba pi\u0119ter",
+            "localizedValue": "4",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "building_material",
+            "value": "brick",
+            "label": "Materia\u0142 budynku",
+            "localizedValue": "ceg\u0142a",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "windows_type",
+            "value": "wooden",
+            "label": "Okna",
+            "localizedValue": "drewniane",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "heating",
+            "value": "urban",
+            "label": "Ogrzewanie",
+            "localizedValue": "miejskie",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "build_year",
+            "value": "1910",
+            "label": "Rok budowy",
+            "localizedValue": "1910",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "construction_status",
+            "value": "to_completion",
+            "label": "Stan wyko\u0144czenia",
+            "localizedValue": "do wyko\u0144czenia",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "rent",
+            "value": "1100",
+            "label": "Czynsz",
+            "localizedValue": "1 100 z\u0142",
+            "currency": "PLN",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "building_ownership",
+            "value": "full_ownership",
+            "label": "Forma w\u0142asno\u015bci",
+            "localizedValue": "pe\u0142na w\u0142asno\u015b\u0107",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        }
+    ],
+    "images": [
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjBnaHg5cW5xZHZsZi1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.rqKHmCiQaB2BHUN3XoUQQwHJv-SubfVmYGH5ttQP-cI/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjBnaHg5cW5xZHZsZi1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.rqKHmCiQaB2BHUN3XoUQQwHJv-SubfVmYGH5ttQP-cI/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjBnaHg5cW5xZHZsZi1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.rqKHmCiQaB2BHUN3XoUQQwHJv-SubfVmYGH5ttQP-cI/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjBnaHg5cW5xZHZsZi1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.rqKHmCiQaB2BHUN3XoUQQwHJv-SubfVmYGH5ttQP-cI/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im5pYm0yaTZydjh2bzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.qiyIQx6Wed2Ct8zDX7EKRI_aBCCVOjef9PobEeEzJoI/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im5pYm0yaTZydjh2bzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.qiyIQx6Wed2Ct8zDX7EKRI_aBCCVOjef9PobEeEzJoI/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im5pYm0yaTZydjh2bzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.qiyIQx6Wed2Ct8zDX7EKRI_aBCCVOjef9PobEeEzJoI/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im5pYm0yaTZydjh2bzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.qiyIQx6Wed2Ct8zDX7EKRI_aBCCVOjef9PobEeEzJoI/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im5iazJpbDh2b3EwZDMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.fxz6Se1aXEhlJUAmEMGfY7V0iL59BTjF3TlBRVMKd_U/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im5iazJpbDh2b3EwZDMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.fxz6Se1aXEhlJUAmEMGfY7V0iL59BTjF3TlBRVMKd_U/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im5iazJpbDh2b3EwZDMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.fxz6Se1aXEhlJUAmEMGfY7V0iL59BTjF3TlBRVMKd_U/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im5iazJpbDh2b3EwZDMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.fxz6Se1aXEhlJUAmEMGfY7V0iL59BTjF3TlBRVMKd_U/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImJpdDY2OWlmNnh1dy1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.54f7hulXruDxN7-NckY5RQZcKv2UIQtkwunBpUMQFwY/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImJpdDY2OWlmNnh1dy1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.54f7hulXruDxN7-NckY5RQZcKv2UIQtkwunBpUMQFwY/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImJpdDY2OWlmNnh1dy1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.54f7hulXruDxN7-NckY5RQZcKv2UIQtkwunBpUMQFwY/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImJpdDY2OWlmNnh1dy1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.54f7hulXruDxN7-NckY5RQZcKv2UIQtkwunBpUMQFwY/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjZlZDQ3bzBkZHBsMDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.r9oT8lP9B8IUgnag5P5xedT_rbEqUtqyt1ld-sn5uD4/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjZlZDQ3bzBkZHBsMDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.r9oT8lP9B8IUgnag5P5xedT_rbEqUtqyt1ld-sn5uD4/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjZlZDQ3bzBkZHBsMDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.r9oT8lP9B8IUgnag5P5xedT_rbEqUtqyt1ld-sn5uD4/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjZlZDQ3bzBkZHBsMDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.r9oT8lP9B8IUgnag5P5xedT_rbEqUtqyt1ld-sn5uD4/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IndoN2p0bnltbjJlbS1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.RcoICXGPMleNRkSAAnC91A_6CUZlpZoxduubply318o/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IndoN2p0bnltbjJlbS1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.RcoICXGPMleNRkSAAnC91A_6CUZlpZoxduubply318o/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IndoN2p0bnltbjJlbS1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.RcoICXGPMleNRkSAAnC91A_6CUZlpZoxduubply318o/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IndoN2p0bnltbjJlbS1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.RcoICXGPMleNRkSAAnC91A_6CUZlpZoxduubply318o/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ims4ZjhoNDVsanhubDEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.KBd435hJBWnmJMKV97AjnROIzeGaHfXTXmxSKJNuo6U/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ims4ZjhoNDVsanhubDEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.KBd435hJBWnmJMKV97AjnROIzeGaHfXTXmxSKJNuo6U/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ims4ZjhoNDVsanhubDEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.KBd435hJBWnmJMKV97AjnROIzeGaHfXTXmxSKJNuo6U/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ims4ZjhoNDVsanhubDEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.KBd435hJBWnmJMKV97AjnROIzeGaHfXTXmxSKJNuo6U/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InIxeXNvbzZoMWM2MzItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.0Fp_Dc-IHijU8oo8fMUuPkrtyvNXP_KenBsutRlVtEc/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InIxeXNvbzZoMWM2MzItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.0Fp_Dc-IHijU8oo8fMUuPkrtyvNXP_KenBsutRlVtEc/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InIxeXNvbzZoMWM2MzItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.0Fp_Dc-IHijU8oo8fMUuPkrtyvNXP_KenBsutRlVtEc/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InIxeXNvbzZoMWM2MzItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.0Fp_Dc-IHijU8oo8fMUuPkrtyvNXP_KenBsutRlVtEc/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImRpeXR6MzIwNWFyaS1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.d5J--4ilkdlac5Hxa3OabikqpebLpgZp9HZLMTNMA7s/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImRpeXR6MzIwNWFyaS1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.d5J--4ilkdlac5Hxa3OabikqpebLpgZp9HZLMTNMA7s/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImRpeXR6MzIwNWFyaS1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.d5J--4ilkdlac5Hxa3OabikqpebLpgZp9HZLMTNMA7s/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImRpeXR6MzIwNWFyaS1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.d5J--4ilkdlac5Hxa3OabikqpebLpgZp9HZLMTNMA7s/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImlraDBudnZrMjZ5by1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.Pry2sQBslr_Ky4FB_1bdhMwDnRpqrDWb9zZDSqNB6OI/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImlraDBudnZrMjZ5by1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.Pry2sQBslr_Ky4FB_1bdhMwDnRpqrDWb9zZDSqNB6OI/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImlraDBudnZrMjZ5by1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.Pry2sQBslr_Ky4FB_1bdhMwDnRpqrDWb9zZDSqNB6OI/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImlraDBudnZrMjZ5by1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.Pry2sQBslr_Ky4FB_1bdhMwDnRpqrDWb9zZDSqNB6OI/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImVkNXYyYjRnNHQweDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.7u_a-diZZLdY_BAvALmBuOqrW7U3VYTlG1HIhUW187c/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImVkNXYyYjRnNHQweDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.7u_a-diZZLdY_BAvALmBuOqrW7U3VYTlG1HIhUW187c/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImVkNXYyYjRnNHQweDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.7u_a-diZZLdY_BAvALmBuOqrW7U3VYTlG1HIhUW187c/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImVkNXYyYjRnNHQweDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.7u_a-diZZLdY_BAvALmBuOqrW7U3VYTlG1HIhUW187c/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImRhN2hvdjQ2d3h2Ny1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.T7Q898o1pBXCPCHY8sgvdaFa8KQJ1jCCgktiWwoo0dY/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImRhN2hvdjQ2d3h2Ny1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.T7Q898o1pBXCPCHY8sgvdaFa8KQJ1jCCgktiWwoo0dY/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImRhN2hvdjQ2d3h2Ny1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.T7Q898o1pBXCPCHY8sgvdaFa8KQJ1jCCgktiWwoo0dY/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImRhN2hvdjQ2d3h2Ny1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.T7Q898o1pBXCPCHY8sgvdaFa8KQJ1jCCgktiWwoo0dY/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InNhanVybDF6aGdqbzMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.6VtKTkDhKPe8VjoUljyRukKiGEjhcFXjLYmWxRzTEhg/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InNhanVybDF6aGdqbzMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.6VtKTkDhKPe8VjoUljyRukKiGEjhcFXjLYmWxRzTEhg/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InNhanVybDF6aGdqbzMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.6VtKTkDhKPe8VjoUljyRukKiGEjhcFXjLYmWxRzTEhg/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InNhanVybDF6aGdqbzMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.6VtKTkDhKPe8VjoUljyRukKiGEjhcFXjLYmWxRzTEhg/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InEwMWU0cm42Z2x1ay1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.w-QI0FxfVljxSupow3H7fbDudeGwaJMUfgoxFjUpOOc/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InEwMWU0cm42Z2x1ay1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.w-QI0FxfVljxSupow3H7fbDudeGwaJMUfgoxFjUpOOc/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InEwMWU0cm42Z2x1ay1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.w-QI0FxfVljxSupow3H7fbDudeGwaJMUfgoxFjUpOOc/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InEwMWU0cm42Z2x1ay1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.w-QI0FxfVljxSupow3H7fbDudeGwaJMUfgoxFjUpOOc/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZrZG00bm5qMWo4NzMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.i_wuxFZ6LcIv9mp3rvJBiCBUJTV3vdMOKgoZ_5e4uoI/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZrZG00bm5qMWo4NzMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.i_wuxFZ6LcIv9mp3rvJBiCBUJTV3vdMOKgoZ_5e4uoI/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZrZG00bm5qMWo4NzMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.i_wuxFZ6LcIv9mp3rvJBiCBUJTV3vdMOKgoZ_5e4uoI/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZrZG00bm5qMWo4NzMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.i_wuxFZ6LcIv9mp3rvJBiCBUJTV3vdMOKgoZ_5e4uoI/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImVpa2d4ejY5MjR1MjEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.yJSQNVUb6PP_kaYeYOFQ-GwxroKXskIaxPqlGux9Mes/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImVpa2d4ejY5MjR1MjEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.yJSQNVUb6PP_kaYeYOFQ-GwxroKXskIaxPqlGux9Mes/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImVpa2d4ejY5MjR1MjEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.yJSQNVUb6PP_kaYeYOFQ-GwxroKXskIaxPqlGux9Mes/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImVpa2d4ejY5MjR1MjEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.yJSQNVUb6PP_kaYeYOFQ-GwxroKXskIaxPqlGux9Mes/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZxdHIwamEyenc2Zy1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.OgjhxMrfCv5-bn3Ry325gfL-ZuzvzDxpZRNwqStauec/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZxdHIwamEyenc2Zy1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.OgjhxMrfCv5-bn3Ry325gfL-ZuzvzDxpZRNwqStauec/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZxdHIwamEyenc2Zy1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.OgjhxMrfCv5-bn3Ry325gfL-ZuzvzDxpZRNwqStauec/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZxdHIwamEyenc2Zy1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.OgjhxMrfCv5-bn3Ry325gfL-ZuzvzDxpZRNwqStauec/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imh2dXF4NXM4djdqdDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.J4acm6xgibHhzZNj1BBOhAmMskjQOQm-xxBTVLDqekw/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imh2dXF4NXM4djdqdDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.J4acm6xgibHhzZNj1BBOhAmMskjQOQm-xxBTVLDqekw/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imh2dXF4NXM4djdqdDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.J4acm6xgibHhzZNj1BBOhAmMskjQOQm-xxBTVLDqekw/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imh2dXF4NXM4djdqdDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.J4acm6xgibHhzZNj1BBOhAmMskjQOQm-xxBTVLDqekw/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjNrazN3N2NoZWI0eDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.8oyisGCYK4dJTkIPGmhkMoTUKoan9MjYdh4SPpdR1lU/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjNrazN3N2NoZWI0eDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.8oyisGCYK4dJTkIPGmhkMoTUKoan9MjYdh4SPpdR1lU/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjNrazN3N2NoZWI0eDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.8oyisGCYK4dJTkIPGmhkMoTUKoan9MjYdh4SPpdR1lU/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjNrazN3N2NoZWI0eDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.8oyisGCYK4dJTkIPGmhkMoTUKoan9MjYdh4SPpdR1lU/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Inc4eGgwd2R3MWdkajItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.z2ie1X353L_Y0ZfYUtkLA0lVT2mIZkfV2iGi70a3htM/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Inc4eGgwd2R3MWdkajItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.z2ie1X353L_Y0ZfYUtkLA0lVT2mIZkfV2iGi70a3htM/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Inc4eGgwd2R3MWdkajItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.z2ie1X353L_Y0ZfYUtkLA0lVT2mIZkfV2iGi70a3htM/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Inc4eGgwd2R3MWdkajItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.z2ie1X353L_Y0ZfYUtkLA0lVT2mIZkfV2iGi70a3htM/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        }
+    ],
+    "links": {
+        "localPlanUrl": "",
+        "videoUrl": "",
+        "view3dUrl": "",
+        "walkaroundUrl": "",
+        "__typename": "AdvertLinks"
+    },
+    "location": {
+        "id": null,
+        "coordinates": {
+            "latitude": 52.24323,
+            "longitude": 20.99846,
+            "__typename": "Coordinates"
+        },
+        "mapDetails": {
+            "radius": 0,
+            "zoom": 15,
+            "__typename": "MapDetails"
+        },
+        "address": {
+            "street": {
+                "id": "242521",
+                "code": "",
+                "name": "al. Aleja \"Solidarno\u015bci\"",
+                "number": "",
+                "__typename": "Street"
+            },
+            "subdistrict": null,
+            "district": {
+                "id": "44",
+                "code": "srodmiescie",
+                "name": "\u015ar\u00f3dmie\u015bcie",
+                "__typename": "District"
+            },
+            "city": {
+                "id": "26",
+                "code": "warszawa",
+                "name": "Warszawa",
+                "__typename": "City"
+            },
+            "municipality": null,
+            "county": {
+                "id": "197",
+                "code": "powiat-warszawa",
+                "name": "Warszawa",
+                "__typename": "County"
+            },
+            "province": {
+                "id": "7",
+                "code": "mazowieckie",
+                "name": "mazowieckie",
+                "__typename": "Province"
+            },
+            "postalCode": null,
+            "__typename": "Address"
+        },
+        "__typename": "LocationDetails"
+    },
+    "property": {
+        "id": null,
+        "type": "FLAT",
+        "rent": {
+            "value": 1100,
+            "currency": "PLN",
+            "__typename": "Money"
+        },
+        "costs": [],
+        "condition": "TO_COMPLETION",
+        "properties": {
+            "equipment": [],
+            "areas": [
+                "balcony"
+            ],
+            "floor": "FLOOR_2",
+            "kitchen": null,
+            "parking": [],
+            "numberOfRooms": 3,
+            "rooms": [],
+            "type": null,
+            "windowsOrientation": [],
+            "__typename": "FlatProperties"
+        },
+        "buildingProperties": {
+            "year": 1910,
+            "type": "TENEMENT",
+            "material": "BRICK",
+            "windows": [
+                "WOODEN"
+            ],
+            "heating": "URBAN",
+            "numberOfFloors": 4,
+            "conveniences": [
+                "INTERNET"
+            ],
+            "security": [
+                "ANTI_BURGLARY_DOOR",
+                "ENTRYPHONE"
+            ],
+            "__typename": "FlatBuildingProperties"
+        },
+        "ownership": "FULL_OWNERSHIP",
+        "area": {
+            "value": 76.05,
+            "unit": "M2",
+            "__typename": "Area"
+        },
+        "__typename": "Flat"
+    },
+    "owner": {
+        "id": 8325781,
+        "name": "Andrzej Moli\u0144ski",
+        "type": "agency",
+        "phones": [
+            "+48603477744"
+        ],
+        "imageUrl": "https://statics.otodom.pl/static/otodompl/naspersclassifieds-regional/verticalsre-atlas-web-otodompl/static/img/user_placeholder.png",
+        "contacts": [],
+        "__typename": "LegacyAdvertOwner"
+    },
+    "agency": {
+        "id": 8325781,
+        "name": "Biernaccy Nieruchomo\u015bci",
+        "licenseNumber": "",
+        "type": "agency",
+        "phones": [
+            "+48572801115",
+            "+48501441912"
+        ],
+        "address": "Al. Jana Paw\u0142a II 38/12A, 00-141, Warszawa, mazowieckie",
+        "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImVtZGU4d2l4b3g2djMtQVBMIn0._6ZzES2FKGZLrTXxmMbcXbSP63uzhvuTIJ6sAZw-9FY/image;s=800x600;q=90",
+        "url": "https://www.otodom.pl/pl/firmy/biura-nieruchomosci/biernaccy-nieruchomosci-ID8325781/",
+        "leaderYear": "",
+        "brandingVisible": true,
+        "enabledFeatures": [
+            "N3DESTATE",
+            "ACADEMY",
+            "AD_HOMEPAGE_1_SCHEDULE",
+            "ADDITIONAL_CONTACT_FORMS_AD_PAGE",
+            "ADDON_ANALYTICS_ALPHA",
+            "ADVANCED_PICTURE_GALLERY_AD_PAGE",
+            "AGENCY_WEB_PAGE",
+            "ALFAVOX",
+            "BANNER_DISCOUNT",
+            "CENATORIUM",
+            "CRM_INTEGRATION",
+            "DEDICATED_CS",
+            "EXCLUSIVE_OFFER_REMOVED",
+            "EXCLUSIVE_OFFER_SOLD",
+            "EXPORT_OLX",
+            "LEXNONSTOP",
+            "LOGO_AD_PAGE",
+            "LOGO_SEARCH_PAGE",
+            "MEGABUMP",
+            "OLX_BUNDLE_BASIC",
+            "OLX_BUNDLE_NORMAL",
+            "OLX_BUNDLE_PREMIUM",
+            "OLX_PROMOTIONS",
+            "OLX_PUSHUP",
+            "OLX_TOPADS_30",
+            "OLX_TOPADS_7",
+            "PAID_FOR_POST_30_AGENCY",
+            "PREDEFINED_MESSAGES_CONTACT_FORM",
+            "PROJECT_RED",
+            "PROMOTIONS_RECOMMENDATIONS",
+            "PUSHUP",
+            "SIMPLRENT",
+            "SPOTBROWSER",
+            "STATISTICS",
+            "SUGGEST_PRICE_FORM",
+            "TOPADS_1",
+            "VAS_SCHEDULING"
+        ],
+        "__typename": "AdvertAgency"
+    },
+    "seo": {
+        "title": "3 pokoje, mieszkanie na sprzeda\u017c - Warszawa, \u015ar\u00f3dmie\u015bcie - 64117126 \u2022 www.otodom.pl",
+        "description": "\u015awietne 3 pokojowe mieszkanie na sprzeda\u017c w miejscowo\u015bci Warszawa, \u015ar\u00f3dmie\u015bcie, za cen\u0119 1 250 000 z\u0142. To mieszkanie na sprzeda\u017c  na 2 pi\u0119trze ma 76,05 m\u00b2 powierzchni u\u017cytkowej i 76,05 m\u00b2 powierzchni ca\u0142kowitej. Biuro nieruchomo\u015bci Biernaccy Nieruchomo\u015bci jako najwa\u017cniejsze zalety mieszkania wymienia: balkon, telewizja kablowa, internet. Otodom 64117126",
+        "__typename": "AdvertSeo"
+    },
+    "breadcrumbs": [
+        {
+            "label": "Mieszkanie na sprzeda\u017c",
+            "locative": "",
+            "url": "https://www.otodom.pl/pl/oferty/sprzedaz/mieszkanie/cala-polska",
+            "__typename": "AdvertBreadcrumb"
+        },
+        {
+            "label": "mazowieckie",
+            "locative": "mazowieckie",
+            "url": "https://www.otodom.pl/pl/oferty/sprzedaz/mieszkanie/mazowieckie",
+            "__typename": "AdvertBreadcrumb"
+        },
+        {
+            "label": "Warszawa",
+            "locative": "Warszawa",
+            "url": "https://www.otodom.pl/pl/oferty/sprzedaz/mieszkanie/warszawa",
+            "__typename": "AdvertBreadcrumb"
+        },
+        {
+            "label": "\u015ar\u00f3dmie\u015bcie",
+            "locative": "\u015ar\u00f3dmie\u015bcie",
+            "url": "https://www.otodom.pl/pl/oferty/sprzedaz/mieszkanie/warszawa/srodmiescie",
+            "__typename": "AdvertBreadcrumb"
+        },
+        {
+            "label": "Aleja Solidarno\u015bci",
+            "locative": "Aleja Solidarno\u015bci",
+            "url": "https://www.otodom.pl/pl/oferty/sprzedaz/mieszkanie/warszawa?locations%5B0%5D%5BstreetId%5D=242521&locations%5B0%5D%5BcityId%5D=26&locations=%5Bstreets-242521%5D",
+            "__typename": "AdvertBreadcrumb"
+        },
+        {
+            "label": "Trzy pokoje w kamienicy ko\u0142o Placu Bankowego.",
+            "locative": "",
+            "url": "",
+            "__typename": "AdvertBreadcrumb"
+        }
+    ],
+    "userAdverts": [
+        {
+            "url": "https://www.otodom.pl/pl/oferta/atrakcyjne-mieszkanie-w-biznesowej-dzielnicy-wa-wy-ID4m5uS.html",
+            "image": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZkOXJuOWN6aXphZDMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.xnMrXs99ZPA-Pp3S_7aeBpqz_SluI2MuceDd1ap8ECs/image;s=314x236;q=80",
+            "roomsNum": "2",
+            "pricePerM": 18148,
+            "price": {
+                "value": "490000",
+                "unit": "PLN",
+                "__typename": "UserAdvertPrice"
+            },
+            "netArea": "27",
+            "title": "Atrakcyjne mieszkanie w biznesowej dzielnicy Wa-wy",
+            "__typename": "UserAdvert"
+        },
+        {
+            "url": "https://www.otodom.pl/pl/oferta/kawalerka-i-zoliborz-i-po-remoncie-i-metro-10-min-ID4lWrL.html",
+            "image": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InozOHl1bWZ4Nm5kOTMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.oFc6uw7tr6jQiHD8bR2cSquoA6EpGcJQDRP1AwKqEvA/image;s=314x236;q=80",
+            "roomsNum": "1",
+            "pricePerM": 17875,
+            "price": {
+                "value": "429000",
+                "unit": "PLN",
+                "__typename": "UserAdvertPrice"
+            },
+            "netArea": "24",
+            "title": "Kawalerka I \u017boliborz I Po remoncie I Metro 10 min.",
+            "__typename": "UserAdvert"
+        },
+        {
+            "url": "https://www.otodom.pl/pl/oferta/ladna-dzialka-w-jachrance-nad-zegrzem-ID4lhiU.html",
+            "image": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im9lbXR6ODA5dDJtdzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.FQ51okNrmBFQkiDd7kxjrqjhI8rjC2arRNuzf4Gn_aw/image;s=314x236;q=80",
+            "roomsNum": "",
+            "pricePerM": 161,
+            "price": {
+                "value": "129000",
+                "unit": "PLN",
+                "__typename": "UserAdvertPrice"
+            },
+            "netArea": "800",
+            "title": "\u0141adna dzia\u0142ka w Jachrance nad Zegrzem",
+            "__typename": "UserAdvert"
+        },
+        {
+            "url": "https://www.otodom.pl/pl/oferta/inwestycyjne-2-pokoje-na-mokotowie-przy-metrze-ID4m4k2.html",
+            "image": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImlranptMGs0dmExYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.0DxIOtdZKE28KM2TPiLCYmsg7Cj7NI9kngjnskCiPLE/image;s=314x236;q=80",
+            "roomsNum": "2",
+            "pricePerM": 18865,
+            "price": {
+                "value": "698000",
+                "unit": "PLN",
+                "__typename": "UserAdvertPrice"
+            },
+            "netArea": "37",
+            "title": "Inwestycyjne 2 pokoje na Mokotowie przy Metrze",
+            "__typename": "UserAdvert"
+        }
+    ],
+    "paginatedUnits": {
+        "items": null,
+        "isPriceHidden": null,
+        "pagination": null,
+        "facets": null,
+        "__typename": "AdvertsPages"
+    },
+    "specialOffer": null,
+    "__typename": "Advert",
+    "contactDetails": {
+        "name": "Andrzej Moli\u0144ski",
+        "type": "agency",
+        "phones": [
+            "+48603477744"
+        ],
+        "imageUrl": "https://statics.otodom.pl/static/otodompl/naspersclassifieds-regional/verticalsre-atlas-web-otodompl/static/img/user_placeholder.png"
+    }
+}

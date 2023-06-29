@@ -39,9 +39,11 @@ class TestOffer(unittest.TestCase):
         offer.attr1 = ""
         offer.attr2 = []
         offer.attr3 = 0
+        offer.attr4 = "[]"
 
         offer.put_none_to_empty_values()
 
         self.assertEqual(offer.attr1, None)
         self.assertEqual(offer.attr2, None)
         self.assertEqual(offer.attr3, None)
+        self.assertEqual(offer.attr4, None)

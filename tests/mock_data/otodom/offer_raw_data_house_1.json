@@ -1,0 +1,794 @@
+{
+    "id": 64322252,
+    "market": "PRIMARY",
+    "services": [
+        "E_SIGNATURE",
+        "VIDEO_PRESENTATION",
+        "VIDEO_MEETING"
+    ],
+    "publicId": "4lT9G",
+    "slug": "dom-70-9m2-z-ogrodkiem-olivina-park-nad-morzem-ID4lT9G",
+    "advertiserType": "private",
+    "advertType": "PRIVATE",
+    "source": "urn:site:local",
+    "createdAt": "2023-06-14T18:37:45+02:00",
+    "modifiedAt": "2023-06-29T18:39:00+02:00",
+    "description": "<p>ZAINWESTUJ I ZARABIAJ W OLIVINA PARK<br/> <br/> Na sprzeda\u017c dom ca\u0142oroczny po\u0142o\u017cony w zacisznej cz\u0119\u015bci Niechorza zaledwie 500m od piaszczystej pla\u017cy. Zainwestuj w nieruchomo\u015b\u0107 na wynajem - wypoczywaj za darmo i zarabiaj!<br/> <br/> Dom ca\u0142oroczny w stanie deweloperskim o powierzchni 70,9 m2 na dzia\u0142ce 150-243m2 (w zale\u017cno\u015bci od wybranego domu). Du\u017ca s\u0142oneczna przestrze\u0144 oraz prywatny ogrodzony ogr\u00f3dek z tarasem. Do nieruchomo\u015bci przynale\u017c\u0105 2 miejsca parkingowe.<br/> <br/> Dom z trzema sypialniami - mo\u017ce pomie\u015bci\u0107 a\u017c 12 os\u00f3b. Mo\u017cliwa obs\u0142uga operatorska przez firm\u0119 dzia\u0142aj\u0105c\u0105 pr\u0119\u017cnie na rynku hotelarskim w Niechorzu.<br/> <br/> Na parterze znajdziemy:<br/> -du\u017c\u0105 otwart\u0105 przestrze\u0144 sk\u0142adaj\u0105c\u0105 si\u0119 na jasny przestronny salon oraz cz\u0119\u015b\u0107 kuchenn\u0105<br/> -pe\u0142nowymiarow\u0105 \u0142azienk\u0119<br/> -wyj\u015bcie na taras i ogr\u00f3d<br/> Na pi\u0119trze:<br/> -trzy sypialnie<br/> -\u0142azienka<br/> <br/> Dom w stanie deweloperskim - cena 990 000 z\u0142 netto<br/> <br/> KUPUJ\u0104CY NIE P\u0141ACI PODATKU PCC : 2%<br/> <br/> Oferta atrakcyjna szczeg\u00f3lnie ze wzgl\u0119du na Morze Ba\u0142tyckie i zaciszne otoczenie osiedla - blisko\u015b\u0107 \u015bcie\u017cki Velo Baltica, zaledwie 500m od piaszczystej pla\u017cy, lokalizacja w oddaleniu od centrum miejscowo\u015bci zapewnia prywatno\u015b\u0107 oraz komfort, a blisko\u015b\u0107 obiektu hotelowego umo\u017cliwia korzystanie z udogodnie\u0144 takich jak: basen, sauny, strefa SPA&amp;Wellness, restauracja.<br/> Domy ca\u0142oroczne s\u0105 odpowiedzi\u0105 na potrzeby turyst\u00f3w dotycz\u0105cych wynajmu - coraz cz\u0119\u015bciej pokoje i apartamenty hotelowe nie spe\u0142niaj\u0105 oczekiwa\u0144 poprzez ma\u0142\u0105 powierzchni\u0119 i brak prywatno\u015bci. Nasze domy gwarantuj\u0105 wypoczynek na w\u0142asnych zasadach - z pe\u0142n\u0105 niezale\u017cno\u015bci\u0105 i z mo\u017cliwo\u015bci\u0105 skorzystania z wybranych us\u0142ug hotelowych dodatkowo. <br/> <br/> Mo\u017cliwo\u015b\u0107 nawi\u0105zania wsp\u00f3\u0142pracy operatorskiej - zajmiemy si\u0119 ca\u0142o\u015bci\u0105 wynajmu oraz obs\u0142ugi domu. Mamy du\u017ce do\u015bwiadczenie na rynku turystycznym - od wielu lat zajmujemy si\u0119 wynajmem pokoi oraz apartament\u00f3w, co gwarantuje sukces - w obiekcie Amber Park Spa go\u015bcili\u015bmy ju\u017c ponad 42 500 os\u00f3b.<br/> <br/> Przedstawione wizualizacje maj\u0105 charakter pogl\u0105dowy. Powy\u017csza oferta ma wy\u0142\u0105cznie charakter informacyjny. Nie stanowi ona oferty w my\u015bl art. 66 i n. ustawy z dnia 23.04.1964r. Kodeks cywilny (Dz.U. 1964r. Nr 16, poz. 93, ze zm.).</p>",
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "exclusiveOffer": false,
+    "externalId": "",
+    "features": [
+        "inne",
+        "pr\u0105d",
+        "kanalizacja",
+        "woda",
+        "utwardzony",
+        "las",
+        "jezioro",
+        "morze"
+    ],
+    "featuresByCategory": [
+        {
+            "label": "Ogrodzenie",
+            "values": [
+                "inne"
+            ],
+            "__typename": "FeatureGroup"
+        },
+        {
+            "label": "Media",
+            "values": [
+                "pr\u0105d",
+                "kanalizacja",
+                "woda"
+            ],
+            "__typename": "FeatureGroup"
+        },
+        {
+            "label": "Dojazd",
+            "values": [
+                "utwardzony"
+            ],
+            "__typename": "FeatureGroup"
+        },
+        {
+            "label": "Okolica",
+            "values": [
+                "las",
+                "jezioro",
+                "morze"
+            ],
+            "__typename": "FeatureGroup"
+        }
+    ],
+    "featuresWithoutCategory": [],
+    "openDay": {
+        "date": null,
+        "timeFrom": null,
+        "timeTo": null,
+        "__typename": "AdOpenDay"
+    },
+    "referenceId": "",
+    "target": {
+        "Access_types": [
+            "hard_surfaced"
+        ],
+        "Area": "70.9",
+        "AreaRange": [],
+        "Build_year": "2023",
+        "Building_material": [
+            "silikat"
+        ],
+        "Building_type": [
+            "detached"
+        ],
+        "City": "niechorze",
+        "City_id": "1284",
+        "Construction_status": [
+            "to_completion"
+        ],
+        "Country": "Polska",
+        "Fence_types": [
+            "other"
+        ],
+        "Floors_num": [
+            "one_floor"
+        ],
+        "Garret_type": [
+            "usable"
+        ],
+        "Id": "64322252",
+        "Location": [
+            "country"
+        ],
+        "MarketType": "primary",
+        "Media_types": [
+            "electricity",
+            "sewage",
+            "water"
+        ],
+        "ObidoAdvert": "n",
+        "OfferType": "sprzedaz",
+        "Photo": "aHR0cHM6Ly9pcmVsYW5kLmFwb2xsby5vbHhjZG4uY29tL3YxL2ZpbGVzL2V5Sm1iaUk2SW1RMGNXeHNZblIyZEhwdGNUTXRRVkJNSWl3aWR5STZXM3NpWm00aU9pSmxiblptY1hGbE1XRjVOR3N4TFVGUVRDSXNJbk1pT2lJeE5DSXNJbkFpT2lJeE1Dd3RNVEFpTENKaElqb2lNQ0o5WFgwLmZ0d2NFMnV1aUQwNDAwbUJNMWlraEFrSVJBdXdQXzIzLTZYeE5mVk5ZSjAvaW1hZ2U7cz02NTV4NDkxO3E9ODA=",
+        "Price": 990000,
+        "PriceRange": [
+            "750001-1000000"
+        ],
+        "Price_per_m": 13963,
+        "ProperType": "dom",
+        "Province": "zachodniopomorskie",
+        "RegularUser": "y",
+        "Remote_services": [
+            "1"
+        ],
+        "Roof_type": [
+            "diagonal"
+        ],
+        "Roofing": [
+            "tile"
+        ],
+        "Rooms_num": [
+            "4"
+        ],
+        "Subregion": "powiat-gryficki",
+        "Terrain_area": "150",
+        "Title": "RG9tIDcwLDltMiB6IG9ncsOzZGtpZW0gLSBPbGl2aW5hIFBhcmsgbmFkIG1vcnplbQ==",
+        "Vicinity_types": [
+            "forest",
+            "lake",
+            "sea"
+        ],
+        "Windows_type": [
+            "plastic"
+        ],
+        "categoryId": "201",
+        "env": "production",
+        "hidePrice": "0",
+        "seller_id": "9321978",
+        "user_type": "private"
+    },
+    "title": "Dom 70,9m2 z ogr\u00f3dkiem - Olivina Park nad morzem",
+    "topInformation": [
+        {
+            "label": "area",
+            "values": [
+                "70.9"
+            ],
+            "unit": "m\u00b2",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "heating_types",
+            "values": [],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "terrain_area",
+            "values": [
+                "150"
+            ],
+            "unit": "m\u00b2",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "construction_status",
+            "values": [
+                "construction_status::to_completion"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "building_type",
+            "values": [
+                "building_type::detached"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "build_year",
+            "values": [
+                "2023"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "rooms_num",
+            "values": [
+                "4"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "car",
+            "values": [],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "remote_services",
+            "values": [
+                "remote_services::1"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "rent",
+            "values": [],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        }
+    ],
+    "additionalInformation": [
+        {
+            "label": "market",
+            "values": [
+                "market::primary"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "advertiser_type",
+            "values": [
+                "advertiser_type::private"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "free_from",
+            "values": [],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "building_material",
+            "values": [
+                "building_material::silikat"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "windows_type",
+            "values": [
+                "windows_type::plastic"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "floors_num",
+            "values": [
+                "floors_num::one_floor"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "recreational",
+            "values": [],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "roof_type",
+            "values": [
+                "roof_type::diagonal"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "roofing",
+            "values": [
+                "roofing::tile"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "garret_type",
+            "values": [
+                "garret_type::usable"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "media_types",
+            "values": [
+                "media_types::electricity",
+                "media_types::sewage",
+                "media_types::water"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "security_types",
+            "values": [],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "fence_types",
+            "values": [
+                "fence_types::other"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "access_types",
+            "values": [
+                "access_types::hard_surfaced"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "location",
+            "values": [
+                "location::country"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "vicinity_types",
+            "values": [
+                "vicinity_types::forest",
+                "vicinity_types::lake",
+                "vicinity_types::sea"
+            ],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        },
+        {
+            "label": "extras_types",
+            "values": [],
+            "unit": "",
+            "__typename": "AdditionalInfo"
+        }
+    ],
+    "url": "https://www.otodom.pl/pl/oferta/dom-70-9m2-z-ogrodkiem-olivina-park-nad-morzem-ID4lT9G",
+    "status": "active",
+    "adCategory": {
+        "id": "201",
+        "name": "HOUSE",
+        "type": "SELL",
+        "__typename": "AdvertCategory"
+    },
+    "category": {
+        "id": 201,
+        "name": [
+            {
+                "locale": "pl",
+                "value": "Domy",
+                "__typename": "LocalizedString"
+            },
+            {
+                "locale": "uk",
+                "value": "\u0414\u043e\u043c",
+                "__typename": "LocalizedString"
+            }
+        ],
+        "__typename": "AdCategory"
+    },
+    "characteristics": [
+        {
+            "key": "price",
+            "value": "990000",
+            "label": "Cena",
+            "localizedValue": "990 000 z\u0142",
+            "currency": "PLN",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "terrain_area",
+            "value": "150",
+            "label": "Powierzchnia dzia\u0142ki",
+            "localizedValue": "150 m\u00b2",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "m",
+            "value": "70.9",
+            "label": "Powierzchnia",
+            "localizedValue": "70,90 m\u00b2",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "price_per_m",
+            "value": "13963",
+            "label": "cena za metr",
+            "localizedValue": "13 963 z\u0142/m\u00b2",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "remote_services",
+            "value": "1",
+            "label": "Obs\u0142uga zdalna",
+            "localizedValue": "Tak",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "market",
+            "value": "primary",
+            "label": "Rynek",
+            "localizedValue": "pierwotny",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "rooms_num",
+            "value": "4",
+            "label": "Liczba pokoi",
+            "localizedValue": "4",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "building_type",
+            "value": "detached",
+            "label": "Rodzaj zabudowy",
+            "localizedValue": "wolnostoj\u0105cy",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "floors_num",
+            "value": "one_floor",
+            "label": "Liczba pi\u0119ter",
+            "localizedValue": "1 pi\u0119tro",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "building_material",
+            "value": "silikat",
+            "label": "Materia\u0142 budynku",
+            "localizedValue": "silikat",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "build_year",
+            "value": "2023",
+            "label": "Rok budowy",
+            "localizedValue": "2023",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "garret_type",
+            "value": "usable",
+            "label": "Poddasze",
+            "localizedValue": "u\u017cytkowe",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "roof_type",
+            "value": "diagonal",
+            "label": "Dach",
+            "localizedValue": "sko\u015bny",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "roofing",
+            "value": "tile",
+            "label": "Pokrycie dachu",
+            "localizedValue": "dach\u00f3wka",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "construction_status",
+            "value": "to_completion",
+            "label": "Stan wyko\u0144czenia",
+            "localizedValue": "do wyko\u0144czenia",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "windows_type",
+            "value": "plastic",
+            "label": "Okna",
+            "localizedValue": "plastikowe",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        },
+        {
+            "key": "location",
+            "value": "country",
+            "label": "Po\u0142o\u017cenie",
+            "localizedValue": "wie\u015b",
+            "currency": "",
+            "suffix": "",
+            "__typename": "Characteristic"
+        }
+    ],
+    "images": [
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImQ0cWxsYnR2dHptcTMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.ftwcE2uuiD0400mBM1ikhAkIRAuwP_23-6XxNfVNYJ0/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImQ0cWxsYnR2dHptcTMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.ftwcE2uuiD0400mBM1ikhAkIRAuwP_23-6XxNfVNYJ0/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImQ0cWxsYnR2dHptcTMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.ftwcE2uuiD0400mBM1ikhAkIRAuwP_23-6XxNfVNYJ0/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImQ0cWxsYnR2dHptcTMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.ftwcE2uuiD0400mBM1ikhAkIRAuwP_23-6XxNfVNYJ0/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjcxeDNieTFzcHVyNS1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.eGg6m979DKoTYqJbRxckdaiEZm7snLKO5YJeBciVsII/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjcxeDNieTFzcHVyNS1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.eGg6m979DKoTYqJbRxckdaiEZm7snLKO5YJeBciVsII/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjcxeDNieTFzcHVyNS1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.eGg6m979DKoTYqJbRxckdaiEZm7snLKO5YJeBciVsII/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjcxeDNieTFzcHVyNS1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.eGg6m979DKoTYqJbRxckdaiEZm7snLKO5YJeBciVsII/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InA4MnJ5ZmN1eW03NzItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.eVOXxOEKeumcUD91Z8jMiDqJ326NfYxiugVqFMKhLPU/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InA4MnJ5ZmN1eW03NzItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.eVOXxOEKeumcUD91Z8jMiDqJ326NfYxiugVqFMKhLPU/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InA4MnJ5ZmN1eW03NzItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.eVOXxOEKeumcUD91Z8jMiDqJ326NfYxiugVqFMKhLPU/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InA4MnJ5ZmN1eW03NzItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.eVOXxOEKeumcUD91Z8jMiDqJ326NfYxiugVqFMKhLPU/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjN1ZXluNXRxZnFvcTEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.rNa4eT4C0vaqWDc5GyUF7GkBj70lcAodB1AGtZ-BDtg/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjN1ZXluNXRxZnFvcTEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.rNa4eT4C0vaqWDc5GyUF7GkBj70lcAodB1AGtZ-BDtg/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjN1ZXluNXRxZnFvcTEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.rNa4eT4C0vaqWDc5GyUF7GkBj70lcAodB1AGtZ-BDtg/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjN1ZXluNXRxZnFvcTEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.rNa4eT4C0vaqWDc5GyUF7GkBj70lcAodB1AGtZ-BDtg/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImJpa3FkdjZjdGF5bTEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.Su0gKivCGQGAAGUkTS880ZvP6o8qiRqWwNzuSAaC2_M/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImJpa3FkdjZjdGF5bTEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.Su0gKivCGQGAAGUkTS880ZvP6o8qiRqWwNzuSAaC2_M/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImJpa3FkdjZjdGF5bTEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.Su0gKivCGQGAAGUkTS880ZvP6o8qiRqWwNzuSAaC2_M/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImJpa3FkdjZjdGF5bTEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.Su0gKivCGQGAAGUkTS880ZvP6o8qiRqWwNzuSAaC2_M/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImJuNXE3NW5uNGRxMzItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0._cvtNCau8pxImKfRqHgmjsNHC0VOrmalL1EViZLatjI/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImJuNXE3NW5uNGRxMzItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0._cvtNCau8pxImKfRqHgmjsNHC0VOrmalL1EViZLatjI/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImJuNXE3NW5uNGRxMzItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0._cvtNCau8pxImKfRqHgmjsNHC0VOrmalL1EViZLatjI/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImJuNXE3NW5uNGRxMzItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0._cvtNCau8pxImKfRqHgmjsNHC0VOrmalL1EViZLatjI/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imp5bDB0dnA2Nzh0ODEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.4IWtlKX9uVLaMvUlMLtzUqj14z8ZsA2GayaMue_2KZI/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imp5bDB0dnA2Nzh0ODEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.4IWtlKX9uVLaMvUlMLtzUqj14z8ZsA2GayaMue_2KZI/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imp5bDB0dnA2Nzh0ODEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.4IWtlKX9uVLaMvUlMLtzUqj14z8ZsA2GayaMue_2KZI/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imp5bDB0dnA2Nzh0ODEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.4IWtlKX9uVLaMvUlMLtzUqj14z8ZsA2GayaMue_2KZI/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        },
+        {
+            "thumbnail": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InpnMTkxcW01d3k4dzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.StIP1H6GqVu29vg8H7qDzzvFMt8L7zg14-adZr0no2U/image;s=184x138;q=80",
+            "small": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InpnMTkxcW01d3k4dzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.StIP1H6GqVu29vg8H7qDzzvFMt8L7zg14-adZr0no2U/image;s=314x236;q=80",
+            "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InpnMTkxcW01d3k4dzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.StIP1H6GqVu29vg8H7qDzzvFMt8L7zg14-adZr0no2U/image;s=655x491;q=80",
+            "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InpnMTkxcW01d3k4dzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.StIP1H6GqVu29vg8H7qDzzvFMt8L7zg14-adZr0no2U/image;s=1280x1024;q=80",
+            "__typename": "AdImage"
+        }
+    ],
+    "links": {
+        "localPlanUrl": "",
+        "videoUrl": "",
+        "view3dUrl": "",
+        "walkaroundUrl": "",
+        "__typename": "AdvertLinks"
+    },
+    "location": {
+        "id": null,
+        "coordinates": {
+            "latitude": 54.08931925995951,
+            "longitude": 15.057631341094963,
+            "__typename": "Coordinates"
+        },
+        "mapDetails": {
+            "radius": 0,
+            "zoom": 14,
+            "__typename": "MapDetails"
+        },
+        "address": {
+            "street": null,
+            "subdistrict": null,
+            "district": null,
+            "city": {
+                "id": "1284",
+                "code": "niechorze",
+                "name": "Niechorze",
+                "__typename": "City"
+            },
+            "municipality": null,
+            "county": {
+                "id": "355",
+                "code": "powiat-gryficki",
+                "name": "gryficki",
+                "__typename": "County"
+            },
+            "province": {
+                "id": "16",
+                "code": "zachodniopomorskie",
+                "name": "zachodniopomorskie",
+                "__typename": "Province"
+            },
+            "postalCode": null,
+            "__typename": "Address"
+        },
+        "reverseGeocoding": {
+            "locations": [
+                {
+                    "id": "zachodniopomorskie",
+                    "locationLevel": "voivodeship",
+                    "name": "zachodniopomorskie",
+                    "fullName": "zachodniopomorskie",
+                    "fullNameItems": [
+                        "zachodniopomorskie"
+                    ],
+                    "parentIds": [],
+                    "__typename": "BasicLocationObject"
+                },
+                {
+                    "id": "zachodniopomorskie/gryficki",
+                    "locationLevel": "county",
+                    "name": "gryficki",
+                    "fullName": "gryficki, zachodniopomorskie",
+                    "fullNameItems": [
+                        "gryficki",
+                        "zachodniopomorskie"
+                    ],
+                    "parentIds": [
+                        "zachodniopomorskie"
+                    ],
+                    "__typename": "BasicLocationObject"
+                },
+                {
+                    "id": "zachodniopomorskie/gryficki/rewal",
+                    "locationLevel": "commune",
+                    "name": "Rewal",
+                    "fullName": "Rewal, gryficki, zachodniopomorskie",
+                    "fullNameItems": [
+                        "Rewal",
+                        "gryficki",
+                        "zachodniopomorskie"
+                    ],
+                    "parentIds": [
+                        "zachodniopomorskie",
+                        "zachodniopomorskie/gryficki"
+                    ],
+                    "__typename": "BasicLocationObject"
+                },
+                {
+                    "id": "zachodniopomorskie/gryficki/rewal/niechorze",
+                    "locationLevel": "city_or_village",
+                    "name": "Niechorze",
+                    "fullName": "Niechorze, Rewal, gryficki, zachodniopomorskie",
+                    "fullNameItems": [
+                        "Niechorze",
+                        "Rewal",
+                        "gryficki",
+                        "zachodniopomorskie"
+                    ],
+                    "parentIds": [
+                        "zachodniopomorskie",
+                        "zachodniopomorskie/gryficki",
+                        "zachodniopomorskie/gryficki/rewal"
+                    ],
+                    "__typename": "BasicLocationObject"
+                }
+            ],
+            "__typename": "ReverseGeocoding"
+        },
+        "__typename": "LocationDetails"
+    },
+    "property": null,
+    "owner": {
+        "id": 9321978,
+        "name": "Karolina Sadowska",
+        "type": "private",
+        "phones": [
+            "+48783926163"
+        ],
+        "imageUrl": "",
+        "contacts": [],
+        "__typename": "LegacyAdvertOwner"
+    },
+    "agency": null,
+    "seo": {
+        "title": "4 pokoje, dom na sprzeda\u017c - Niechorze, gryficki, zachodniopomorskie - 64322252 \u2022 www.otodom.pl",
+        "description": "Fantastyczny 4 pokojowy dom na sprzeda\u017c w miejscowo\u015bci Niechorze, gryficki, zachodniopomorskie, za cen\u0119 990 000 z\u0142. Ten dom na sprzeda\u017c, po\u0142o\u017cony na dzia\u0142ce o powierzchni 150 m\u00b2 ma 70,90 m\u00b2 powierzchni u\u017cytkowej i 70,90 m\u00b2 powierzchni ca\u0142kowitej. W\u0142a\u015bciciel jako najwa\u017cniejsze zalety mieszkania wymienia: pr\u0105d, kanalizacja, woda. Otodom 64322252",
+        "__typename": "AdvertSeo"
+    },
+    "breadcrumbs": [
+        {
+            "label": "Dom na sprzeda\u017c",
+            "locative": "",
+            "url": "https://www.otodom.pl/pl/oferty/sprzedaz/dom",
+            "__typename": "AdvertBreadcrumb"
+        },
+        {
+            "label": "zachodniopomorskie",
+            "locative": "zachodniopomorskie",
+            "url": "https://www.otodom.pl/pl/oferty/sprzedaz/dom/zachodniopomorskie",
+            "__typename": "AdvertBreadcrumb"
+        },
+        {
+            "label": "gryficki",
+            "locative": "gryficki",
+            "url": "https://www.otodom.pl/pl/oferty/sprzedaz/dom/powiat-gryficki",
+            "__typename": "AdvertBreadcrumb"
+        },
+        {
+            "label": "Niechorze",
+            "locative": "Niechorze",
+            "url": "https://www.otodom.pl/pl/oferty/sprzedaz/dom/niechorze",
+            "__typename": "AdvertBreadcrumb"
+        },
+        {
+            "label": "Dom 70,9m2 z ogr\u00f3dkiem - Olivina Park nad morzem",
+            "locative": "",
+            "url": "",
+            "__typename": "AdvertBreadcrumb"
+        }
+    ],
+    "userAdverts": [
+        {
+            "url": "https://www.otodom.pl/pl/oferta/mieszkaj-i-zarabiaj-dom-70-9m2-z-ogrodkiem-ID4lT9S.html",
+            "image": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InA5bnFiNmtzejdiYzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.F24wDBvOPWQ9zjPHauz0u_eenpKtCbpGJp8lf9k4r4w/image;s=314x236;q=80",
+            "roomsNum": "4",
+            "pricePerM": 16147,
+            "price": {
+                "value": "1144800",
+                "unit": "PLN",
+                "__typename": "UserAdvertPrice"
+            },
+            "netArea": "70.9",
+            "title": "Mieszkaj i zarabiaj - dom 70,9m2 z ogr\u00f3dkiem",
+            "__typename": "UserAdvert"
+        }
+    ],
+    "paginatedUnits": {
+        "items": null,
+        "isPriceHidden": null,
+        "pagination": null,
+        "facets": null,
+        "__typename": "AdvertsPages"
+    },
+    "specialOffer": null,
+    "__typename": "Advert",
+    "contactDetails": {
+        "name": "Karolina Sadowska",
+        "type": "private",
+        "phones": [
+            "+48783926163"
+        ],
+        "imageUrl": ""
+    }
+}
