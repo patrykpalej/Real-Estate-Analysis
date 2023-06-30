@@ -161,13 +161,14 @@ if __name__ == "__main__":
     property_type = "LOTS"  # LOTS, HOUSES, APARTMENTS
     job_type = "SCRAPE"  # SEARCH, SCRAPE
     mode = 0  # 0, 1, 2
+    loglevel = 30
 
     scraper_name = generate_scraper_name(service_name, property_type)
 
     orchestrator = ScrapingOrchestrator(service_name, property_type,
                                         scraper_name, mode)
 
-    orchestrator.search_offers_urls()
+    # orchestrator.search_offers_urls()
 
     # pattern = r"230627-1232_OTODOM_LOTS_216"
     # offers = orchestrator.scrape_cached_urls(pattern,
