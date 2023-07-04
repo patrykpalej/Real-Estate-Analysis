@@ -5,6 +5,11 @@ from dataclasses import dataclass
 
 @dataclass
 class Offer:
+    number_id: int = None
+
+    def __str__(self):
+        return f"<Offer {self.number_id}>"
+
     def to_dict(self, parse_json: bool = False):
         if not parse_json:
             return self.__dict__

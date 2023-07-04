@@ -19,3 +19,7 @@ db_prod = "realestate"
 db_test = "realestate_test"
 db_dev = "realestate_dev"
 db_prod = "realestate"
+
+[logging]
+to_file = 1
+to_stdout = 1

@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 from scraping.abstract.otodom_scraper import OtodomScraper
 from data.models.otodom import OtodomLotOffer
 from scraping import PropertyTypes
+from exceptions import InvalidOffer
 
 
 class OtodomLotScraper(OtodomScraper):
@@ -27,12 +28,17 @@ class OtodomLotScraper(OtodomScraper):
             (OtodomLotOffer): single offer data model or None if invalid offer
 
         """
-        offer_json = self._get_raw_offer_data_from_offer_soup(offer_soup)
+        try:
+            offer_json = self._get_raw_offer_data_from_offer_soup(offer_soup)
+        except Exception as e:
+            self._log.error(e)
+            raise InvalidOffer("Soup not contains valid offer json")
 
         if offer_json["target"].get("Country") != "Polska":
-            return None
+            raise InvalidOffer("Offer from another country")
+
         if offer_json["target"].get("OfferType") != "sprzedaz":
-            return None
+            raise InvalidOffer("Not a sales offer")
 
         number_id = offer_json["id"]
         short_id = offer_json["publicId"]

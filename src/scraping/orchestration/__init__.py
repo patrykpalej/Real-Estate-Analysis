@@ -42,3 +42,9 @@ class OtodomScrapers(Enum):
 
 class DomiportaScrapers(Enum):
     pass
+
+
+# Job types Enum
+class JobTypes(Enum):
+    SEARCH: str = "SEARCH"
+    SCRAPE: str = "SCRAPE"

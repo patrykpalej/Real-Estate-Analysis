@@ -7,6 +7,8 @@ from utils.general import random_sleep
 from scraping.abstract.property_scraper import PropertyScraper
 from scraping import Services
 from data.models.otodom import OtodomOffer
+from scraping.orchestration.reports import (SearchScrapingReport,
+                                            OffersScrapingReport)
 
 
 class OtodomScraper(PropertyScraper, ABC):
@@ -46,14 +48,23 @@ class OtodomScraper(PropertyScraper, ABC):
         all_scripts = search_page_soup.find_all("script",
                                                 {"type": "application/json"})
 
-        offers_script_idx = 0
-        offers_json = json.loads(all_scripts[offers_script_idx].text)
-        offers_list = (offers_json["props"]["pageProps"]["data"]
-                                  ["searchAds"]["items"])
+        try:
+            offers_script_idx = 0
+            offers_json = json.loads(all_scripts[offers_script_idx].text)
+        except IndexError:
+            self._log.warning("Offers script not found on the search page")
+            return []
+
+        try:
+            offers_list = (offers_json["props"]["pageProps"]["data"]
+                                      ["searchAds"]["items"])
+        except KeyError:
+            self._log.warning("Offers search JSON invalid (keys not found)")
+            return []
+
         offers_slugs = [offer["slug"] for offer in offers_list]
         offers_urls = [self.OFFER_BASE_URL + slug for slug in offers_slugs]
 
-        # TODO: scrape urls from all pages (if None) or n_pages
         return offers_urls
 
     def scrape_offer_from_url(self, url: str) -> OtodomOffer:
@@ -68,7 +79,7 @@ class OtodomScraper(PropertyScraper, ABC):
 
     def list_offers_urls_from_search_params(
             self, search_params: dict, n_pages: int,
-            avg_sleep_time: int = 2) -> list[str]:
+            avg_sleep_time: int = 2) -> (list[str], list[int]):
         """
         Based on complete dict of search filters (default and custom)
         and `n_pages` to scrape returns a list of urls from all those pages.
@@ -80,9 +91,11 @@ class OtodomScraper(PropertyScraper, ABC):
 
         Returns:
             (list[str]): list of urls to offers from all N pages
+            (list[int]): number of urls aquired from subsequent pages
         """
         all_urls_list = []
-
+        n_of_urls_from_pages = []
+        self._log.debug(f"About to scrape {n_pages} pages")
         for page_number in range(n_pages):
             page_number += 1
             random_sleep(avg_sleep_time)
@@ -93,13 +106,26 @@ class OtodomScraper(PropertyScraper, ABC):
             search_response = self._request_http_get(search_url,
                                                      headers=random_headers,
                                                      params=search_params)
+
+            self._log.debug(f"Requested search url: {search_response.url} ")
+
             search_soup = self._make_soup(search_response)
-            page_urls_list = self._get_offers_urls_from_single_search_page(
-                search_soup)
+            try:
+                page_urls_list = self._get_offers_urls_from_single_search_page(
+                    search_soup)
+                n_of_urls_from_pages.append(len(page_urls_list))
+            except Exception as e:
+                self._log.exception(e)
+                page_urls_list = []
+
+            self._log.debug(f"Got {len(page_urls_list)} urls from search page")
 
             all_urls_list.extend(page_urls_list)
 
             if not page_urls_list:
+                self._log.warning("No urls found on a search page. "
+                                  "Searching aborted")
                 break
 
-        return all_urls_list
+        self._log.info(f"Found {len(all_urls_list)} urls from search params")
+        return all_urls_list, n_of_urls_from_pages

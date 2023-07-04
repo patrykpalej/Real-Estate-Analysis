@@ -18,7 +18,9 @@ def generate_random_headers():
     return random_headers
 
 
-def generate_scraper_name(service_name: str, property_type: str) -> str:
-    return (datetime.now().strftime("%y%m%d-%H%M")
+def generate_scraper_name(service_name: str, property_type: str,
+                          job_type: str) -> str:
+    return (datetime.now().strftime("%Y%m%d-%H%M")
             + "_" + service_name.upper()
-            + "_" + property_type.upper())
+            + "_" + property_type.upper()
+            + "_" + job_type.upper())

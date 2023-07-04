@@ -3,6 +3,7 @@ import toml
 import json
 import redis
 import pymongo
+import logging
 import psycopg2
 import pandas as pd
 from dotenv import load_dotenv
@@ -18,7 +19,8 @@ with open("../src/conf/config.toml", "r") as f:
 
 
 class StorageManager:
-    def __init__(self, service_name: str, property_type: str, mode: int):
+    def __init__(self, service_name: str, property_type: str,
+                 scraper_name: str, mode: int):
         """
         Create an instance of a StorageManager for a given service name
         and property type
@@ -36,6 +38,8 @@ class StorageManager:
         self.mongo_collection = self._configure_mongodb()
         # self.bq_config = self._configure_big_query()
         self.redis_db = self._configure_redis()
+
+        self._log = logging.getLogger(scraper_name)
 
     def _configure_postgresql(self):
         psql_credentials = {
@@ -64,17 +68,23 @@ class StorageManager:
         conn_str = generate_psql_connection_string(**self.postgresql_credentials)
 
         for offer in scraped_offers:
-            offer = offer.to_dataframe()
-            offer.to_sql(table_name, conn_str, if_exists="append", index=False)
+            offer_df = offer.to_dataframe()
+            try:
+                offer_df.to_sql(table_name, conn_str,
+                                if_exists="append", index=False)
+            except Exception as e:
+                self._log.error(f"Offer {str(offer)} not stored"
+                                f" - {str(type(e))}: {str(e)}")
 
-    def get_from_postgresql(self):
+    def get_from_postgresql(self, columns: tuple[str] = ()):
+        columns = ", ".join(columns) if columns else "*"
         table_name = f"{self.service_name.lower()}_{self.property_type.lower()}"
         conn_str = generate_psql_connection_string(**self.postgresql_credentials)
-        return pd.read_sql(f"SELECT * FROM {table_name}", conn_str)
+        return pd.read_sql(f"SELECT {columns} FROM {table_name}", conn_str)
 
     def truncate_postgresql_table(self):
         if self.mode == 2:
-            # TODO warning - truncate on production
+            self._log.warning("Attempted to truncate on production")
             return
 
         if self.mode == 1:
@@ -92,8 +102,12 @@ class StorageManager:
 
     def store_in_mongodb(self, scraped_offers: list[OtodomOffer]):
         for offer in scraped_offers:
-            offer = offer.to_dict(parse_json=True)
-            self.mongo_collection.insert_one(offer)
+            offer_dict = offer.to_dict(parse_json=True)
+            try:
+                self.mongo_collection.insert_one(offer_dict)
+            except Exception as e:
+                self._log.error(f"Offer {str(offer)} not stored"
+                                f" - {str(type(e))}: {str(e)}")
 
     def get_from_mongodb(self):
         return self.mongo_collection.find({}, {"_id": 0})
@@ -114,8 +128,8 @@ class StorageManager:
         elif isinstance(data, (list, dict, tuple)):
             self.redis_db.set(key, json.dumps(data))
         else:
-            # TODO: warning
-            pass
+            self._log.warning(
+                f"Tried to cache data with unsupported type {type(data)}")
 
     def read_cache(self, key: str, from_json: bool = False):
         """

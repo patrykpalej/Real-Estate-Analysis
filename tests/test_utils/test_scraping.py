@@ -20,4 +20,4 @@ class TestFunctions(unittest.TestCase):
 
         # date.today()
         self.assertRegex(generate_scraper_name("ABC", "XYZ"),
-                         rf"^{date.today().strftime('%y%m%d')}-\d*_ABC_XYZ$")
+                         rf"^{date.today().strftime('%Y%m%d')}-\d*_ABC_XYZ$")

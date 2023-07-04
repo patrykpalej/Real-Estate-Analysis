@@ -6,7 +6,6 @@ from data.models.common import Offer
 
 @dataclass
 class OtodomOffer(Offer):
-    number_id: int = None
     short_id: str = None
     long_id: str = None
     url: str = None
