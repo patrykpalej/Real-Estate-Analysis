@@ -21,5 +21,6 @@ db_dev = "realestate_dev"
 db_prod = "realestate"
 
 [logging]
-to_file = 1
-to_stdout = 1
+default_log_level = 10
+file_log_level = 20
+stdout_log_level = 10

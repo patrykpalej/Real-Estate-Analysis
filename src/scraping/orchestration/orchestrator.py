@@ -1,8 +1,10 @@
 import re
 import json
 from dotenv import load_dotenv
+from datetime import datetime
 
 from utils.general import random_sleep
+from utils.math import calc_perc
 from utils.scraping import generate_scraper_name
 from data.models.otodom import OtodomOffer
 from data.storage.manager import StorageManager
@@ -18,6 +20,8 @@ from scraping.orchestration import (OtodomFiltersPath,
                                     OtodomScrapers,
                                     DomiportaScrapers,
                                     JobTypes)
+from scraping.orchestration.messaging import (SearchEmailSender,
+                                              ScrapeEmailSender)
 from exceptions import ServiceNotExists
 
 
@@ -30,21 +34,23 @@ class ScrapingOrchestrator:
                  mode: int = 0):
 
         self.service_name = service_name
+        self.mode = mode
         self.property_type = property_type
         self.scraper = self._get_scraper_class()(scraper_name)
         self.storage_manager = StorageManager(self.service_name,
                                               self.property_type,
                                               scraper_name,
-                                              mode)
+                                              self.mode)
         if job_type == JobTypes.SEARCH.value:
             self.report = SearchScrapingReport()
         elif job_type == JobTypes.SCRAPE.value:
             self.report = OffersScrapingReport()
         else:
             self.report = ScrapingReport()
+        self.report.scraping_started = datetime.now()
 
         logger.info(f"Orchestrator initialized for {self.service_name} "
-                    f"{self.property_type} | mode: {mode}")
+                    f"{self.property_type} | mode: {self.mode}")
 
     def _get_scraper_class(self) -> type:
         """
@@ -105,17 +111,10 @@ class ScrapingOrchestrator:
         search_params_dict.update(custom_search_params["filters"])
 
         logger.debug("Search params combining ended")
-        logger.info(f"All search params: {search_params_dict}. "
-                    f"Number of pages: {custom_search_params['n_pages']}")
+        logger.debug(f"All search params: {search_params_dict}. "
+                     f"Number of pages: {custom_search_params['n_pages']}")
 
         return search_params_dict, custom_search_params["n_pages"]
-
-    def _check_if_url_already_scraped(self, url):
-        """
-        For a URL checks if it already exists in postgresql
-        """
-        urls_in_db = self.storage_manager.get_from_postgresql(("url",)).values
-        return True if url in urls_in_db else False
 
     def search_offers_urls(self, cache: bool = True,
                            avg_sleep_time: int = 2) -> list[str]:
@@ -132,7 +131,7 @@ class ScrapingOrchestrator:
 
         offers_urls, n_of_urls_from_pages = self.scraper.list_offers_urls_from_search_params(
             all_search_params, n_pages_to_scrape, avg_sleep_time)
-        self.report.n_of_urls_aquired_from_pages = n_of_urls_from_pages
+        self.report.n_of_urls_acquired_from_pages = n_of_urls_from_pages
 
         if cache:
             logger.debug("Caching offers urls started")
@@ -161,19 +160,24 @@ class ScrapingOrchestrator:
         all_offers_scraped = []
         n_of_offers_to_scrape = 0
         for key in matching_keys:
+            urls_in_db = self.storage_manager.get_from_postgresql(
+                ("url",)).values
+
             urls_package = self.storage_manager.read_cache(key, from_json=True)
             n_of_offers_to_scrape += len(urls_package)
             logger.debug(f"Scraping offers from {key},"
                          f" {len(urls_package)} offers to scrape")
 
             n_urls_from_package_scraped = 0
-            self.report.n_of_offers_in_packages_attempted.append(len(urls_package))
-            for url in urls_package[:12]:  # TODO [:2]
-                random_sleep(avg_sleep_time)
-                if self._check_if_url_already_scraped(url):
+            self.report.n_of_offers_in_packages_attempted.append(0)
+            for url in urls_package[:(None if self.mode else 8)]:
+                self.report.n_of_offers_in_packages_attempted[-1] += 1
+                if url in urls_in_db:
                     logger.warning(f"URL {url} already in database")
                     self.report.n_of_offers_scraped_before += 1
                     continue
+
+                random_sleep(avg_sleep_time)
 
                 try:
                     offer_data_model = self.scraper.scrape_offer_from_url(url)
@@ -190,7 +194,7 @@ class ScrapingOrchestrator:
 
             logger.debug(f"For {key}: {n_urls_from_package_scraped} offers"
                          f" scraped out of {len(urls_package)} "
-                         f"({round(100*n_urls_from_package_scraped/len(urls_package))}%)")
+                         f"({calc_perc(n_urls_from_package_scraped, len(urls_package))}%)")
 
             if clear_cache:
                 self.storage_manager.clear_cache(key)
@@ -198,7 +202,7 @@ class ScrapingOrchestrator:
 
         logger.info(f"Altogether {len(all_offers_scraped)} offers scraped"
                     f" out of {n_of_offers_to_scrape} "
-                    f"({round(100*len(all_offers_scraped)/n_of_offers_to_scrape)}%)")
+                    f"({calc_perc(len(all_offers_scraped), n_of_offers_to_scrape)}%)")
         return all_offers_scraped
 
     def store_scraped_offers(self, offers: list[OtodomOffer],
@@ -215,14 +219,18 @@ class ScrapingOrchestrator:
 
         if postgresql:
             try:
-                self.storage_manager.store_in_postgresql(offers)
+                n_success = self.storage_manager.store_in_postgresql(offers)
+                self.report.n_postgresql_success = n_success
+                logger.info(f"{n_success} offers stored in postgresql")
             except Exception as e:
                 logger.error("Storing data in postgresql failed")
                 logger.exception(e)
 
         if mongodb:
             try:
-                self.storage_manager.store_in_mongodb(offers)
+                n_success = self.storage_manager.store_in_mongodb(offers)
+                self.report.n_mongo_success = n_success
+                logger.info(f"{n_success} offers stored in mongodb")
             except Exception as e:
                 logger.error("Storing data in mongodb failed")
                 logger.exception(e)
@@ -243,33 +251,37 @@ if __name__ == "__main__":
     property_type = "LOTS"  # LOTS, HOUSES, APARTMENTS
     job_type = "SCRAPE"  # SEARCH, SCRAPE
     mode = 0  # 0, 1, 2
-    loglevel = 10
 
     scraper_name = generate_scraper_name(service_name, property_type, job_type)
-    logger = setup_logger(scraper_name, loglevel)
+    logger = setup_logger(scraper_name)
 
     orchestrator = ScrapingOrchestrator(service_name, property_type,
                                         scraper_name, job_type, mode)
 
     if job_type == "SEARCH":
         orchestrator.search_offers_urls()
+        orchestrator.report.scraping_ended = datetime.now()
+
+        sender = SearchEmailSender(service_name, property_type)
+        sender.send_email(orchestrator.report)
+
+        logger.info("Report sent via email")
 
     if job_type == "SCRAPE":
-        pattern = r"20230703-1424_OTODOM_LOTS_203"
-        # TODO return below ScrapingReport instance
+        pattern = r".*OTODOM_LOTS_SEARCH.*"
         offers = orchestrator.scrape_cached_urls(pattern,
-                                                 clear_cache=False,
+                                                 clear_cache=True,
                                                  avg_sleep_time=5)
+        orchestrator.report.scraping_ended = datetime.now()
 
         logger.info(f"{len(offers)} cached offers scraped")
 
         orchestrator.store_scraped_offers(offers,
                                           postgresql=True, mongodb=True)
 
-        print("REPORT")
-        print(orchestrator.report.n_of_offers_scraped_before)
-        print(orchestrator.report.n_of_unknown_errors)
-        print(orchestrator.report.n_of_offers_in_packages_attempted)
-        print(orchestrator.report.n_of_offers_in_packages_success)
+        sender = ScrapeEmailSender(service_name, property_type)
+        sender.send_email(orchestrator.report)
+
+        logger.info("Report sent via email")
 
     logger.info("Scraping finished properly")

@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 
 from utils.storage import generate_psql_connection_string
 from data.models.otodom import OtodomOffer
+from exceptions import AlreadyStoredOffer
 
 
 load_dotenv()
@@ -64,6 +65,7 @@ class StorageManager:
         return redis.Redis(host=host, port=port, db=databases[self.mode])
 
     def store_in_postgresql(self, scraped_offers: list[OtodomOffer]):
+        n_success = 0
         table_name = f"{self.service_name.lower()}_{self.property_type.lower()}"
         conn_str = generate_psql_connection_string(**self.postgresql_credentials)
 
@@ -72,9 +74,12 @@ class StorageManager:
             try:
                 offer_df.to_sql(table_name, conn_str,
                                 if_exists="append", index=False)
+                n_success += 1
             except Exception as e:
                 self._log.error(f"Offer {str(offer)} not stored"
                                 f" - {str(type(e))}: {str(e)}")
+
+        return n_success
 
     def get_from_postgresql(self, columns: tuple[str] = ()):
         columns = ", ".join(columns) if columns else "*"
@@ -101,13 +106,23 @@ class StorageManager:
         conn.close()
 
     def store_in_mongodb(self, scraped_offers: list[OtodomOffer]):
+        urls_in_db = [doc["url"] for doc in
+                      list(self.mongo_collection.find({}, {"url": 1, "_id": 0}))]
+
+        n_success = 0
         for offer in scraped_offers:
             offer_dict = offer.to_dict(parse_json=True)
             try:
+                if offer_dict["url"] in urls_in_db:
+                    raise AlreadyStoredOffer("Offer already stored in mongo")
+
                 self.mongo_collection.insert_one(offer_dict)
+                n_success += 1
             except Exception as e:
                 self._log.error(f"Offer {str(offer)} not stored"
                                 f" - {str(type(e))}: {str(e)}")
+
+        return n_success
 
     def get_from_mongodb(self):
         return self.mongo_collection.find({}, {"_id": 0})
