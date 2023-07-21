@@ -10,6 +10,7 @@ from utils.math import calc_perc
 from utils.scraping import generate_scraper_name
 from data.models.otodom import OtodomOffer
 from data.storage.manager import StorageManager
+from scraping import ScrapingModes
 from scraping.orchestration.reports import (ScrapingReport,
                                             SearchScrapingReport,
                                             OffersScrapingReport)
@@ -172,7 +173,9 @@ class ScrapingOrchestrator:
 
             n_urls_from_package_scraped = 0
             self.report.n_of_offers_in_packages_attempted.append(0)
-            for url in urls_package[:(None if self.mode else 8)]:
+
+            stop_limit = None if self.mode == ScrapingModes.PROD.value else 8
+            for url in urls_package[:stop_limit]:
                 self.report.n_of_offers_in_packages_attempted[-1] += 1
                 if url in urls_in_db:
                     self._log.warning(f"URL {url} already in database")
@@ -299,43 +302,3 @@ class Pipeline:
 if __name__ == "__main__":
     load_dotenv()
     fire.Fire(Pipeline)
-
-    # # TODO: CLI - args: the following:
-    # service_name = "OTODOM"  # OTODOM, DOMIPORTA
-    # property_type = "LOTS"  # LOTS, HOUSES, APARTMENTS
-    # job_type = "SCRAPE"  # SEARCH, SCRAPE
-    # mode = 0  # 0, 1, 2
-
-    # scraper_name = generate_scraper_name(service_name, property_type, job_type)
-    # logger = setup_logger(scraper_name)
-
-    # orchestrator = ScrapingOrchestrator(service_name, property_type,
-    #                                     scraper_name, job_type, mode)
-
-    # if job_type == "SEARCH":
-    #     orchestrator.search_offers_urls()
-    #     orchestrator.report.scraping_ended = datetime.now()
-    #
-    #     sender = SearchEmailSender(service_name, property_type)
-    #     sender.send_email(orchestrator.report)
-    #
-    #     logger.info("Report sent via email")
-
-    # if job_type == "SCRAPE":
-        # pattern = r".*OTODOM_LOTS_SEARCH.*"
-        # offers = orchestrator.scrape_cached_urls(pattern,
-        #                                          clear_cache=False,
-        #                                          avg_sleep_time=5)
-        # orchestrator.report.scraping_ended = datetime.now()
-        #
-        # logger.info(f"{len(offers)} cached offers scraped")
-        #
-        # orchestrator.store_scraped_offers(offers,
-        #                                   postgresql=True, mongodb=True)
-        #
-        # sender = ScrapeEmailSender(service_name, property_type)
-        # sender.send_email(orchestrator.report)
-        #
-        # logger.info("Report sent via email")
-
-    
