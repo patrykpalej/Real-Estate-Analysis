@@ -1,5 +1,7 @@
 import os
 import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 from dotenv import load_dotenv
 from datetime import date, datetime
 from abc import ABC, abstractmethod
@@ -32,24 +34,20 @@ class EmailSender(ABC):
     def _generate_content(report: ScrapingReport):
         raise NotImplementedError
 
-    def _generate_message(self, report):
-        return (f"Subject: {self._generate_title()}\n\n"
-                f"{self._generate_content(report)}")
-
     def send_email(self, report):
-        message = f"Subject: {self._generate_title()}\n\n" \
-                  f"{self._generate_content(report)}"
+        message = MIMEMultipart("alternative")
+        message["From"] = self.sender_email_address
+        message["To"] = self.receiver_email_address
+        message["Subject"] = self._generate_title()
 
-        with smtplib.SMTP(self.smtp_address, self.smtp_port) as smtp:
-            smtp.ehlo()
-            smtp.starttls()
-            smtp.ehlo()
+        part1 = MIMEText(self._generate_content(report), "plain")
+        message.attach(part1)
 
-            smtp.login(self.sender_email_address, self.sender_email_password)
-
-            smtp.sendmail(self.sender_email_address,
-                          self.receiver_email_address,
-                          message)
+        with smtplib.SMTP(self.smtp_address, self.smtp_port) as server:
+            server.login(self.sender_email_address, self.sender_email_password)
+            server.sendmail(self.sender_email_address,
+                            self.receiver_email_address,
+                            message.as_string())
 
 
 class SearchEmailSender(EmailSender):
