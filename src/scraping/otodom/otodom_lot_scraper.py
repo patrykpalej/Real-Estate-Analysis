@@ -7,6 +7,7 @@ from scraping.abstract.otodom_scraper import OtodomScraper
 from data.models.otodom import OtodomLotOffer
 from scraping import PropertyTypes
 from exceptions import InvalidOffer
+from utils.general import smart_join
 
 
 class OtodomLotScraper(OtodomScraper):
@@ -25,14 +26,14 @@ class OtodomLotScraper(OtodomScraper):
             offer_soup (BeautifulSoup): single offer soup
 
         Returns:
-            (OtodomLotOffer): single offer data model or None if invalid offer
+            (OtodomLotOffer): single offer data model
 
         """
         try:
             offer_json = self._get_raw_offer_data_from_offer_soup(offer_soup)
         except Exception as e:
             self._log.error(e)
-            raise InvalidOffer("Soup not contains valid offer json")
+            raise InvalidOffer("Soup does not contain valid offer json")
 
         if offer_json["target"].get("Country") != "Polska":
             raise InvalidOffer("Offer from another country")
@@ -56,15 +57,14 @@ class OtodomLotScraper(OtodomScraper):
         city = offer_json["location"]["address"]["city"]["name"]
         subregion = offer_json["location"]["address"]["county"]["code"]
         province = offer_json["location"]["address"]["province"]["code"]
-        location = json.dumps(offer_json["target"].get("Location", []),
-                              ensure_ascii=True)
-        latitude = offer_json["location"]["coordinates"]["latitude"]
+        location = smart_join(offer_json["target"].get("Location"))
         longitude = offer_json["location"]["coordinates"]["longitude"]
+        latitude = offer_json["location"]["coordinates"]["latitude"]
         lot_area = int(float(offer_json["target"]["Area"]))
         lot_features = json.dumps(
             {category["label"]: category["values"] for category in
              offer_json.get("featuresByCategory")}, ensure_ascii=False)
-        vicinity = "|".join(offer_json["target"].get("Vicinity_types", []))
+        vicinity = smart_join(offer_json["target"].get("Vicinity_types"))
 
         offer_model = OtodomLotOffer(
             number_id=number_id,

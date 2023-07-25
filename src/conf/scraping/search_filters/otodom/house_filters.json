@@ -1,0 +1,12 @@
+{
+    "filters": {
+        "priceMin": 50000,
+        "priceMax": 1000000,
+        "terrainAreaMin": 300,
+        "terrainAreaMax": 5000,
+        "areaMin": 80,
+        "areaMax": 250
+    },
+
+    "n_pages": 8
+}

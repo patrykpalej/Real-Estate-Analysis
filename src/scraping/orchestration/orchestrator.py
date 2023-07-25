@@ -272,7 +272,7 @@ class Pipeline:
 
     @staticmethod
     def scrape(service_name: str, property_type: str, mode: int,
-               clear_cache: bool):
+               clear_cache: bool = True):
         job_type = JobTypes.SCRAPE.value
         scraper_name = generate_scraper_name(service_name, property_type,
                                              job_type)
@@ -282,7 +282,7 @@ class Pipeline:
                                             scraper_name,
                                             job_type,
                                             mode)
-        pattern = r".*OTODOM_LOTS_SEARCH.*"
+        pattern = rf".*{service_name.upper()}_{property_type.upper()}_SEARCH.*"
         offers = orchestrator.scrape_cached_urls(pattern,
                                                  clear_cache=clear_cache,
                                                  avg_sleep_time=5)

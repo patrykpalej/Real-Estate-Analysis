@@ -39,7 +39,7 @@ class OtodomHouseOffer(OtodomOffer):
     lot_area: int = None
     house_area: int = None
     n_rooms: int = None
-    floors_info: str = None
+    floors: int = None
     heating: str = None
     build_year: int = None
     media: str = None
