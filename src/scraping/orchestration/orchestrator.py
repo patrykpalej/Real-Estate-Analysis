@@ -250,7 +250,7 @@ class ScrapingOrchestrator:
 
 class Pipeline:
     @staticmethod
-    def search(service_name, property_type, mode):
+    def search(service_name: str, property_type: str, mode: int):
         job_type = JobTypes.SEARCH.value
         scraper_name = generate_scraper_name(service_name, property_type,
                                              job_type)
@@ -271,7 +271,8 @@ class Pipeline:
         logger.info("Scraping finished properly")
 
     @staticmethod
-    def scrape(service_name, property_type, mode):
+    def scrape(service_name: str, property_type: str, mode: int,
+               clear_cache: bool):
         job_type = JobTypes.SCRAPE.value
         scraper_name = generate_scraper_name(service_name, property_type,
                                              job_type)
@@ -283,7 +284,7 @@ class Pipeline:
                                             mode)
         pattern = r".*OTODOM_LOTS_SEARCH.*"
         offers = orchestrator.scrape_cached_urls(pattern,
-                                                 clear_cache=False,
+                                                 clear_cache=clear_cache,
                                                  avg_sleep_time=5)
         orchestrator.report.scraping_ended = datetime.now()
 
