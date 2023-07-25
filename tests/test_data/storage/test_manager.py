@@ -15,7 +15,7 @@ otodom_lot_offers = [
 
 class TestStorageManager(unittest.TestCase):
     manager = StorageManager(service_name="otodom", property_type="lots",
-                             mode=0)
+                             scraper_name="ABC_XYZ", mode=0)
 
     def test_init(self):
         self.assertEqual(self.manager.service_name, "OTODOM")
@@ -24,6 +24,8 @@ class TestStorageManager(unittest.TestCase):
         self.assertIsInstance(self.manager.redis_db, redis.Redis)
 
     def test_store_in_postgresql(self):
+        self.manager.truncate_postgresql_table()
+
         self.manager.store_in_postgresql(otodom_lot_offers)
         data = self.manager.get_from_postgresql()
 
@@ -38,6 +40,8 @@ class TestStorageManager(unittest.TestCase):
         self.manager.truncate_postgresql_table()
 
     def test_store_in_mongodb(self):
+        self.manager.truncate_mongodb_collection()
+
         self.manager.store_in_mongodb(otodom_lot_offers)
         data = list(self.manager.get_from_mongodb())
 

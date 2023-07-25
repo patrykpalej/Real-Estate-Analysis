@@ -4,6 +4,7 @@ from unittest.mock import patch
 from datetime import datetime
 from bs4 import BeautifulSoup
 
+from exceptions import InvalidOffer
 from scraping.otodom.otodom_lot_scraper import OtodomLotScraper
 
 
@@ -50,7 +51,7 @@ class TestOtodomLotScraper(unittest.TestCase):
         self.assertEqual(test_offer_model.vicinity, None)
 
     @patch('scraping.abstract.otodom_scraper.OtodomScraper._get_raw_offer_data_from_offer_soup')
-    def test_skip_offer(self, raw_offer_mock):
+    def test_invalid_offers(self, raw_offer_mock):
         invalid_offer_1 = {"target": {
             "Country": "Niemcy",
             "OfferType": "sprzedaz"
@@ -62,9 +63,11 @@ class TestOtodomLotScraper(unittest.TestCase):
         }}
 
         raw_offer_mock.return_value = invalid_offer_1
-        scraper = OtodomLotScraper("test")
-        self.assertEqual(scraper._parse_offer_soup(BeautifulSoup()), None)
+        scraper = OtodomLotScraper("test1")
+        with self.assertRaises(InvalidOffer):
+            scraper._parse_offer_soup(BeautifulSoup())
 
         raw_offer_mock.return_value = invalid_offer_2
-        scraper = OtodomLotScraper("test")
-        self.assertEqual(scraper._parse_offer_soup(BeautifulSoup()), None)
+        scraper = OtodomLotScraper("test2")
+        with self.assertRaises(InvalidOffer):
+            scraper._parse_offer_soup(BeautifulSoup())

@@ -15,9 +15,9 @@ class TestFunctions(unittest.TestCase):
 
     def test_generate_scraper_name(self):
         # str.upper()
-        self.assertRegex(generate_scraper_name("abc", "xyz"),
-                         r"^\d*-\d*_ABC_XYZ$")
+        self.assertRegex(generate_scraper_name("abc", "xyz", "ijk"),
+                         r"^\d*-\d*_ABC_XYZ_IJK$")
 
         # date.today()
-        self.assertRegex(generate_scraper_name("ABC", "XYZ"),
-                         rf"^{date.today().strftime('%Y%m%d')}-\d*_ABC_XYZ$")
+        self.assertRegex(generate_scraper_name("ABC", "XYZ", "IJK"),
+                         rf"^{date.today().strftime('%Y%m%d')}-\d*_ABC_XYZ_IJK$")

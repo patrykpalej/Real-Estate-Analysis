@@ -114,7 +114,8 @@ class TestOtodomScraper(unittest.TestCase):
         soup_mock = MagicMock()
         headers_mock = MagicMock()
         single_page_urls_mock = ["url1", "url2", "url3"]
-        all_urls_mock = single_page_urls_mock * n_pages
+        all_urls_mock = (single_page_urls_mock * n_pages,
+                         [len(single_page_urls_mock)] * n_pages)
 
         scraper._request_http_get = MagicMock(return_value=response_mock)
         scraper._make_soup = MagicMock(return_value=soup_mock)

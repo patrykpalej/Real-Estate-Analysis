@@ -5,6 +5,7 @@ from data.models.common import Offer
 
 
 offer = Offer()
+offer.number_id = 12345
 offer.attr1 = 123
 offer.attr2 = "abc"
 offer.attr3 = '{"a": 1, "b": [1, 2, 3]}'
@@ -16,12 +17,14 @@ class TestOffer(unittest.TestCase):
         dict_not_parse_json = offer.to_dict()
 
         self.assertEqual(dict_parse_json,
-                         {"attr1": 123,
+                         {"number_id": 12345,
+                          "attr1": 123,
                           "attr2": "abc",
                           "attr3": {"a": 1, "b": [1, 2, 3]}})
 
         self.assertEqual(dict_not_parse_json,
-                         {"attr1": 123,
+                         {"number_id": 12345,
+                          "attr1": 123,
                           "attr2": "abc",
                           "attr3": '{"a": 1, "b": [1, 2, 3]}'})
 
@@ -29,7 +32,8 @@ class TestOffer(unittest.TestCase):
         df = offer.to_dataframe()
 
         self.assertTrue(df.equals(pd.DataFrame(
-                             {"attr1": [123],
+                             {"number_id": [12345],
+                              "attr1": [123],
                               "attr2": ["abc"],
                               "attr3": ['{"a": 1, "b": [1, 2, 3]}']}
                          )))

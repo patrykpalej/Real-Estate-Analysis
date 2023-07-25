@@ -7,8 +7,6 @@ from utils.general import random_sleep
 from scraping.abstract.property_scraper import PropertyScraper
 from scraping import Services
 from data.models.otodom import OtodomOffer
-from scraping.orchestration.reports import (SearchScrapingReport,
-                                            OffersScrapingReport)
 
 
 class OtodomScraper(PropertyScraper, ABC):
