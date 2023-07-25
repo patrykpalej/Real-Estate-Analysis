@@ -88,7 +88,7 @@ class OtodomHouseScraper(OtodomScraper):
             smart_slice(offer_json["target"].get("Rooms_num")), int)
         floors_num = self._convert_floor_num(offer_json["target"].get("Floors_num"))
         heating = smart_join(offer_json["target"].get("Heating_types"))
-        build_year = int(offer_json["target"]["Build_year"])
+        build_year = smart_cast(offer_json["target"].get("Build_year"), int)
         media = smart_join(offer_json["target"].get("Media_types"))
         vicinity = smart_join(offer_json["target"].get("Vicinity_types"))
 
