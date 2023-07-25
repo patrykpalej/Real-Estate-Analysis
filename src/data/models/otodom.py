@@ -49,14 +49,13 @@ class OtodomHouseOffer(OtodomOffer):
 @dataclass
 class OtodomApartmentOffer(OtodomOffer):
     market: str = None
-    status: list[str] = None
+    status: str = None
     apartment_features: str = None
     apartment_area: int = None
     build_year: int = None
+    floor: int = None
     building_floors_num: int = None
     building_type: str = None
-    elevator: bool = None
     media: str = None
     heating: str = None
-    rent: int = None
     n_rooms: int = None

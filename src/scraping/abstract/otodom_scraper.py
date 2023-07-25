@@ -77,7 +77,7 @@ class OtodomScraper(PropertyScraper, ABC):
 
     def list_offers_urls_from_search_params(
             self, search_params: dict, n_pages: int,
-            avg_sleep_time: int = 2) -> (list[str], list[int]):
+            avg_sleep_time: int = 3) -> (list[str], list[int]):
         """
         Based on complete dict of search filters (default and custom)
         and `n_pages` to scrape returns a list of urls from all those pages.

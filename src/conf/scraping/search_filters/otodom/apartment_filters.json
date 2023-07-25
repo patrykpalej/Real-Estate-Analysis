@@ -1,0 +1,10 @@
+{
+    "filters": {
+        "priceMin": 50000,
+        "priceMax": 1000000,
+        "areaMin": 25,
+        "areaMax": 100
+    },
+
+    "n_pages": 10
+}

@@ -7,7 +7,7 @@ from scraping.abstract.otodom_scraper import OtodomScraper
 from data.models.otodom import OtodomHouseOffer
 from scraping import PropertyTypes
 from exceptions import InvalidOffer
-from utils.general import smart_join
+from utils.general import smart_join, smart_slice, smart_cast
 
 
 class OtodomHouseScraper(OtodomScraper):
@@ -18,7 +18,7 @@ class OtodomHouseScraper(OtodomScraper):
         super().__init__(scraper_name)
 
     @staticmethod
-    def convert_floor_num(txt: str):
+    def _convert_floor_num(txt: str):
         """
         Converts text description of floors number to int
         """
@@ -84,8 +84,9 @@ class OtodomHouseScraper(OtodomScraper):
              offer_json.get("featuresByCategory")}, ensure_ascii=False)
         lot_area = int(float(offer_json["target"]["Terrain_area"]))
         house_area = int(float(offer_json["target"]["Area"]))
-        n_rooms = int(offer_json["target"].get("Rooms_num")[0])
-        floors_num = self.convert_floor_num(offer_json["target"].get("Floors_num"))
+        n_rooms = smart_cast(
+            smart_slice(offer_json["target"].get("Rooms_num")), int)
+        floors_num = self._convert_floor_num(offer_json["target"].get("Floors_num"))
         heating = smart_join(offer_json["target"].get("Heating_types"))
         build_year = int(offer_json["target"]["Build_year"])
         media = smart_join(offer_json["target"].get("Media_types"))
