@@ -3,7 +3,9 @@
         "priceMin": 50000,
         "priceMax": 1000000,
         "areaMin": 25,
-        "areaMax": 100
+        "areaMax": 100,
+        "buildYearMin": 1950,
+        "buildYearMax": 2023
     },
 
     "n_pages": 10

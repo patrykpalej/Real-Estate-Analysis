@@ -5,7 +5,9 @@
         "terrainAreaMin": 300,
         "terrainAreaMax": 5000,
         "areaMin": 80,
-        "areaMax": 250
+        "areaMax": 250,
+        "buildYearMin": 1950,
+        "buildYearMax": 2023
     },
 
     "n_pages": 8
