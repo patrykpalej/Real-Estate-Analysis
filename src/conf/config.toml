@@ -1,0 +1,26 @@
+[general]
+name = "Real Estate Analysis"
+version = "1.0"
+
+
+[redis]
+host = "127.0.0.1"
+port = 6379
+db_test = 2
+db_dev = 3
+db_prod = 4
+
+[postgresql]
+db_test = "realestate_test"
+db_dev = "realestate_dev"
+db_prod = "realestate"
+
+[mongodb]
+db_test = "realestate_test"
+db_dev = "realestate_dev"
+db_prod = "realestate"
+
+[logging]
+default_log_level = 10
+file_log_level = 20
+stdout_log_level = 10

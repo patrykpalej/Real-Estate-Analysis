@@ -1,0 +1,20 @@
+{
+    "User-Agent": ["Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/113.0",
+                   "Mozilla/5.0 (Windows; U; Windows NT 6.3; Win64; x64; en-US) Gecko/20100101 Firefox/60.3",
+                   "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_10_5; en-US) Gecko/20130401 Firefox/60.7",
+                   "Mozilla/5.0 (Windows; U; Windows NT 10.3; WOW64; en-US) Gecko/20130401 Firefox/54.3",
+                   "Mozilla/5.0 (U; Linux x86_64; en-US) AppleWebKit/602.34 (KHTML, like Gecko) Chrome/55.0.2058.149 Safari/601",
+                   "Mozilla/5.0 (Linux; Linux i661 ) AppleWebKit/602.13 (KHTML, like Gecko) Chrome/55.0.2467.266 Safari/535",
+                   "Mozilla/5.0 (U; Linux i685 x86_64; en-US) AppleWebKit/601.20 (KHTML, like Gecko) Chrome/50.0.2971.169 Safari/600",
+                   "Mozilla/5.0 (Linux x86_64) AppleWebKit/534.21 (KHTML, like Gecko) Chrome/52.0.2837.201 Safari/535",
+                   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_7) AppleWebKit/534.22 (KHTML, like Gecko) Chrome/47.0.3698.333 Safari/535"
+                ],
+
+    "Accept": ["text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8"],
+    "Accept-Language": ["en-US,en;q=0.5"],
+    "Accept-Encoding": ["gzip, deflate, br"],
+    "Connection": ["keep-alive"],
+    "DNT": ["1"],
+    "Sec-GPC": ["1"],
+    "TE": ["trailers"]
+}
