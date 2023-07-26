@@ -64,7 +64,7 @@ class SearchEmailSender(EmailSender):
                                       '%Y-%m-%d %H:%M')
         end_str = datetime.strftime(report.scraping_ended, '%Y-%m-%d %H:%M')
 
-        content = ""
+        content = f"Env: {os.getenv('ENV_NAME')}"
         content += f"Start: {start_str}\n"
         content += f"End: {end_str}\n"
         content += f"Acquired: {report.total_n_of_urls_acquired}" \
@@ -87,7 +87,7 @@ class ScrapeEmailSender(EmailSender):
                                       '%Y-%m-%d %H:%M')
         end_str = datetime.strftime(report.scraping_ended, '%Y-%m-%d %H:%M')
 
-        content = ""
+        content = f"Env: {os.getenv('ENV_NAME')}"
         content += f"Start: {start_str}\n"
         content += f"End: {end_str}\n"
         content += f"Scraped before: {report.n_of_offers_scraped_before}\n"
