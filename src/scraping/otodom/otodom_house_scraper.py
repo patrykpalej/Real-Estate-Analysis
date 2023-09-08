@@ -23,13 +23,13 @@ class OtodomHouseScraper(OtodomScraper):
         Converts text description of floors number to int
         """
         match txt:
-            case "one_floor":
+            case ["one_floor"]:
                 return 1
-            case "two_floors":
+            case ["two_floors"]:
                 return 2
-            case "three_floors":
+            case ["three_floors"]:
                 return 3
-            case "four_floors":
+            case ["four_floors"]:
                 return 4
             case _:
                 return None
