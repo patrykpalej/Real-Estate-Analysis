@@ -1,4 +1,5 @@
 import json
+from urllib.parse import urljoin
 from abc import ABC, abstractmethod
 from urllib.parse import urljoin
 from bs4 import BeautifulSoup
@@ -61,7 +62,8 @@ class OtodomScraper(PropertyScraper, ABC):
             return []
 
         offers_slugs = [offer["slug"] for offer in offers_list]
-        offers_urls = [self.OFFER_BASE_URL + slug for slug in offers_slugs]
+        offers_urls = [urljoin(self.OFFER_BASE_URL, slug)
+                       for slug in offers_slugs]
 
         return offers_urls
 
@@ -94,8 +96,7 @@ class OtodomScraper(PropertyScraper, ABC):
         all_urls_list = []
         n_of_urls_from_pages = []
         self._log.debug(f"About to scrape {n_pages} pages")
-        for page_number in range(n_pages):
-            page_number += 1
+        for page_number in range(1, n_pages + 1):
             random_sleep(avg_sleep_time)
             random_headers = self._generate_headers()
             search_url = urljoin(self.BASE_URL, self.SUB_URL)
@@ -125,5 +126,6 @@ class OtodomScraper(PropertyScraper, ABC):
                                   "Searching aborted")
                 break
 
-        self._log.info(f"Found {len(all_urls_list)} urls from search params")
-        return all_urls_list, n_of_urls_from_pages
+        self._log.info(f"Found {len(all_urls_list)} urls from search params. "
+                       f"{len(list(set(all_urls_list)))} are unique")
+        return list(set(all_urls_list)), n_of_urls_from_pages

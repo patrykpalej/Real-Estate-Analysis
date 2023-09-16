@@ -1,0 +1,10 @@
+{
+    "filters": {
+        "Price.From": 10000,
+        "Price.To": 225000,
+        "Surface.From": 300,
+        "Surface.To": 5000
+    },
+
+    "n_pages": 8
+}

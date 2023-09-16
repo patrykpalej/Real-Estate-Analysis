@@ -6,19 +6,38 @@ from data.models.common import Offer
 
 @dataclass
 class DomiportaOffer(Offer):
-    pass
+    number_id: str = None
+    url: str = None
+    title: str = None
+    price: int = None
+    utc_scraped_at: datetime = None
+    description: str = None
+    city: str = None
+    province: str = None
+    latitude: float = None
+    longitude: float = None
 
 
 @dataclass
 class DomiportaLotOffer(DomiportaOffer):
-    pass
+    lot_area: int = None
+    driveway: str = None
+    media: str = None
 
 
 @dataclass
 class DomiportaHouseOffer(DomiportaOffer):
-    pass
+    lot_area: int = None
+    driveway: str = None
+    media: str = None
+    area: float = None
+    build_year: int = None
+    n_rooms: int = None
+    building_type: str = None
 
 
 @dataclass
 class DomiportaApartmentOffer(DomiportaOffer):
-    pass
+    area: float = None
+    build_year: int = None
+    n_rooms: int = None

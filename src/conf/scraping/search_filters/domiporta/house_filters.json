@@ -1,0 +1,14 @@
+{
+    "filters": {
+        "Price.From": 50000,
+        "Price.To": 1000000,
+        "PowierzchniaDzialki.From": 300,
+        "PowierzchniaDzialki.To": 5000,
+        "Surface.From": 80,
+        "Surface.To": 250,
+        "RokBudowy.From": 1950,
+        "RokBudowy.To": 2023
+    },
+
+    "n_pages": 8
+}
