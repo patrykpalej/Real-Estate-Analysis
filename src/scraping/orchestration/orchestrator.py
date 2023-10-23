@@ -264,8 +264,8 @@ class Pipeline:
         orchestrator.search_offers_urls()
         orchestrator.report.scraping_ended = datetime.now()
 
-        sender = SearchEmailSender(service_name, property_type)
-        sender.send_email(orchestrator.report)
+        # sender = SearchEmailSender(service_name, property_type)
+        # sender.send_email(orchestrator.report)
 
         logger.info("Report sent via email")
         logger.info("Scraping finished properly")
