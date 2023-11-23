@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_folium import st_folium
 
 from utils.storage import (get_credentials, generate_psql_connection_string,
                            read_from_db)
@@ -31,11 +30,10 @@ st.title("Działki")
 
 st.plotly_chart(fig_all)
 st.markdown("***")
-st.plotly_chart(fig_by_location)
-st.markdown("***")
+# st.plotly_chart(fig_by_location)
+# st.markdown("***")
 st.plotly_chart(fig_by_month)
 st.markdown("***")
 st.plotly_chart(fig_by_province)
 st.markdown("***")
-# st_folium(fig_map, height=900, width=900)
 st.components.v1.html(fig_map._repr_html_(), width=1100, height=1200)

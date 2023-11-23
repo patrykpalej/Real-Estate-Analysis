@@ -10,10 +10,10 @@ def generate_psql_connection_string(user, password, host, port, dbname):
 
 def get_credentials():
     load_dotenv()
-    user = os.environ["POSTGRESQL_USER_VPS"]
-    password = os.environ["POSTGRESQL_PASSWORD_VPS"]
-    host = os.environ["POSTGRESQL_HOST_VPS"]
-    port = os.environ["POSTGRESQL_PORT_VPS"]
+    user = os.environ["POSTGRESQL_USER"]
+    password = os.environ["POSTGRESQL_PASSWORD"]
+    host = os.environ["POSTGRESQL_HOST"]
+    port = os.environ["POSTGRESQL_PORT"]
 
     with open("../src/conf/config.toml", "r") as f:
         toml_config = toml.load(f)
