@@ -17,12 +17,12 @@ class OtodomApartmentScraper(OtodomScraper):
         super().__init__(scraper_name)
 
     @staticmethod
-    def _convert_floor_num(floor_txt: str):
+    def _convert_floor_num(floor_list_txt: str):
         """
         Converts text description of floor number to int
         """
         try:
-            return int(floor_txt.split("_")[-1])
+            return int(floor_list_txt[0].split("_")[-1])
         except Exception as e:
             return None
 
