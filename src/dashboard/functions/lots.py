@@ -1,6 +1,16 @@
 import numpy as np
+import folium
+from branca.colormap import linear
 import plotly.subplots as sp
 import plotly.graph_objects as go
+import streamlit as st
+
+
+color_1 = 'rgba(100, 149, 237, 0.6)'
+color_2 = 'rgba(144, 238, 144, 0.6)'
+color_3 = 'rgba(235, 202, 213, 0.6)'
+
+titles = ["Powierzchnia działki [m2]", "Cena [zł]", "Cena za m2 [zł/m2]"]
 
 
 def preprocess_lots(df):
@@ -14,22 +24,21 @@ def preprocess_lots(df):
 
 
 def plot_all(df):
-    titles = ["Powierzchnia działki [m2]", "Cena [zł]", "Cena za m2 [zł/m2]"]
     fig = sp.make_subplots(rows=1, cols=3, subplot_titles=titles)
 
     histogram1 = go.Histogram(x=df["lot_area"],
                               xbins=dict(start=1, end=2500, size=100),
-                              marker=dict(color='rgba(100, 149, 237, 0.7)',
+                              marker=dict(color=color_1,
                                           line=dict(width=2, color="black")))
 
     histogram2 = go.Histogram(x=df["price"],
                               xbins=dict(start=1e4, end=25e4, size=1e4),
-                              marker=dict(color='rgba(144, 238, 144, 0.7)',
+                              marker=dict(color=color_2,
                                           line=dict(width=2, color="black")))
 
     histogram3 = go.Histogram(x=df["price_per_m2"],
                               xbins=dict(start=0, end=350, size=10),
-                              marker=dict(color='rgba(255, 182, 193, 0.7)',
+                              marker=dict(color=color_3,
                                           line=dict(width=2, color="black")))
 
     fig.add_trace(histogram1, row=1, col=1)
@@ -56,12 +65,11 @@ def plot_by_location(df):
     df_suburb = df[df["location"] == "suburban"]
     df_city = df[df["location"] == "city"]
 
-    titles = ["Powierzchnia działki [m2]", "Cena [zł]", "Cena za m2 [zł/m2]"]
     fig = sp.make_subplots(rows=3, cols=3, subplot_titles=titles)
 
     hist1_1 = go.Histogram(x=df_country["lot_area"], name="Distribution",
                            xbins=dict(start=1, end=2500, size=100),
-                           marker=dict(color='rgba(100, 149, 237, 0.7)',
+                           marker=dict(color=color_1,
                                        line=dict(color='black', width=2)))
     line1_1 = go.Scatter(x=[df_country["lot_area"].mean(),
                             df_country["lot_area"].mean()],
@@ -72,7 +80,7 @@ def plot_by_location(df):
 
     hist1_2 = go.Histogram(x=df_country["price"], name="Distribution",
                            xbins=dict(start=1e4, end=25e4, size=1e4),
-                           marker=dict(color='rgba(144, 238, 144, 0.7)',
+                           marker=dict(color=color_2,
                                        line=dict(color='black', width=2)))
     line1_2 = go.Scatter(x=[df_country["price"].mean(),
                             df_country["price"].mean()],
@@ -83,7 +91,7 @@ def plot_by_location(df):
 
     hist1_3 = go.Histogram(x=df_country["price_per_m2"], name="Distribution",
                            xbins=dict(start=0, end=350, size=10),
-                           marker=dict(color='rgba(255, 182, 193, 0.7)',
+                           marker=dict(color=color_3,
                                        line=dict(color='black', width=2)))
     line1_3 = go.Scatter(x=[df_country["price_per_m2"].mean(),
                             df_country["price_per_m2"].mean()],
@@ -103,7 +111,7 @@ def plot_by_location(df):
 
     hist2_1 = go.Histogram(x=df_suburb["lot_area"], name="Distribution",
                            xbins=dict(start=1, end=2500, size=100),
-                           marker=dict(color='rgba(100, 149, 237, 0.7)',
+                           marker=dict(color=color_1,
                                        line=dict(color='black', width=2)))
     line2_1 = go.Scatter(x=[df_suburb["lot_area"].mean(),
                             df_suburb["lot_area"].mean()],
@@ -115,7 +123,7 @@ def plot_by_location(df):
 
     hist2_2 = go.Histogram(x=df_suburb["price"], name="Distribution",
                            xbins=dict(start=1e4, end=25e4, size=1e4),
-                           marker=dict(color='rgba(144, 238, 144, 0.7)',
+                           marker=dict(color=color_2,
                                        line=dict(color='black', width=2)))
     line2_2 = go.Scatter(x=[df_suburb["price"].mean(),
                             df_suburb["price"].mean()],
@@ -127,7 +135,7 @@ def plot_by_location(df):
 
     hist2_3 = go.Histogram(x=df_suburb["price_per_m2"], name="Distribution",
                            xbins=dict(start=0, end=350, size=10),
-                           marker=dict(color='rgba(255, 182, 193, 0.7)',
+                           marker=dict(color=color_3,
                                        line=dict(color='black', width=2)))
     line2_3 = go.Scatter(x=[df_suburb["price_per_m2"].mean(),
                             df_suburb["price_per_m2"].mean()],
@@ -148,7 +156,7 @@ def plot_by_location(df):
 
     hist3_1 = go.Histogram(x=df_city["lot_area"], name="Distribution",
                            xbins=dict(start=1, end=2500, size=100),
-                           marker=dict(color='rgba(100, 149, 237, 0.7)',
+                           marker=dict(color=color_1,
                                        line=dict(color='black', width=2)))
     line3_1 = go.Scatter(x=[df_city["lot_area"].mean(),
                             df_city["lot_area"].mean()],
@@ -160,7 +168,7 @@ def plot_by_location(df):
 
     hist3_2 = go.Histogram(x=df_city["price"], name="Distribution",
                            xbins=dict(start=1e4, end=25e4, size=1e4),
-                           marker=dict(color='rgba(144, 238, 144, 0.7)',
+                           marker=dict(color=color_2,
                                        line=dict(color='black', width=2)))
     line3_2 = go.Scatter(x=[df_city["price"].mean(),
                             df_city["price"].mean()],
@@ -172,7 +180,7 @@ def plot_by_location(df):
 
     hist3_3 = go.Histogram(x=df_city["price_per_m2"], name="Distribution",
                            xbins=dict(start=0, end=350, size=10),
-                           marker=dict(color='rgba(255, 182, 193, 0.7)',
+                           marker=dict(color=color_3,
                                        line=dict(color='black', width=2)))
     line3_3 = go.Scatter(x=[df_city["price_per_m2"].mean(),
                             df_city["price_per_m2"].mean()],
@@ -230,3 +238,100 @@ def plot_by_location(df):
                       title_font=dict(size=25))
 
     return fig
+
+
+def plot_by_month(df):
+    data = df["utc_created_at"]
+    unique_months = data.groupby(data.dt.to_period("M")).min().dt.date.values
+
+    area_data = []
+    price_data = []
+    price_per_m2_data = []
+
+    for unq_month in unique_months:
+        year = unq_month.year
+        month = unq_month.month
+        sub_df = df[(df["utc_created_at"].dt.year == year) & (
+                df["utc_created_at"].dt.month == month)]
+
+        area_data.append(round(sub_df["lot_area"].mean()))
+        price_data.append(round(sub_df["price"].mean()))
+        price_per_m2_data.append(round(sub_df["price_per_m2"].mean()))
+
+    # Tworzenie subplotów
+    fig = sp.make_subplots(rows=1, cols=3, subplot_titles=titles)
+
+    # Dodawanie wykresów liniowych do subplotów
+    line_chart1 = go.Scatter(x=unique_months, y=area_data, mode='lines',
+                             name='Line Chart 1', line=dict(color=color_1))
+    line_chart2 = go.Scatter(x=unique_months, y=price_data, mode='lines',
+                             name='Line Chart 2', line=dict(color=color_2))
+    line_chart3 = go.Scatter(x=unique_months, y=price_per_m2_data, mode='lines',
+                             name='Line Chart 3', line=dict(color=color_3))
+
+    fig.add_trace(line_chart1, row=1, col=1)
+    fig.add_trace(line_chart2, row=1, col=2)
+    fig.add_trace(line_chart3, row=1, col=3)
+
+    for i in fig['layout']['annotations']:
+        i['font'] = dict(size=24)
+
+    fig.update_yaxes(title_text="Średnia dla miesiąca", row=1, col=1,
+                     title_font=dict(size=20))
+
+    fig.update_layout(title_text="Zmiana w czasie", title_x=0.46,
+                      width=1450, showlegend=False,
+                      title_font=dict(size=25))
+
+    return fig
+
+
+# @st.cache_resource
+def plot_by_province(df):
+    grouped_data = df.groupby("province").mean(numeric_only=True)
+
+    area_data = grouped_data["lot_area"].sort_values()
+    price_data = grouped_data["price"].sort_values()
+    price_per_m2_data = grouped_data["price_per_m2"].sort_values()
+
+    fig = sp.make_subplots(rows=1, cols=3, shared_yaxes=False,
+                           subplot_titles=titles, horizontal_spacing=0.1)
+
+    barplot1 = go.Bar(x=area_data, y=area_data.index, orientation='h')
+    barplot2 = go.Bar(x=price_data, y=price_data.index, orientation='h')
+    barplot3 = go.Bar(x=price_per_m2_data, y=price_per_m2_data.index, orientation='h')
+
+    fig.add_trace(barplot1, row=1, col=1)
+    fig.add_trace(barplot2, row=1, col=2)
+    fig.add_trace(barplot3, row=1, col=3)
+
+    for i in fig['layout']['annotations']:
+        i['font'] = dict(size=24)
+
+    fig.update_layout(title_text="Podział na województwa", title_x=0.46,
+                      width=1450, height=1000,
+                      showlegend=False, title_font=dict(size=25))
+
+    return fig
+
+
+# @st.cache_resource
+def plot_map(df):
+    colormap = linear.Blues_09.scale(min(df['price']), max(df['price']))
+    my_map = folium.Map(location=[52, 20], zoom_start=6)
+
+    df.iloc[::1].apply(lambda row: folium.CircleMarker(
+        location=[row['latitude'], row['longitude']],
+        fill=colormap(row["price"]), fill_opacity=1,
+        radius=2, color=colormap(row["price"])
+        ).add_to(my_map), axis=1)
+
+    price_min = df["price"].min()
+    price_range = df["price"].max() - price_min
+    colormap = linear.Blues_09.to_step(
+        index=[price_min + i*price_range/4 for i in range(5)])
+    colormap.caption = 'Cena [zł]'
+    svg_style = '<style>svg#legend {font-size: 18px; margin-top: 8px}</style>'
+    my_map.get_root().header.add_child(folium.Element(svg_style))
+    colormap.add_to(my_map)
+    return my_map
