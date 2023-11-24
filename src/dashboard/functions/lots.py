@@ -3,7 +3,6 @@ import folium
 from branca.colormap import linear
 import plotly.subplots as sp
 import plotly.graph_objects as go
-import streamlit as st
 
 
 color_1 = 'rgba(100, 149, 237, 0.6)'
@@ -14,8 +13,8 @@ titles = ["Powierzchnia działki [m2]", "Cena [zł]", "Cena za m2 [zł/m2]"]
 
 
 def preprocess_lots(df):
-    columns = ["url", "price", "lot_area", "utc_created_at", "province",
-               "location", "latitude", "longitude"]
+    columns = ["price", "lot_area", "utc_created_at", "province", "location",
+               "latitude", "longitude", "url"]
 
     df = df[columns]
     df["price_per_m2"] = df["price"] / df["lot_area"]
@@ -55,7 +54,7 @@ def plot_all(df):
     fig.update_yaxes(title_text='', row=1, col=1,
                      title_font=dict(size=20))
 
-    fig.update_layout(title_text='Dane całkowite', title_x=0.43,
+    fig.update_layout(title_text='Rozkłady cech', title_x=0.43,
                       showlegend=False, width=1450, title_font=dict(size=28))
     return fig
 
@@ -244,7 +243,7 @@ def plot_by_month(df):
     data = df["utc_created_at"]
     unique_months = data.groupby(data.dt.to_period("M")).min().dt.date.values
 
-    area_data = []
+    n_offers = []
     price_data = []
     price_per_m2_data = []
 
@@ -254,20 +253,20 @@ def plot_by_month(df):
         sub_df = df[(df["utc_created_at"].dt.year == year) & (
                 df["utc_created_at"].dt.month == month)]
 
-        area_data.append(round(sub_df["lot_area"].mean()))
+        n_offers.append(len(sub_df))
         price_data.append(round(sub_df["price"].mean()))
         price_per_m2_data.append(round(sub_df["price_per_m2"].mean()))
 
-    # Tworzenie subplotów
+    titles = ["Liczba ofert", "Średnia cena [zł]",
+              "Średnia cena za m2 [zł/m2]"]
     fig = sp.make_subplots(rows=1, cols=3, subplot_titles=titles)
 
-    # Dodawanie wykresów liniowych do subplotów
-    line_chart1 = go.Scatter(x=unique_months, y=area_data, mode='lines',
-                             name='Line Chart 1', line=dict(color=color_1))
+    line_chart1 = go.Scatter(x=unique_months, y=n_offers, mode='lines',
+                             line=dict(color=color_1))
     line_chart2 = go.Scatter(x=unique_months, y=price_data, mode='lines',
-                             name='Line Chart 2', line=dict(color=color_2))
+                             line=dict(color=color_2))
     line_chart3 = go.Scatter(x=unique_months, y=price_per_m2_data, mode='lines',
-                             name='Line Chart 3', line=dict(color=color_3))
+                             line=dict(color=color_3))
 
     fig.add_trace(line_chart1, row=1, col=1)
     fig.add_trace(line_chart2, row=1, col=2)
@@ -276,9 +275,6 @@ def plot_by_month(df):
     for i in fig['layout']['annotations']:
         i['font'] = dict(size=24)
 
-    fig.update_yaxes(title_text="Średnia dla miesiąca", row=1, col=1,
-                     title_font=dict(size=20))
-
     fig.update_layout(title_text="Zmiana w czasie", title_x=0.46,
                       width=1450, showlegend=False,
                       title_font=dict(size=25))
@@ -286,14 +282,15 @@ def plot_by_month(df):
     return fig
 
 
-# @st.cache_resource
 def plot_by_province(df):
-    grouped_data = df.groupby("province").mean(numeric_only=True)
+    grouped_data = df.groupby("province").mean(numeric_only=True).round()
 
     area_data = grouped_data["lot_area"].sort_values()
     price_data = grouped_data["price"].sort_values()
     price_per_m2_data = grouped_data["price_per_m2"].sort_values()
 
+    titles = ["Średnia powierzchnia [m2]", "Średnia cena [zł]",
+              "Średnia cena za m2 [zł/m2]"]
     fig = sp.make_subplots(rows=1, cols=3, shared_yaxes=False,
                            subplot_titles=titles, horizontal_spacing=0.1)
 
@@ -315,13 +312,12 @@ def plot_by_province(df):
     return fig
 
 
-# @st.cache_resource
 def plot_map(df):
     colormap = linear.Blues_09.scale(min(df['price']), max(df['price']))
     my_map = folium.Map(location=[52, 20], zoom_start=6)
 
     df.iloc[::1].apply(lambda row: folium.CircleMarker(
-        location=[row['latitude'], row['longitude']],
+        location=(row['latitude'], row['longitude']), popup=row["url"],
         fill=colormap(row["price"]), fill_opacity=1,
         radius=2, color=colormap(row["price"])
         ).add_to(my_map), axis=1)
