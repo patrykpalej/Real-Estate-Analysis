@@ -21,6 +21,16 @@ def preprocess_houses(df):
     df = df[columns]
     df["price_per_m2"] = df["price"] / df["house_area"]
 
+    df["market"] = df["market"].replace(
+        {"PRIMARY": "Pierwotny", "SECONDARY": "Wtórny"})
+
+    df["location"] = df["location"].fillna("<brak danych>")
+    df["location"] = df["location"].replace(
+        {"suburban": "Przedmieścia", "country": "Wieś", "city": "Miasto"})
+
+    df = df.dropna(subset=["build_year"])
+    df["build_year"] = df["build_year"].astype(int)
+
     return df
 
 
@@ -30,19 +40,19 @@ def plot_all(df):
     fig = sp.make_subplots(rows=2, cols=3, subplot_titles=titles)
 
     fig.add_trace(go.Histogram(
-        x=df["house_area"], xbins=dict(start=70, end=260, size=10),
+        x=df["house_area"], xbins=dict(start=75, end=265, size=10),
         marker=dict(color=color_2, line=dict(width=2, color="black"))
     ),
         row=1, col=1)
 
     fig.add_trace(go.Histogram(
-        x=df["price"], xbins=dict(start=80000, end=1100000, size=20000),
+        x=df["price"], xbins=dict(start=90000, end=1110000, size=20000),
         marker=dict(color=color_3, line=dict(width=2, color="black"))
     ),
         row=1, col=2)
 
     fig.add_trace(go.Histogram(
-        x=df["price_per_m2"], xbins=dict(start=1000, end=10000, size=500),
+        x=df["price_per_m2"], xbins=dict(start=1250, end=10250, size=500),
         marker=dict(color=color_5, line=dict(width=2, color="black"))
     ),
         row=1, col=3)
@@ -54,13 +64,13 @@ def plot_all(df):
         row=2, col=1)
 
     fig.add_trace(go.Histogram(
-        x=df["lot_area"], xbins=dict(start=100, end=2500, size=100),
+        x=df["lot_area"], xbins=dict(start=150, end=2550, size=100),
         marker=dict(color=color_1, line=dict(width=2, color="black"))
     ),
         row=2, col=2)
 
     fig.add_trace(go.Histogram(
-        x=df["build_year"], xbins=dict(start=1955, end=date.today().year+1),
+        x=df["build_year"], xbins=dict(start=1955.5, end=date.today().year+1.5),
         marker=dict(color=color_4, line=dict(width=2, color="black"))
     ),
         row=2, col=3)

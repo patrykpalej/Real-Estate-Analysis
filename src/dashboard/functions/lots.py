@@ -19,6 +19,10 @@ def preprocess_lots(df):
     df = df[columns]
     df["price_per_m2"] = df["price"] / df["lot_area"]
 
+    df["location"] = df["location"].fillna("<brak danych>")
+    df["location"] = df["location"].replace(
+        {"suburban": "Przedmieścia", "country": "Wieś", "city": "Miasto"})
+
     return df
 
 

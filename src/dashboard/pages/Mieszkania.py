@@ -1,7 +1,6 @@
 import streamlit as st
 
 from dashboard.functions.apartments import *
-from dashboard.main import df_apartments as df
 
 
 st.set_page_config(layout="wide", page_title="Mieszkania")
