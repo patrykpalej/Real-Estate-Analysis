@@ -22,9 +22,9 @@ if __name__ == "__main__":
     # with st.expander("Web scraping"):
     #     st.markdown("Dodać informację na temat filtrów wyszukiwania")
 
+
 if not hasattr(st.session_state, "data"):
     st.session_state.data = {}
-
-load_data_concurrently(True)
+    load_data_concurrently(True)
 
 st.markdown("Wczytano dane")
