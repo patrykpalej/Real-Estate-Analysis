@@ -1,5 +1,7 @@
 import streamlit as st
+import os 
 
+print(os.environ["PYTHONPATH"])
 from dashboard.functions.data_loading import load_data_concurrently
 
 
