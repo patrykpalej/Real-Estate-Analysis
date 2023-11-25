@@ -36,12 +36,12 @@ province, _, market, location, _, min_year, max_year = (
 
 with min_area:
     min_area_filter = min_area.number_input(
-        "Minimalna powierzchnia domu", min_value=df['house_area'].min(),
+        "Min. powierzchnia domu", min_value=df['house_area'].min(),
         value=df['house_area'].min(), max_value=df['house_area'].max())
 
 with max_area:
     max_area_filter = max_area.number_input(
-        "Maksymalna powierzchnia domu", min_value=df['house_area'].min(),
+        "Max. powierzchnia domu", min_value=df['house_area'].min(),
         value=df['house_area'].max(), max_value=df['house_area'].max())
 
 with min_price:
