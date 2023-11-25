@@ -1,9 +1,8 @@
 import streamlit as st
 from datetime import date, timedelta
 
-from dashboard.functions.data_loading import load_data_concurrently
-
-from dashboard.functions.apartments import (
+from functions.data_loading import load_data_concurrently
+from functions.apartments import (
     plot_all, plot_by_month, plot_by_province, plot_map)
 
 
