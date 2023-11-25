@@ -1,5 +1,5 @@
 import streamlit as st
-from src.dashboard.functions.data_loading import load_data_concurrently
+from functions.data_loading import load_data_concurrently
 
 
 if __name__ == "__main__":
