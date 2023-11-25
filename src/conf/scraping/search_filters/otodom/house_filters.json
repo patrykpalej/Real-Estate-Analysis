@@ -1,7 +1,7 @@
 {
     "filters": {
         "priceMin": 50000,
-        "priceMax": 1000000,
+        "priceMax": 1500000,
         "terrainAreaMin": 300,
         "terrainAreaMax": 5000,
         "areaMin": 80,
@@ -10,5 +10,5 @@
         "buildYearMax": 2023
     },
 
-    "n_pages": 8
+    "n_pages": 10
 }
