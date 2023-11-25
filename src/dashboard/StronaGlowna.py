@@ -1,7 +1,8 @@
 import streamlit as st
 import os 
 
-print(os.environ["PYTHONPATH"])
+raise TypeError(os.environ.get("PYTHONPATH", "NIE MA"))
+
 from dashboard.functions.data_loading import load_data_concurrently
 
 
