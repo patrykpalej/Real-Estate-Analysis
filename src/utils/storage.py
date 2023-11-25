@@ -15,7 +15,7 @@ def get_credentials():
     host = os.environ["POSTGRESQL_HOST"]
     port = os.environ["POSTGRESQL_PORT"]
 
-    with open("../src/conf/config.toml", "r") as f:
+    with open("src/conf/config.toml", "r") as f:
         toml_config = toml.load(f)
     dbname = toml_config["postgresql"]["db_prod"]
 
