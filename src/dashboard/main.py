@@ -8,10 +8,10 @@ st.set_page_config(layout="wide", page_title="Analiza rynku nieruchomości")
 
 show_pages(
     [
-        Page("main.py", "Opis projektu", "💻"),
-        Page("pages/page_houses.py", "Oferty domów", "🏡"),
-        Page("pages/page_lots.py", "Oferty działek", "🟩"),
-        Page("pages/page_apartments.py", "Oferty mieszkań", "🏢"),
+        Page("src/dashboard/main.py", "Opis projektu", "💻"),
+        Page("src/dashboard/pages/page_houses.py", "Oferty domów", "🏡"),
+        Page("src/dashboard/pages/page_lots.py", "Oferty działek", "🟩"),
+        Page("src/dashboard/pages/page_apartments.py", "Oferty mieszkań", "🏢"),
     ])
 
 
