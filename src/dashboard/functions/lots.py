@@ -316,12 +316,12 @@ def plot_by_province(df):
     return fig
 
 
-def plot_map(df):
+def plot_map(df, urls=True):
     colormap = linear.Blues_09.scale(min(df['price']), max(df['price']))
     my_map = folium.Map(location=[52, 20], zoom_start=6)
 
     df.iloc[::1].apply(lambda row: folium.CircleMarker(
-        location=(row['latitude'], row['longitude']), popup=row["url"],
+        location=(row['latitude'], row['longitude']), popup=(row["url"] if urls else None),
         fill=colormap(row["price"]), fill_opacity=1,
         radius=2, color=colormap(row["price"])
         ).add_to(my_map), axis=1)

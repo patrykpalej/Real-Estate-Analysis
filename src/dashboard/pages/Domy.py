@@ -107,6 +107,7 @@ st.markdown(f"Liczba ofert: {len(df)}")
 
 st.header("Wykresy")
 
+
 if len(df):
     with st.spinner(f'Przetwarzam {len(df)} ofert(y)'):
         fig_all = plot_all(df)
@@ -124,10 +125,16 @@ if len(df):
         st.markdown("***")
 
     with st.spinner(f'Przetwarzam {len(df)} ofert(y)'):
-        toggle_map = st.toggle('Pokaż mapę (może potrwać kilka sekund)')
-        if toggle_map:
-            fig_map = plot_map(df)
-            st.components.v1.html(fig_map._repr_html_(), width=1100, height=1200)
+        toggle_urls = st.toggle(
+            'Uwzględnij adresy url ofert (może potrwać dłużej)')
 
+        button_map = st.button('Pokaż mapę')
+
+        if button_map:
+            fig_map = plot_map(df, urls=toggle_urls)
+            if toggle_urls:
+                st.markdown("Kliknij na punkt aby zobaczyć adres oferty")
+
+            st.components.v1.html(fig_map._repr_html_(), width=1100, height=1200)
 else:
     st.markdown("Nie ma żadnych ofert, które spełniają kryteria")

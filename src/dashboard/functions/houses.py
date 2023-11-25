@@ -14,9 +14,9 @@ color_6 = 'rgba(255, 228, 181, 0.6)'
 
 
 def preprocess_houses(df):
-    columns = ["price", "lot_area", "utc_created_at", "province", "location",
-               "latitude", "longitude", "house_area", "build_year", "url",
-               "market"]
+    columns = ["url", "price", "utc_created_at", "province", "location",
+               "latitude", "longitude", "house_area", "build_year",
+               "market", "lot_area", ]
 
     df = df[columns]
     df["price_per_m2"] = df["price"] / df["house_area"]
@@ -46,7 +46,7 @@ def plot_all(df):
         row=1, col=1)
 
     fig.add_trace(go.Histogram(
-        x=df["price"], xbins=dict(start=90000, end=1110000, size=20000),
+        x=df["price"], xbins=dict(start=90000, end=1110000, size=40000),
         marker=dict(color=color_3, line=dict(width=2, color="black"))
     ),
         row=1, col=2)
@@ -158,12 +158,12 @@ def plot_by_province(df):
     return fig
 
 
-def plot_map(df):
+def plot_map(df, urls=True):
     colormap = linear.Blues_09.scale(min(df['price']), max(df['price']))
     my_map = folium.Map(location=[52, 20], zoom_start=6)
 
     df.iloc[::1].apply(lambda row: folium.CircleMarker(
-        location=(row['latitude'], row['longitude']), popup=row["url"],
+        location=(row['latitude'], row['longitude']), popup=(row["url"] if urls else None),
         fill=colormap(row["price"]), fill_opacity=1,
         radius=2, color=colormap(row["price"])
     ).add_to(my_map), axis=1)
