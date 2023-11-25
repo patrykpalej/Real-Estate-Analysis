@@ -1,8 +1,4 @@
 import streamlit as st
-import os 
-
-raise TypeError(os.environ.get("PYTHONPATH", "NIE MA"))
-
 from dashboard.functions.data_loading import load_data_concurrently
 
 
