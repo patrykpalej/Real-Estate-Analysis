@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 import multiprocessing
 import concurrent.futures
+from dotenv import load_dotenv
 
 from functions.lots import preprocess_lots
 from functions.houses import preprocess_houses
