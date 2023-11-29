@@ -1,4 +1,4 @@
-import os; os.chdir("..")
+import os; os.chdir("/mount/src/realestateanalysis/src")
 import streamlit as st
 from st_pages import Page, show_pages
 
