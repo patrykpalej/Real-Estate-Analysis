@@ -29,5 +29,4 @@ if not hasattr(st.session_state, "data"):
     st.session_state.data = {}
     load_data_concurrently(True)
 
-
 st.markdown("Wczytano dane")

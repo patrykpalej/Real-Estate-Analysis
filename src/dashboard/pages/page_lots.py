@@ -36,12 +36,12 @@ province, _, location, _ = (
 
 with min_area:
     min_area_filter = min_area.number_input(
-        "Minimalna powierzchnia działki", min_value=df['lot_area'].min(),
+        "Min. powierzchnia działki", min_value=df['lot_area'].min(),
         value=df['lot_area'].min(), max_value=df['lot_area'].max())
 
 with max_area:
     max_area_filter = max_area.number_input(
-        "Maksymalna powierzchnia działki", min_value=df['lot_area'].min(),
+        "Max. powierzchnia działki", min_value=df['lot_area'].min(),
         value=df['lot_area'].max(), max_value=df['lot_area'].max())
 
 with min_price:

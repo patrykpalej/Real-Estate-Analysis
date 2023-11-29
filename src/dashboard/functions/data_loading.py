@@ -1,14 +1,33 @@
+import os
 import pandas as pd
 import streamlit as st
 import multiprocessing
 import concurrent.futures
+from dotenv import load_dotenv
 
-from dashboard.functions.lots import preprocess_lots
-from dashboard.functions.houses import preprocess_houses
-from dashboard.functions.apartments import preprocess_apartments
+from functions.lots import preprocess_lots
+from functions.houses import preprocess_houses
+from functions.apartments import preprocess_apartments
 
-from utils.storage import (get_credentials, generate_psql_connection_string,
-                           read_from_db)
+
+def generate_psql_connection_string(user, password, host, port, dbname):
+    return f"postgresql://{user}:{password}@{host}:{port}/{dbname}"
+
+
+def get_credentials():
+    load_dotenv()
+    user = os.environ["POSTGRESQL_USER"]
+    password = os.environ["POSTGRESQL_PASSWORD"]
+    host = os.environ["POSTGRESQL_HOST"]
+    port = os.environ["POSTGRESQL_PORT"]
+    dbname = os.environ["POSTGRESQL_DBNAME"]
+
+    return user, password, host, port, dbname
+
+
+def read_from_db(sql, conn_str):
+    df = pd.read_sql(sql, conn_str)
+    return df
 
 
 pd.options.mode.chained_assignment = None
