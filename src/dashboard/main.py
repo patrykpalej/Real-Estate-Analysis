@@ -1,4 +1,10 @@
 import os; os.chdir("/mount/src/realestateanalysis/src")
+print(os.getcwd())
+print(os.listdir())
+import sys
+print(sys.path)
+print(os.system("$PYTHONPATH"))
+
 import streamlit as st
 from st_pages import Page, show_pages
 
