@@ -1,4 +1,4 @@
-# import os; os.chdir("/mount/src/realestateanalysis/src")
+import os; os.chdir("/mount/src/realestateanalysis/src")
 import sys; sys.path.append("/mount/src/realestateanalysis/src/")
 
 import streamlit as st
