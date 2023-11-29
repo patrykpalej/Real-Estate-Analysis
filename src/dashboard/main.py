@@ -14,7 +14,7 @@ show_pages(
         Page("dashboard/main.py", "Opis projektu", "💻"),
         Page("dashboard/pages/page_houses.py", "Oferty domów", "🏡"),
         Page("dashboard/pages/page_lots.py", "Oferty działek", "🟩"),
-        Page("/mount/src/realestateanalysis/src/dashboard/pages/page_apartments.py", "Oferty mieszkań", "🏢"),
+        Page("dashboard/pages/page_apartments.py", "Oferty mieszkań", "🏢"),
     ])
 
 
