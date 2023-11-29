@@ -1,4 +1,4 @@
-import os; os.chdir("/mount/src/realestateanalysis/src")
+# import os; os.chdir("/mount/src/realestateanalysis/src")
 import sys; sys.path.append("/mount/src/realestateanalysis/src/")
 
 import streamlit as st
@@ -11,10 +11,10 @@ st.set_page_config(layout="wide", page_title="Analiza rynku nieruchomości")
 
 show_pages(
     [
-        Page("main.py", "Opis projektu", "💻"),
-        Page("pages/page_houses.py", "Oferty domów", "🏡"),
-        Page("pages/page_lots.py", "Oferty działek", "🟩"),
-        Page("pages/page_apartments.py", "Oferty mieszkań", "🏢"),
+        Page("dashboard/main.py", "Opis projektu", "💻"),
+        Page("dashboard/pages/page_houses.py", "Oferty domów", "🏡"),
+        Page("dashboard/pages/page_lots.py", "Oferty działek", "🟩"),
+        Page("dashboard/pages/page_apartments.py", "Oferty mieszkań", "🏢"),
     ])
 
 
