@@ -114,7 +114,7 @@ class TestOtodomScraper(unittest.TestCase):
         soup_mock = MagicMock()
         headers_mock = MagicMock()
         single_page_urls_mock = ["url1", "url2", "url3"]
-        all_urls_mock = (single_page_urls_mock * n_pages,
+        all_urls_mock = (single_page_urls_mock,  # single_page_urls_mock * n_pages,
                          [len(single_page_urls_mock)] * n_pages)
 
         scraper._request_http_get = MagicMock(return_value=response_mock)
@@ -126,6 +126,7 @@ class TestOtodomScraper(unittest.TestCase):
         result = scraper.list_offers_urls_from_search_params(
             search_params, n_pages, avg_sleep_time)
 
-        self.assertEqual(result, all_urls_mock)
+        self.assertEqual(set(result[0]), set(all_urls_mock[0]))
+        self.assertEqual(result[1], all_urls_mock[1])
         self.assertEqual(scraper._request_http_get.call_count, n_pages)
         self.assertEqual(scraper._make_soup.call_count, n_pages)

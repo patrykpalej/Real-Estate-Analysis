@@ -93,6 +93,8 @@ class OtodomScraper(PropertyScraper, ABC):
             (list[str]): list of urls to offers from all N pages
             (list[int]): number of urls aquired from subsequent pages
         """
+        search_params = search_params.copy()
+
         all_urls_list = []
         n_of_urls_from_pages = []
         self._log.debug(f"About to scrape {n_pages} pages")

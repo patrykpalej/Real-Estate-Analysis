@@ -17,7 +17,7 @@ There is a CLI which can be used to interact with the scrapers.
 ...
 
 ## Tests
-To run tests in terminal `cd` to `tests/` directory and run:
+To run tests in terminal `cd` to `tests/`, set `PYTHONPATH` to `src/` directory and run:
 
 `python -m unittest discover`
 
