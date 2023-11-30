@@ -2,31 +2,31 @@ import redis
 import unittest
 
 from data.storage.manager import StorageManager
-from data.models.otodom import OtodomLotOffer
+from data.models.otodom import OtodomLandOffer
 
 
-otodom_lot_offers = [
-    OtodomLotOffer(number_id=123, short_id="abc", long_id="abcxyz", price=1234,
+otodom_land_offers = [
+    OtodomLandOffer(number_id=123, short_id="abc", long_id="abcxyz", price=1234,
                    url="https://otodom.pl/abc", title="offer title"),
-    OtodomLotOffer(number_id=234, short_id="def", long_id="defzyx", price=2345,
+    OtodomLandOffer(number_id=234, short_id="def", long_id="defzyx", price=2345,
                    url="https://otodom.pl/def", title="offer title")
 ]
 
 
 class TestStorageManager(unittest.TestCase):
-    manager = StorageManager(service_name="otodom", property_type="lots",
+    manager = StorageManager(service_name="otodom", property_type="lands",
                              scraper_name="ABC_XYZ", mode=0)
 
     def test_init(self):
         self.assertEqual(self.manager.service_name, "OTODOM")
-        self.assertEqual(self.manager.property_type, "LOTS")
+        self.assertEqual(self.manager.property_type, "LANDS")
         self.assertEqual(self.manager.mode, 0)
         self.assertIsInstance(self.manager.redis_db, redis.Redis)
 
     def test_store_in_postgresql(self):
         self.manager.truncate_postgresql_table()
 
-        self.manager.store_in_postgresql(otodom_lot_offers)
+        self.manager.store_in_postgresql(otodom_land_offers)
         data = self.manager.get_from_postgresql()
 
         self.assertEqual(list(data.iloc[0, :6].values),
@@ -42,7 +42,7 @@ class TestStorageManager(unittest.TestCase):
     def test_store_in_mongodb(self):
         self.manager.truncate_mongodb_collection()
 
-        self.manager.store_in_mongodb(otodom_lot_offers)
+        self.manager.store_in_mongodb(otodom_land_offers)
         data = list(self.manager.get_from_mongodb())
 
         self.assertEqual(data[0]["number_id"], 123)

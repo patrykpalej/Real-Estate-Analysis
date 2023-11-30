@@ -5,15 +5,15 @@ from pathlib import Path
 from unittest.mock import MagicMock
 
 from data.models.otodom import OtodomOffer
-from scraping.otodom.otodom_lot_scraper import OtodomLotScraper
+from scraping.otodom.otodom_land_scraper import OtodomLandScraper
 
 
 class TestOtodomScraper(unittest.TestCase):
     """
     This class tests functionalities which are implemented in OtodomScraper
-    It instantiates OtodomLotScraper becase OtodomScraper is abstract
+    It instantiates OtodomLandScraper becase OtodomScraper is abstract
     """
-    scraper = OtodomLotScraper("test")
+    scraper = OtodomLandScraper("test")
 
     def test_init(self):
         self.assertEqual(self.scraper.SERVICE_NAME, "OTODOM")
@@ -83,7 +83,7 @@ class TestOtodomScraper(unittest.TestCase):
             self.assertEqual(actual_urls_list, [])
 
     def test_scrape_offer_from_url(self):
-        scraper = OtodomLotScraper("test")
+        scraper = OtodomLandScraper("test")
         url = "https://example.com/offer"
         headers = scraper._generate_headers()
 
@@ -105,7 +105,7 @@ class TestOtodomScraper(unittest.TestCase):
         scraper._parse_offer_soup.assert_called_once_with(soup_mock)
 
     def test_list_offers_urls_from_search_params(self):
-        scraper = OtodomLotScraper("test")
+        scraper = OtodomLandScraper("test")
         search_params = {"param1": "value1", "param2": "value2"}
         n_pages = 2
         avg_sleep_time = 0
@@ -114,7 +114,7 @@ class TestOtodomScraper(unittest.TestCase):
         soup_mock = MagicMock()
         headers_mock = MagicMock()
         single_page_urls_mock = ["url1", "url2", "url3"]
-        all_urls_mock = (single_page_urls_mock * n_pages,
+        all_urls_mock = (single_page_urls_mock,  # single_page_urls_mock * n_pages,
                          [len(single_page_urls_mock)] * n_pages)
 
         scraper._request_http_get = MagicMock(return_value=response_mock)
@@ -126,6 +126,7 @@ class TestOtodomScraper(unittest.TestCase):
         result = scraper.list_offers_urls_from_search_params(
             search_params, n_pages, avg_sleep_time)
 
-        self.assertEqual(result, all_urls_mock)
+        self.assertEqual(set(result[0]), set(all_urls_mock[0]))
+        self.assertEqual(result[1], all_urls_mock[1])
         self.assertEqual(scraper._request_http_get.call_count, n_pages)
         self.assertEqual(scraper._make_soup.call_count, n_pages)

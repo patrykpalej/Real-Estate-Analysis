@@ -25,9 +25,9 @@ class OtodomOffer(Offer):
 
 
 @dataclass
-class OtodomLotOffer(OtodomOffer):
-    lot_area: int = None
-    lot_features: str = None
+class OtodomLandOffer(OtodomOffer):
+    land_area: int = None
+    land_features: str = None
     vicinity: str = None
 
 

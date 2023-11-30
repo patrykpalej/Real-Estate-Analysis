@@ -19,7 +19,7 @@ class DomiportaSearchParams:
 
 
 @dataclass
-class DomiportaLotSearchParams(DomiportaSearchParams):
+class DomiportaLandSearchParams(DomiportaSearchParams):
     pass
 
 

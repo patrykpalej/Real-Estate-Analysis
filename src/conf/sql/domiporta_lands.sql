@@ -1,4 +1,4 @@
-CREATE TABLE public.domiporta_lots
+CREATE TABLE public.domiporta_lands
 (
     number_id text NOT NULL,
     url text NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE public.domiporta_lots
     province text,
     latitude real,
     longitude real,
-    lot_area smallint,
+    land_area smallint,
     driveway text,
     media text,
     PRIMARY KEY (number_id)

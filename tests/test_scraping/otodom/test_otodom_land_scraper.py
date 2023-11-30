@@ -5,21 +5,21 @@ from datetime import datetime
 from bs4 import BeautifulSoup
 
 from exceptions import InvalidOffer
-from scraping.otodom.otodom_lot_scraper import OtodomLotScraper
+from scraping.otodom.otodom_land_scraper import OtodomLandScraper
 
 
-class TestOtodomLotScraper(unittest.TestCase):
+class TestOtodomLandScraper(unittest.TestCase):
     def test_init(self):
-        scraper = OtodomLotScraper("test")
+        scraper = OtodomLandScraper("test")
 
         self.assertEqual(scraper.name, "test")
-        self.assertEqual(scraper.PROPERTY_TYPE, "LOTS")
+        self.assertEqual(scraper.PROPERTY_TYPE, "LANDS")
         self.assertEqual(scraper.SUB_URL, "pl/oferty/sprzedaz/dzialka/cala-polska")
 
     def test_parse_offer_soup(self):
-        scraper = OtodomLotScraper("test")
+        scraper = OtodomLandScraper("test")
 
-        with open("mock_data/otodom/offer_soup_lot_1.pickle", "rb") as f:
+        with open("mock_data/otodom/offer_soup_land_1.pickle", "rb") as f:
             test_soup = pickle.load(f)
 
         test_offer_model = scraper._parse_offer_soup(test_soup)
@@ -45,8 +45,8 @@ class TestOtodomLotScraper(unittest.TestCase):
         self.assertEqual(test_offer_model.location, None)
         self.assertEqual(test_offer_model.latitude, 51.1144)
         self.assertEqual(test_offer_model.longitude, 20.8657)
-        self.assertEqual(test_offer_model.lot_area, 4750)
-        self.assertEqual(test_offer_model.lot_features,
+        self.assertEqual(test_offer_model.land_area, 4750)
+        self.assertEqual(test_offer_model.land_features,
                          '{"Media": ["prąd", "kanalizacja", "woda"], "Dojazd": ["asfaltowy"]}')
         self.assertEqual(test_offer_model.vicinity, None)
 
@@ -63,11 +63,11 @@ class TestOtodomLotScraper(unittest.TestCase):
         }}
 
         raw_offer_mock.return_value = invalid_offer_1
-        scraper = OtodomLotScraper("test1")
+        scraper = OtodomLandScraper("test1")
         with self.assertRaises(InvalidOffer):
             scraper._parse_offer_soup(BeautifulSoup())
 
         raw_offer_mock.return_value = invalid_offer_2
-        scraper = OtodomLotScraper("test2")
+        scraper = OtodomLandScraper("test2")
         with self.assertRaises(InvalidOffer):
             scraper._parse_offer_soup(BeautifulSoup())

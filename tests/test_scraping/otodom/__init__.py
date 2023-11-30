@@ -1,6 +1,6 @@
 import unittest
 
-from scraping.otodom import OtodomSearchParams, OtodomLotSearchParams
+from scraping.otodom import OtodomSearchParams, OtodomLandSearchParams
 
 
 search_params = OtodomSearchParams()
@@ -33,9 +33,9 @@ class TestOtodomSearchParams(unittest.TestCase):
         self.assertNotIn("priceMax", search_params_dict.keys())
 
 
-class TestOtodomLotSearchParams(unittest.TestCase):
+class TestOtodomLandSearchParams(unittest.TestCase):
     def test_init(self):
-        search_params = OtodomLotSearchParams()
+        search_params = OtodomLandSearchParams()
 
         for key in keys:
             self.assertIn(key, search_params.__dict__.keys())

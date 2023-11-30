@@ -1,7 +1,7 @@
 import unittest
 from datetime import datetime
 
-from data.models.otodom import OtodomOffer, OtodomLotOffer, OtodomHouseOffer, OtodomApartmentOffer
+from data.models.otodom import OtodomOffer, OtodomLandOffer, OtodomHouseOffer, OtodomApartmentOffer
 
 
 class TestOtodomOffer(unittest.TestCase):
@@ -26,19 +26,19 @@ class TestOtodomOffer(unittest.TestCase):
         self.assertEqual(otodom_offer.url, None)
 
 
-class TestOtodomLotOffer(unittest.TestCase):
+class TestOtodomLandOffer(unittest.TestCase):
     def test_attributes(self):
-        otodom_lot_offer = OtodomLotOffer(
+        otodom_land_offer = OtodomLandOffer(
             number_id=123456,
-            lot_area=120,
-            lot_features="feat1|feat2|feat3",
+            land_area=120,
+            land_features="feat1|feat2|feat3",
             vicinity="{'a': ['abc', 'cde'], 'b': []}"
         )
 
-        self.assertEqual(otodom_lot_offer.number_id, 123456)
-        self.assertEqual(otodom_lot_offer.lot_area, 120)
-        self.assertEqual(otodom_lot_offer.lot_features, "feat1|feat2|feat3")
-        self.assertEqual(otodom_lot_offer.vicinity, "{'a': ['abc', 'cde'], 'b': []}")
+        self.assertEqual(otodom_land_offer.number_id, 123456)
+        self.assertEqual(otodom_land_offer.land_area, 120)
+        self.assertEqual(otodom_land_offer.land_features, "feat1|feat2|feat3")
+        self.assertEqual(otodom_land_offer.vicinity, "{'a': ['abc', 'cde'], 'b': []}")
 
 
 class TestOtodomHouseOffer(unittest.TestCase):
