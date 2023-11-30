@@ -2,7 +2,7 @@ import streamlit as st
 from datetime import date, timedelta
 
 from dashboard.functions.data_loading import load_data_concurrently
-from dashboard.functions.lots import (
+from dashboard.functions.lands import (
     plot_all, plot_by_month, plot_by_province, plot_map)
 
 
@@ -21,12 +21,12 @@ st.markdown(
    """, unsafe_allow_html=True)
 
 try:
-    df = st.session_state.data["lots"]
+    df = st.session_state.data["lands"]
 except (KeyError, AttributeError):
     with st.spinner(f'Ładowanie danych'):
         st.session_state.data = {}
         load_data_concurrently(True)
-        df = st.session_state.data["lots"]
+        df = st.session_state.data["lands"]
 
 min_area, max_area, _, min_price, max_price, _, min_created, max_created = (
     st.columns([3, 3, 1, 3, 3, 1, 3, 3]))
@@ -36,13 +36,13 @@ province, _, location, _ = (
 
 with min_area:
     min_area_filter = min_area.number_input(
-        "Min. powierzchnia działki", min_value=df['lot_area'].min(),
-        value=df['lot_area'].min(), max_value=df['lot_area'].max())
+        "Min. powierzchnia działki", min_value=df['land_area'].min(),
+        value=df['land_area'].min(), max_value=df['land_area'].max())
 
 with max_area:
     max_area_filter = max_area.number_input(
-        "Max. powierzchnia działki", min_value=df['lot_area'].min(),
-        value=df['lot_area'].max(), max_value=df['lot_area'].max())
+        "Max. powierzchnia działki", min_value=df['land_area'].min(),
+        value=df['land_area'].max(), max_value=df['land_area'].max())
 
 with min_price:
     min_price_filter = min_price.number_input(
@@ -78,8 +78,8 @@ df = df[(df["utc_created_at"].dt.date <= max_created_filter) &
         (df["utc_created_at"].dt.date >= min_created_filter) &
         (df["price"] >= min_price_filter) &
         (df["price"] <= max_price_filter) &
-        (df["lot_area"] <= max_area_filter) &
-        (df["lot_area"] >= min_area_filter) &
+        (df["land_area"] <= max_area_filter) &
+        (df["land_area"] >= min_area_filter) &
         (df["location"].isin(location_filter))]
 
 if "province_filter" in locals():

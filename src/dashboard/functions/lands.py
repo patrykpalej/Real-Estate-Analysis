@@ -12,12 +12,12 @@ color_3 = 'rgba(235, 202, 213, 0.6)'
 titles = ["Powierzchnia działki [m2]", "Cena [zł]", "Cena za m2 [zł/m2]"]
 
 
-def preprocess_lots(df):
-    columns = ["price", "lot_area", "utc_created_at", "province", "location",
+def preprocess_lands(df):
+    columns = ["price", "land_area", "utc_created_at", "province", "location",
                "latitude", "longitude", "url"]
 
     df = df[columns]
-    df["price_per_m2"] = df["price"] / df["lot_area"]
+    df["price_per_m2"] = df["price"] / df["land_area"]
 
     df["location"] = df["location"].fillna("<brak danych>")
     df["location"] = df["location"].replace(
@@ -29,7 +29,7 @@ def preprocess_lots(df):
 def plot_all(df):
     fig = sp.make_subplots(rows=1, cols=3, subplot_titles=titles)
 
-    histogram1 = go.Histogram(x=df["lot_area"],
+    histogram1 = go.Histogram(x=df["land_area"],
                               xbins=dict(start=1, end=2500, size=100),
                               marker=dict(color=color_1,
                                           line=dict(width=2, color="black")))
@@ -70,13 +70,13 @@ def plot_by_location(df):
 
     fig = sp.make_subplots(rows=3, cols=3, subplot_titles=titles)
 
-    hist1_1 = go.Histogram(x=df_country["lot_area"], name="Distribution",
+    hist1_1 = go.Histogram(x=df_country["land_area"], name="Distribution",
                            xbins=dict(start=1, end=2500, size=100),
                            marker=dict(color=color_1,
                                        line=dict(color='black', width=2)))
-    line1_1 = go.Scatter(x=[df_country["lot_area"].mean(),
-                            df_country["lot_area"].mean()],
-                         y=[0, np.histogram(df_country["lot_area"], range(1, 2500, 100))[0].max()/2],
+    line1_1 = go.Scatter(x=[df_country["land_area"].mean(),
+                            df_country["land_area"].mean()],
+                         y=[0, np.histogram(df_country["land_area"], range(1, 2500, 100))[0].max()/2],
                          mode='lines', name="Average",
                          line=dict(color='red', width=2)
     )
@@ -112,13 +112,13 @@ def plot_by_location(df):
     fig.add_trace(hist1_3, row=1, col=3)
     fig.add_trace(line1_3, row=1, col=3)
 
-    hist2_1 = go.Histogram(x=df_suburb["lot_area"], name="Distribution",
+    hist2_1 = go.Histogram(x=df_suburb["land_area"], name="Distribution",
                            xbins=dict(start=1, end=2500, size=100),
                            marker=dict(color=color_1,
                                        line=dict(color='black', width=2)))
-    line2_1 = go.Scatter(x=[df_suburb["lot_area"].mean(),
-                            df_suburb["lot_area"].mean()],
-                         y=[0, np.histogram(df_suburb["lot_area"],
+    line2_1 = go.Scatter(x=[df_suburb["land_area"].mean(),
+                            df_suburb["land_area"].mean()],
+                         y=[0, np.histogram(df_suburb["land_area"],
                                             range(1, 2500, 100))[0].max() / 2],
                          mode='lines', name="Average",
                          line=dict(color='red', width=2)
@@ -157,13 +157,13 @@ def plot_by_location(df):
     fig.add_trace(hist2_3, row=2, col=3)
     fig.add_trace(line2_3, row=2, col=3)
 
-    hist3_1 = go.Histogram(x=df_city["lot_area"], name="Distribution",
+    hist3_1 = go.Histogram(x=df_city["land_area"], name="Distribution",
                            xbins=dict(start=1, end=2500, size=100),
                            marker=dict(color=color_1,
                                        line=dict(color='black', width=2)))
-    line3_1 = go.Scatter(x=[df_city["lot_area"].mean(),
-                            df_city["lot_area"].mean()],
-                         y=[0, np.histogram(df_city["lot_area"],
+    line3_1 = go.Scatter(x=[df_city["land_area"].mean(),
+                            df_city["land_area"].mean()],
+                         y=[0, np.histogram(df_city["land_area"],
                                             range(1, 2500, 100))[0].max() / 2],
                          mode='lines', name="Average",
                          line=dict(color='red', width=2)
@@ -207,9 +207,9 @@ def plot_by_location(df):
     fig.update_yaxes(title_text='Miasto', row=3, col=1, title_font=dict(size=20))
 
     ylim_area = 1.05 * max([
-        np.histogram(df_country["lot_area"], range(1, 2500, 100))[0].max(),
-        np.histogram(df_suburb["lot_area"], range(1, 2500, 100))[0].max(),
-        np.histogram(df_city["lot_area"], range(1, 2500, 100))[0].max()
+        np.histogram(df_country["land_area"], range(1, 2500, 100))[0].max(),
+        np.histogram(df_suburb["land_area"], range(1, 2500, 100))[0].max(),
+        np.histogram(df_city["land_area"], range(1, 2500, 100))[0].max()
     ])
 
     ylim_price = 1.05 * max([
@@ -289,7 +289,7 @@ def plot_by_month(df):
 def plot_by_province(df):
     grouped_data = df.groupby("province").mean(numeric_only=True).round()
 
-    area_data = grouped_data["lot_area"].sort_values()
+    area_data = grouped_data["land_area"].sort_values()
     price_data = grouped_data["price"].sort_values()
     price_per_m2_data = grouped_data["price_per_m2"].sort_values()
 
