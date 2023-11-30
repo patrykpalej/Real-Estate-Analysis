@@ -20,7 +20,7 @@ There are two services used as data sources in the project:
 - Otodom
 - Domiporta
 
-For each service the following property types are scraped:
+For each service, the following property types are scraped:
 - Lands
 - Houses
 - Apartments
@@ -50,11 +50,11 @@ The next argument arguments are:
 
 Each mode operates on a different database instance.
 
-Running the scraper via CLI can be easily automated using e.g. crontab.
+Running the scraper via CLI can be easily automated e.g. using crontab.
 
 
 ## Tests
-To run tests in terminal `cd` to `tests/`, set `PYTHONPATH` to `src/` directory and run:
+To run tests in terminal, `cd` to `tests/`, set `PYTHONPATH` to `src/` directory and run:
 
 `python -m unittest discover`
 
