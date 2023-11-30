@@ -7,7 +7,7 @@ class Services(Enum):
 
 
 class PropertyTypes(Enum):
-    LOTS: str = "LOTS"
+    LANDS: str = "LANDS"
     HOUSES: str = "HOUSES"
     APARTMENTS: str = "APARTMENTS"
 

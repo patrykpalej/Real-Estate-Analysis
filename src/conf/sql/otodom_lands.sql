@@ -1,4 +1,4 @@
-CREATE TABLE public.otodom_lots
+CREATE TABLE public.otodom_lands
 (
     number_id integer NOT NULL,
     short_id character varying(8) NOT NULL,
@@ -17,8 +17,8 @@ CREATE TABLE public.otodom_lots
     location text,
     latitude real,
     longitude real,
-    lot_area smallint,
-    lot_features text,
+    land_area smallint,
+    land_features text,
     vicinity text,
     PRIMARY KEY (number_id)
 );

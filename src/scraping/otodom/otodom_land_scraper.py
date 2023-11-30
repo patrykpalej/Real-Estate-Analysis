@@ -4,29 +4,29 @@ from bs4 import BeautifulSoup
 from datetime import datetime, timezone
 
 from scraping.abstract.otodom_scraper import OtodomScraper
-from data.models.otodom import OtodomLotOffer
+from data.models.otodom import OtodomLandOffer
 from scraping import PropertyTypes
 from exceptions import InvalidOffer
 from utils.general import smart_join
 
 
-class OtodomLotScraper(OtodomScraper):
-    PROPERTY_TYPE: str = PropertyTypes.LOTS.value
+class OtodomLandScraper(OtodomScraper):
+    PROPERTY_TYPE: str = PropertyTypes.LANDS.value
     SUB_URL: str = "pl/oferty/sprzedaz/dzialka/cala-polska"
 
     def __init__(self, scraper_name: str):
         super().__init__(scraper_name)
 
     def _parse_offer_soup(
-            self, offer_soup: BeautifulSoup) -> OtodomLotOffer | None:
+            self, offer_soup: BeautifulSoup) -> OtodomLandOffer | None:
         """
-        Creates OtodomLotOffer instance (data model) from an offer soup
+        Creates OtodomLandOffer instance (data model) from an offer soup
 
         Args:
             offer_soup (BeautifulSoup): single offer soup
 
         Returns:
-            (OtodomLotOffer): single offer data model
+            (OtodomLandOffer): single offer data model
 
         """
         try:
@@ -60,13 +60,13 @@ class OtodomLotScraper(OtodomScraper):
         location = smart_join(offer_json["target"].get("Location"))
         longitude = offer_json["location"]["coordinates"]["longitude"]
         latitude = offer_json["location"]["coordinates"]["latitude"]
-        lot_area = int(float(offer_json["target"]["Area"]))
-        lot_features = json.dumps(
+        land_area = int(float(offer_json["target"]["Area"]))
+        land_features = json.dumps(
             {category["label"]: category["values"] for category in
              offer_json.get("featuresByCategory")}, ensure_ascii=False)
         vicinity = smart_join(offer_json["target"].get("Vicinity_types"))
 
-        offer_model = OtodomLotOffer(
+        offer_model = OtodomLandOffer(
             number_id=number_id,
             short_id=short_id,
             long_id=long_id,
@@ -84,8 +84,8 @@ class OtodomLotScraper(OtodomScraper):
             location=location,
             longitude=longitude,
             latitude=latitude,
-            lot_area=lot_area,
-            lot_features=lot_features,
+            land_area=land_area,
+            land_features=land_features,
             vicinity=vicinity
         )
 

@@ -5,15 +5,15 @@ from pathlib import Path
 from unittest.mock import MagicMock
 
 from data.models.otodom import OtodomOffer
-from scraping.otodom.otodom_lot_scraper import OtodomLotScraper
+from scraping.otodom.otodom_land_scraper import OtodomLandScraper
 
 
 class TestOtodomScraper(unittest.TestCase):
     """
     This class tests functionalities which are implemented in OtodomScraper
-    It instantiates OtodomLotScraper becase OtodomScraper is abstract
+    It instantiates OtodomLandScraper becase OtodomScraper is abstract
     """
-    scraper = OtodomLotScraper("test")
+    scraper = OtodomLandScraper("test")
 
     def test_init(self):
         self.assertEqual(self.scraper.SERVICE_NAME, "OTODOM")
@@ -83,7 +83,7 @@ class TestOtodomScraper(unittest.TestCase):
             self.assertEqual(actual_urls_list, [])
 
     def test_scrape_offer_from_url(self):
-        scraper = OtodomLotScraper("test")
+        scraper = OtodomLandScraper("test")
         url = "https://example.com/offer"
         headers = scraper._generate_headers()
 
@@ -105,7 +105,7 @@ class TestOtodomScraper(unittest.TestCase):
         scraper._parse_offer_soup.assert_called_once_with(soup_mock)
 
     def test_list_offers_urls_from_search_params(self):
-        scraper = OtodomLotScraper("test")
+        scraper = OtodomLandScraper("test")
         search_params = {"param1": "value1", "param2": "value2"}
         n_pages = 2
         avg_sleep_time = 0

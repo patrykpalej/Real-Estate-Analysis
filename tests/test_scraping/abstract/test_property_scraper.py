@@ -4,30 +4,30 @@ from unittest.mock import patch, MagicMock
 from datetime import datetime
 from bs4 import BeautifulSoup
 
-from scraping.otodom.otodom_lot_scraper import OtodomLotScraper
+from scraping.otodom.otodom_land_scraper import OtodomLandScraper
 
 
 class TestPopertyScraper(unittest.TestCase):
     """
     This class tests functionalities which are implemented in PropertyScraper
-    It instantiates OtodomLotScraper becase PropertyScraper is abstract
+    It instantiates OtodomLandScraper becase PropertyScraper is abstract
     """
     def test_init(self):
-        scraper = OtodomLotScraper("test")
+        scraper = OtodomLandScraper("test")
 
         self.assertEqual(scraper.name, "test")
         self.assertIsInstance(scraper.created_at, datetime)
 
     def test_repr(self):
-        scraper = OtodomLotScraper("test")
+        scraper = OtodomLandScraper("test")
         self.assertEqual(scraper.__repr__(), f"Scraper: {scraper.name}")
 
     def test_str(self):
-        scraper = OtodomLotScraper("test")
+        scraper = OtodomLandScraper("test")
         self.assertEqual(scraper.__str__(), f"Scraper: {scraper.name}")
 
     def test_generate_headers(self):
-        headers = OtodomLotScraper("test")._generate_headers()
+        headers = OtodomLandScraper("test")._generate_headers()
         self.assertIsInstance(headers, dict)
 
         for key, value in headers.items():
@@ -40,7 +40,7 @@ class TestPopertyScraper(unittest.TestCase):
                                   status_code=200, text="<html></html>")
         mock_requests_get.return_value = mock_response
 
-        response = OtodomLotScraper("test")._request_http_get("a")
+        response = OtodomLandScraper("test")._request_http_get("a")
         self.assertIsInstance(response, requests.Response)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.text, "<html></html>")
@@ -51,7 +51,7 @@ class TestPopertyScraper(unittest.TestCase):
         response._content = response_text.encode('utf-8')
         expected_output = BeautifulSoup(response_text, "html.parser")
 
-        scraper = OtodomLotScraper("test")
+        scraper = OtodomLandScraper("test")
         actual_output = scraper._make_soup(response)
 
         self.assertEqual(actual_output, expected_output)

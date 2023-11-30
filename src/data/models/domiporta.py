@@ -19,8 +19,8 @@ class DomiportaOffer(Offer):
 
 
 @dataclass
-class DomiportaLotOffer(DomiportaOffer):
-    lot_area: int = None
+class DomiportaLandOffer(DomiportaOffer):
+    land_area: int = None
     driveway: str = None
     media: str = None
 

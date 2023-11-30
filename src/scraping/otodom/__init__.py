@@ -25,7 +25,7 @@ class OtodomSearchParams:
 
 
 @dataclass
-class OtodomLotSearchParams(OtodomSearchParams):
+class OtodomLandSearchParams(OtodomSearchParams):
     areaMin: int = None
     areaMax: int = None
     plotType: str = "[BUILDING]"

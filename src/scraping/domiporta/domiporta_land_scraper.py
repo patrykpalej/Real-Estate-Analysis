@@ -4,13 +4,13 @@ from bs4 import BeautifulSoup
 from datetime import datetime, timezone
 
 from scraping.abstract.domiporta_scraper import DomiportaScraper
-from data.models.domiporta import DomiportaLotOffer
+from data.models.domiporta import DomiportaLandOffer
 from scraping import PropertyTypes
 from exceptions import InvalidOffer
 
 
-class DomiportaLotScraper(DomiportaScraper):
-    PROPERTY_TYPE: str = PropertyTypes.LOTS.value
+class DomiportaLandScraper(DomiportaScraper):
+    PROPERTY_TYPE: str = PropertyTypes.LANDS.value
     SUB_URL: str = "dzialki-budowlane/sprzedam"
 
     def __init__(self, scraper_name: str):
@@ -28,7 +28,7 @@ class DomiportaLotScraper(DomiportaScraper):
                 target_data["price"] = int(re.sub(r"\D", "", value))
 
             if name == "Powierzchnia całkowita":
-                target_data["lot_area"] = int(
+                target_data["land_area"] = int(
                     re.sub(r"\s", "", value).replace("m2", "").strip())
 
             if name == "Droga dojazdowa":
@@ -40,15 +40,15 @@ class DomiportaLotScraper(DomiportaScraper):
         return target_data
 
     def _parse_offer_soup(
-            self, offer_soup: BeautifulSoup) -> DomiportaLotOffer | None:
+            self, offer_soup: BeautifulSoup) -> DomiportaLandOffer | None:
         """
-        Creates DomiportaLotOffer instance (data model) from an offer soup
+        Creates DomiportaLandOffer instance (data model) from an offer soup
 
         Args:
             offer_soup (BeautifulSoup): single offer soup
 
         Returns:
-            (DomiportaLotOffer): single offer data model
+            (DomiportaLandOffer): single offer data model
 
         """
         country = offer_soup.find_all(
@@ -77,11 +77,11 @@ class DomiportaLotScraper(DomiportaScraper):
             "meta", {"itemprop": "addressRegion"})[0]["content"]
         longitude = coordinates_dict["longitude"]
         latitude = coordinates_dict["latitude"]
-        lot_area = target_data["lot_area"]
+        land_area = target_data["land_area"]
         driveway = target_data.get("driveway")
         media = target_data.get("media")
 
-        offer_model = DomiportaLotOffer(
+        offer_model = DomiportaLandOffer(
             number_id=number_id,
             url=url,
             title=title,
@@ -92,7 +92,7 @@ class DomiportaLotScraper(DomiportaScraper):
             province=province,
             longitude=longitude,
             latitude=latitude,
-            lot_area=lot_area,
+            land_area=land_area,
             driveway=driveway,
             media=media
         )
