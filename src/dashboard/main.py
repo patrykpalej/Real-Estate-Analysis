@@ -10,7 +10,7 @@ show_pages(
     [
         Page("dashboard/main.py", "Opis projektu", "💻"),
         Page("dashboard/pages/page_houses.py", "Oferty domów", "🏡"),
-        Page("dashboard/pages/page_lots.py", "Oferty działek", "🟩"),
+        Page("dashboard/pages/page_lands.py", "Oferty działek", "🟩"),
         Page("dashboard/pages/page_apartments.py", "Oferty mieszkań", "🏢"),
     ])
 
@@ -25,6 +25,5 @@ if __name__ == "__main__":
 if not hasattr(st.session_state, "data"):
     st.session_state.data = {}
     load_data_concurrently(True)
-
 
 st.markdown("Wczytano dane")
