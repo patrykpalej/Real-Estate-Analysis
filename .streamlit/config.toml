@@ -4,24 +4,3 @@ backgroundColor="#0E1117"
 secondaryBackgroundColor="#262730"
 textColor="#FAFAFA"
 font="sans serif"
-
-
-[[pages]]
-path = "dashboard/main.py"
-name = "Project description"
-icon = "💻"
-
-[[pages]]
-path = "dashboard/pages/page_houses.py"
-name = "Houses"
-icon = "🏡"
-
-[[pages]]
-path = "dashboard/pages/page_lands.py"
-name = "Houses"
-icon = "🌳"
-
-[[pages]]
-path = "dashboard/pages/page_apartments.py"
-name = "Houses"
-icon = "🏢"

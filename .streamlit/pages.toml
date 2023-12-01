@@ -1,0 +1,19 @@
+[[pages]]
+path = "dashboard/main.py"
+name = "Project description"
+icon = "💻"
+
+[[pages]]
+path = "dashboard/pages/page_houses.py"
+name = "Houses"
+icon = "🏡"
+
+[[pages]]
+path = "dashboard/pages/page_lands.py"
+name = "Houses"
+icon = "🌳"
+
+[[pages]]
+path = "dashboard/pages/page_apartments.py"
+name = "Houses"
+icon = "🏢"

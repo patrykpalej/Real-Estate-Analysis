@@ -15,15 +15,15 @@ os.chdir(os.environ["PYTHONPATH"])
 
 st.set_page_config(layout="wide", page_title="Real Estate Market Analysis")
 
-show_pages_from_config()
+# show_pages_from_config()
 
-# show_pages(
-#     [
-#         Page("dashboard/main.py", "Project description", "💻"),
-#         Page("dashboard/pages/page_houses.py", "Houses", "🏡"),
-#         Page("dashboard/pages/page_lands.py", "Lands", "🌳"),
-#         Page("dashboard/pages/page_apartments.py", "Apartments", "🏢")
-#     ])
+show_pages(
+    [
+        Page("dashboard/main.py", "Project description", "💻"),
+        Page("dashboard/pages/page_houses.py", "Houses", "🏡"),
+        Page("dashboard/pages/page_lands.py", "Lands", "🌳"),
+        Page("dashboard/pages/page_apartments.py", "Apartments", "🏢")
+    ])
 
 
 if __name__ == "__main__":
