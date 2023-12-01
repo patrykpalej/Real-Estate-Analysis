@@ -5,9 +5,9 @@ import multiprocessing
 import concurrent.futures
 from dotenv import load_dotenv
 
-from functions.lands import preprocess_lands
-from functions.houses import preprocess_houses
-from functions.apartments import preprocess_apartments
+from dashboard.functions.lands import preprocess_lands
+from dashboard.functions.houses import preprocess_houses
+from dashboard.functions.apartments import preprocess_apartments
 
 
 def generate_psql_connection_string(user, password, host, port, dbname):
