@@ -22,6 +22,7 @@ show_pages(
 
 
 if __name__ == "__main__":
+    st.write("test")
     main_page()
 
 
