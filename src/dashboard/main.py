@@ -1,29 +1,26 @@
 import streamlit as st
 from st_pages import Page, show_pages
-
 from dashboard.functions.data_loading import load_data_concurrently
+from dashboard.functions.main_page import main_page
 
 
-st.set_page_config(layout="wide", page_title="Analiza rynku nieruchomości")
+st.set_page_config(layout="wide", page_title="Real Estate Market Analysis")
 
 show_pages(
     [
-        Page("dashboard/main.py", "Opis projektu", "💻"),
-        Page("dashboard/pages/page_houses.py", "Oferty domów", "🏡"),
-        Page("dashboard/pages/page_lands.py", "Oferty działek", "🟩"),
-        Page("dashboard/pages/page_apartments.py", "Oferty mieszkań", "🏢"),
+        Page("dashboard/main.py", "Project description", "💻"),
+        Page("dashboard/pages/page_houses.py", "Houses", "🏡"),
+        Page("dashboard/pages/page_lands.py", "Lands", "🌳"),
+        Page("dashboard/pages/page_apartments.py", "Apartments", "🏢")
     ])
 
 
 if __name__ == "__main__":
-    st.title("Analiza ofert na rynku nieruchomości")
-    st.markdown("## Opis projektu")
-    st.markdown("...")
-    # with st.expander("Web scraping"):
-    #     st.markdown("Dodać informację na temat filtrów wyszukiwania")
+    main_page()
+
 
 if not hasattr(st.session_state, "data"):
     st.session_state.data = {}
     load_data_concurrently(True)
 
-st.markdown("Wczytano dane")
+st.markdown("Data loaded")

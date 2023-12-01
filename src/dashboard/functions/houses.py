@@ -22,11 +22,11 @@ def preprocess_houses(df):
     df["price_per_m2"] = df["price"] / df["house_area"]
 
     df["market"] = df["market"].replace(
-        {"PRIMARY": "Pierwotny", "SECONDARY": "Wtórny"})
+        {"PRIMARY": "Primary", "SECONDARY": "Secondary"})
 
-    df["location"] = df["location"].fillna("<brak danych>")
+    df["location"] = df["location"].fillna("<no data>")
     df["location"] = df["location"].replace(
-        {"suburban": "Przedmieścia", "country": "Wieś", "city": "Miasto"})
+        {"suburban": "Suburbs", "country": "Country", "city": "City"})
 
     df = df.dropna(subset=["build_year"])
     df["build_year"] = df["build_year"].astype(int)
@@ -35,8 +35,8 @@ def preprocess_houses(df):
 
 
 def plot_all(df):
-    titles = ["Powierzchnia domu [m2]", "Cena [zł]", "Cena za m2 [zł/m2]",
-              "Liczba ofert", "Powierzchnia działki [m2]", "Rok budowy"]
+    titles = ["House area [m2]", "Price [PLN]", "Price per m2 [PLN/m2]",
+              "Number of offers", "Land area [m2]", "Year of construction"]
     fig = sp.make_subplots(rows=2, cols=3, subplot_titles=titles)
 
     fig.add_trace(go.Histogram(
@@ -78,7 +78,7 @@ def plot_all(df):
     for i in fig['layout']['annotations']:
         i['font'] = dict(size=24)
 
-    fig.update_layout(title_text="Rozkłady cech", title_x=0.46,
+    fig.update_layout(title_text="Features distribution", title_x=0.46,
                       width=1450, height=1000, showlegend=False,
                       title_font=dict(size=25), margin=dict(l=100))
 
@@ -103,7 +103,7 @@ def plot_by_month(df):
         price_data.append(round(sub_df["price"].mean()))
         price_per_m2_data.append(round(sub_df["price_per_m2"].mean()))
 
-    titles = ["Liczba ofert", "Średnia cena [zł]", "Średnia cena za m2 [zł/m2]"]
+    titles = ["Number of offers", "Average price [PLN]", "Average price per m2 [PLN/m2]"]
     fig = sp.make_subplots(rows=1, cols=3, subplot_titles=titles)
 
     line_chart1 = go.Scatter(x=unique_months, y=n_offers, mode='lines',
@@ -120,7 +120,7 @@ def plot_by_month(df):
     for i in fig['layout']['annotations']:
         i['font'] = dict(size=24)
 
-    fig.update_layout(title_text="Zmiana w czasie", title_x=0.46,
+    fig.update_layout(title_text="Change in time", title_x=0.46,
                       width=1450, showlegend=False,
                       title_font=dict(size=25))
 
@@ -134,8 +134,8 @@ def plot_by_province(df):
     price_data = grouped_data["price"].sort_values()
     price_per_m2_data = grouped_data["price_per_m2"].sort_values()
 
-    titles = ["Średnia powierzchnia domu [m2]", "Średnia cena [zł]",
-              "Średnia cena za m2 [zł/m2]"]
+    titles = ["Average house area [m2]", "Average price [PLN]",
+              "Average price per m2 [PLN/m2]"]
     fig = sp.make_subplots(rows=1, cols=3, shared_yaxes=False,
                            subplot_titles=titles, horizontal_spacing=0.1)
 
@@ -151,7 +151,7 @@ def plot_by_province(df):
     for i in fig['layout']['annotations']:
         i['font'] = dict(size=24)
 
-    fig.update_layout(title_text="Podział na województwa", title_x=0.46,
+    fig.update_layout(title_text="Province-wise distribution", title_x=0.46,
                       width=1450, height=1000,
                       showlegend=False, title_font=dict(size=25))
 
@@ -172,7 +172,7 @@ def plot_map(df, urls=True):
     price_range = df["price"].max() - price_min
     colormap = linear.Blues_09.to_step(
         index=[price_min + i * price_range / 4 for i in range(5)])
-    colormap.caption = 'Cena [zł]'
+    colormap.caption = 'Price [PLN]'
     svg_style = '<style>svg#legend {font-size: 18px; margin-top: 8px}</style>'
     my_map.get_root().header.add_child(folium.Element(svg_style))
     colormap.add_to(my_map)

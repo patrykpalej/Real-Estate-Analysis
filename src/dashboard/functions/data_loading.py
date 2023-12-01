@@ -5,7 +5,7 @@ import multiprocessing
 import concurrent.futures
 from dotenv import load_dotenv
 
-from dashboard.functions.lands import preprocess_lands
+from dashboard.functions.lands import preprocess_lots
 from dashboard.functions.houses import preprocess_houses
 from dashboard.functions.apartments import preprocess_apartments
 
@@ -32,7 +32,7 @@ def read_from_db(sql, conn_str):
 
 pd.options.mode.chained_assignment = None
 
-preprocess_funcs_dict = {"lands": preprocess_lands, "houses": preprocess_houses,
+preprocess_funcs_dict = {"lands": preprocess_lots, "houses": preprocess_houses,
                          "apartments": preprocess_apartments}
 
 sql_queries_dict = {"lands": "SELECT * FROM otodom_lands",
