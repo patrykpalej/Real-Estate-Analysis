@@ -1,4 +1,4 @@
-# Real Estate Analysis
+# Real Estate Market Analysis
 Data scraper and analytical solutions for real estate market analysis
 
 ## Used technologies
