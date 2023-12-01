@@ -2,7 +2,9 @@ import os
 import sys
 import streamlit as st
 from st_pages import Page, show_pages
+from dotenv import load_dotenv
 
+load_dotenv()
 sys.path.append(os.environ["PYTHONPATH"])
 
 from dashboard.functions.data_loading import load_data_concurrently
