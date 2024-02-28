@@ -71,14 +71,4 @@ coverage run -m unittest discover -p "test_*.py"
 python -m coverage report --skip-empty --show-missing --skip-covered
 ```
 
-## Dashboard
-
-There is a Streamlit analytical dashboard included which allows to visualize distribution of data.
-
-More features to be added in the future.
-
-
-
-
-
 

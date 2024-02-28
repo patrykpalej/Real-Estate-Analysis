@@ -1,6 +1,7 @@
 # Custom
 notebooks/
 nohup.out
+*.pickle
 
 
 # Byte-compiled / optimized / DLL files
